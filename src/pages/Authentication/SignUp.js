@@ -24,7 +24,7 @@ class SignUp1 extends React.Component {
                                 <div className="mb-4">
                                     <i className="feather icon-user-plus auth-icon"/>
                                 </div>
-                                <h3 className="mb-4">Sign up</h3>
+                                <h3 className="mb-4">Регистрация</h3>
                                 <div className="input-group mb-3">
                                     <input type="text" className="form-control" placeholder="Username"/>
                                 </div>
@@ -37,11 +37,11 @@ class SignUp1 extends React.Component {
                                 <div className="form-group text-left">
                                     <div className="checkbox checkbox-fill d-inline">
                                         <input type="checkbox" name="checkbox-fill-2" id="checkbox-fill-2"/>
-                                            <label htmlFor="checkbox-fill-2" className="cr">Send me the <a href={DEMO.BLANK_LINK}> Newsletter</a> weekly.</label>
+                                            <label htmlFor="checkbox-fill-2" className="cr">Отправлять мне <a href={DEMO.BLANK_LINK}> Новости</a> на почту.</label>
                                     </div>
                                 </div>
-                                <button className="btn btn-primary shadow-2 mb-4">Sign up</button>
-                                <p className="mb-0 text-muted">Allready have an account? <NavLink to="/auth/signin-1">Login</NavLink></p>
+                                <button className="btn btn-primary shadow-2 mb-4">Регистрация</button>
+                                <p className="mb-0 text-muted">Уже есть аккаунт? <NavLink to="/auth/signin">Авторизируйтесь</NavLink></p>
                             </div>
                         </div>
                     </div>
