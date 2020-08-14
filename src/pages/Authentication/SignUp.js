@@ -26,13 +26,13 @@ class SignUp1 extends React.Component {
                                 </div>
                                 <h3 className="mb-4">Регистрация</h3>
                                 <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Username"/>
+                                    <input type="text" className="form-control" placeholder="Никнейм"/>
                                 </div>
                                 <div className="input-group mb-3">
-                                    <input type="email" className="form-control" placeholder="Email"/>
+                                    <input type="email" className="form-control" placeholder="Почта"/>
                                 </div>
                                 <div className="input-group mb-4">
-                                    <input type="password" className="form-control" placeholder="password"/>
+                                    <input type="password" className="form-control" placeholder="Пароль"/>
                                 </div>
                                 <div className="form-group text-left">
                                     <div className="checkbox checkbox-fill d-inline">
