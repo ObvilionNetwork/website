@@ -14,8 +14,6 @@ const AdminLayout = Loadable({
     loading: Loader
 });
 
-// FIXME: Саммет, на 40 строчке component={AdminLayout} отвечает за левую панель
-
 class App extends Component {
     render() {
         const menu = routes.map((route, index) => {

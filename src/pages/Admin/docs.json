@@ -1,0 +1,74 @@
+{
+    "cards": [
+        {
+            "name": "Авторизация",
+            "routes": [
+                {
+                    "type": "GET",
+                    "path": "/api/auth/register/",
+                    "description": "Регистрирует пользователя в базе данных",
+                    "return": "{ \"registred\": true, \"token\": \"\" }",
+                    "returnErr": "{ \"registred\": false, \"reason\": \"\" }",
+                    "headers": ["nickname", "email", "password"],
+                    "arguments": [],
+                    "permissions": []
+                },
+                {
+                    "type": "GET",
+                    "path": "/api/auth/login/",
+                    "description": "Авторизирует пользователя и выдает токен доступа",
+                    "return": "{ \"authorized\": true, \"token\": \"\" }",
+                    "returnErr": "{ \"authorized\": false, \"reason\": \"\" }",
+                    "headers": ["login", "password"],
+                    "arguments": [],
+                    "permissions": []
+                }
+            ]
+        },
+        {
+            "name": "Сервера",
+            "routes": [
+                {
+                    "type": "GET",
+                    "path": "/api/servers/",
+                    "description": "Выдаёт полный список всех серверов и информации о них.",
+                    "return": "{ \"results\": [ { \"name\": \"\", \"description\": \"\", \"image\": \"\", \"id\": 0, \"players\": 0, \"maxPlayers\": 0, \"wipeDate\": \"\", \"inDev\": false, \"ip\": \"\" } ] }",
+                    "returnErr": "",
+                    "headers": [],
+                    "arguments": [],
+                    "permissions": []
+                },
+                {
+                    "type": "POST",
+                    "path": "/api/servers/add",
+                    "description": "Добавляет новый сервер в список серверов",
+                    "return": "{ \"added\": true }",
+                    "returnErr": "{ \"added\": false, \"error\": \"\" }",
+                    "headers": ["token"],
+                    "arguments": ["name", "description", "image", "inDev", "ip"],
+                    "permissions": ["MANAGE_SERVERS"]
+                },
+                {
+                    "type": "PATCH",
+                    "path": "/api/servers/{id}",
+                    "description": "Изменяет частично или полностью информацию о сервере",
+                    "return": "{ \"edited\": true }",
+                    "returnErr": "{ \"edited\": false, \"reason\": \"\" }",
+                    "headers": ["token"],
+                    "arguments": ["name", "description", "image", "inDev", "ip"],
+                    "permissions": ["MANAGE_SERVERS"]
+                },
+                {
+                    "type": "GET",
+                    "path": "/api/servers/online",
+                    "description": "Показывает онлайн серверов в сумме",
+                    "return": "{ \"online\": 0, \"maxOnline\": 0 }",
+                    "returnErr": "",
+                    "headers": [],
+                    "arguments": [],
+                    "permissions": []
+                }
+            ]
+        }
+    ]
+}

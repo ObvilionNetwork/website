@@ -5,12 +5,12 @@ window.jQuery = $;
 window.$ = $;
 global.jQuery = $;
 
-const SignUp1 = React.lazy(() => import('./pages/Authentication/SignUp'));
-const Signin1 = React.lazy(() => import('./pages/Authentication/SignIn'));
+const SignUp = React.lazy(() => import('./pages/Authentication/SignUp'));
+const Signin = React.lazy(() => import('./pages/Authentication/SignIn'));
 
 const routes = [
-    { path: '/auth/signup', exact: true, name: 'Signup', component: SignUp1 },
-    { path: '/auth/signin', exact: true, name: 'Signin', component: Signin1 },
+    { path: '/auth/signup', exact: true, name: 'Signup', component: SignUp },
+    { path: '/auth/signin', exact: true, name: 'Signin', component: Signin },
 ];
 
 export default routes;
