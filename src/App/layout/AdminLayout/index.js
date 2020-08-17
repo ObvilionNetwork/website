@@ -22,15 +22,15 @@ class AdminLayout extends Component {
         }
     };
 
-    componentWillMount() {
+    componentDidMount() {
         if (this.props.windowWidth > 992 && this.props.windowWidth <= 1024 && this.props.layout !== 'horizontal') {
-            this.props.onComponentWillMount();
+            this.props.onComponentDidMount();
         }
     }
 
     mobileOutClickHandler() {
         if (this.props.windowWidth < 992 && this.props.collapseMenu) {
-            this.props.onComponentWillMount();
+            this.props.onComponentDidMount();
         }
     }
 
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onFullScreenExit: () => dispatch({type: actionTypes.FULL_SCREEN_EXIT}),
-        onComponentWillMount: () => dispatch({type: actionTypes.COLLAPSE_MENU})
+        onComponentDidMount: () => dispatch({type: actionTypes.COLLAPSE_MENU})
     }
 };
 

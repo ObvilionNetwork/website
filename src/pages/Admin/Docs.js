@@ -41,9 +41,9 @@ class Docs extends Component {
                 <Row>
                     <Col>
                         { docs.cards.map((place, index) => (
-                            <Card title={place.name} isOption>
+                            <Card key={index} title={place.name} isOption>
                                 {place.routes.map((pl, i) => (
-                                    <div>
+                                    <div key={i}>
                                         <p> 
                                             <span style={pl.type === 'GET' ? styles.get : pl.type === 'POST' ? styles.post : pl.type === 'PATCH' ? styles.patch : styles.delete}>{pl.type}</span> 
                                             <span style={styles.size17}>{pl.path}</span> 
@@ -53,7 +53,7 @@ class Docs extends Component {
                                                 {
                                                     pl.headers.length !== 0 ? 
                                                     <div>Headers: {pl.headers.map((pl, i) => (
-                                                        <code>
+                                                        <code key={i}>
                                                             {pl}
                                                         </code>
                                                     ))}<br/></div> : null
@@ -61,7 +61,7 @@ class Docs extends Component {
                                                 {
                                                     pl.arguments.length !== 0 ? 
                                                     <div>Аргументы: {pl.arguments.map((p, i) => (
-                                                        <code>
+                                                        <code key={i}>
                                                             {p}
                                                         </code>
                                                     ))}<br/></div> : null
@@ -69,7 +69,7 @@ class Docs extends Component {
                                                 {
                                                     pl.arguments.length !== 0 ? 
                                                     <div>Права: {pl.permissions.map((pl, i) => (
-                                                        <code>
+                                                        <code key={i}>
                                                             {pl}
                                                         </code>
                                                     ))}<br/><br/></div> : null
@@ -78,13 +78,13 @@ class Docs extends Component {
                                                 <p style={{color: '#b0ceee'}}> 
                                                     {pl.description}
                                                 </p>
-                                                <p style={{color: '#ced3da'}}>
+                                                <span style={{color: '#ced3da'}}>
                                                     Возращает JSON: <br/> 
                                                     <code>{ pl.return }</code> <br/>
 
-                                                    { pl.returnErr !== '' ? <div>При ошибке возращает JSON: <br/> 
-                                                    <code>{ pl.returnErr }</code></div> : null }
-                                                </p>
+                                                    { pl.returnErr !== '' ? <p>При ошибке возращает JSON: <br/> 
+                                                    <code>{ pl.returnErr }</code></p> : null }
+                                                </span>
                                             </span>
                                         </div>
 

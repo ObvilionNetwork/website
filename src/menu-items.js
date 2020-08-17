@@ -17,7 +17,7 @@ export default {
                     id: 'loading',
                     title: 'Загрузка серверов',
                     type: 'item',
-                    url: '/admin/serversloading',
+                    url: '/admin/systemusage',
                     icon: 'feather icon-cpu',
                 },
                 {
