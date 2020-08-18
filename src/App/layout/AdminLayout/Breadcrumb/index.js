@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import config from '../../../../config';
 import navigation from '../../../../menu-items';
 import DEMO from "../../../../store/constant";
-import Aux from "../../../../hoc/_Aux";
+import Aux from "../../../components/Aux";
 
 class Breadcrumb extends Component {
     state = {

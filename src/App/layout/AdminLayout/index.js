@@ -9,7 +9,7 @@ import NavBar from './NavBar';
 import Breadcrumb from './Breadcrumb';
 import Loader from "../Loader";
 import routes from "../../../adminRoutes";
-import Aux from "../../../hoc/_Aux";
+import Aux from "../../components/Aux";
 import * as actionTypes from "../../../store/actions";
 
 import './app.scss';

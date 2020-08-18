@@ -6,7 +6,7 @@ import windowSize from 'react-window-size';
 import NavLogo from './NavLogo';
 import NavContent from './NavContent';
 import OutsideClick from './OutsideClick';
-import Aux from './../../../../hoc/_Aux'
+import Aux from '../../../components/Aux'
 import * as actionTypes from './../../../../store/actions';
 import navigation from '../../../../menu-items';
 

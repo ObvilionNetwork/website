@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import friend from './friends';
 import Friend from './Friend';
 import Chat from './Chat';
-import Aux from "../../../../../../../hoc/_Aux";
+import Aux from "../../../../../../components/Aux";
 
 class Friends extends Component {
     state = {

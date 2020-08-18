@@ -1,5 +1,5 @@
 import React from 'react';
-import Aux from "../../../../../../hoc/_Aux";
+import Aux from "../../../../../components/Aux";
 import NavCollapse from './../NavCollapse';
 import NavItem from './../NavItem';
 

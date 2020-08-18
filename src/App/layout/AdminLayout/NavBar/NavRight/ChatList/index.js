@@ -2,7 +2,7 @@ import React from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 
 import Friends from './Friends';
-import Aux from "../../../../../../hoc/_Aux";
+import Aux from "../../../../../components/Aux";
 import DEMO from "../../../../../../store/constant";
 
 

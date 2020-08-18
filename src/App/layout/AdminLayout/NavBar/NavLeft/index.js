@@ -4,7 +4,7 @@ import {Dropdown} from 'react-bootstrap';
 import windowSize from 'react-window-size';
 
 import NavSearch from './NavSearch';
-import Aux from "../../../../../hoc/_Aux";
+import Aux from "../../../../components/Aux";
 import DEMO from "../../../../../store/constant";
 import * as actionTypes from "../../../../../store/actions";
 
