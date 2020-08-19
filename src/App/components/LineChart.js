@@ -1,87 +1,92 @@
 import React from 'react';
-import NVD3Chart from 'react-nvd3';
+import Chart from "chart.js";
 import getJSONFromURL from '../utils/request'
 
-let last = {
-    y: [0]
-}
-
-async function update(link) {
-    getJSONFromURL(link, (status, res) => {
-        last.y = res.last;
-    });
-}
-
-function getDatum(type) {
-    let res = [];
+async function update(last, props, chart) {
     
-    last.y.forEach((value, index) => { 
-        res.push({
-            'x': index,
-            'y': value
-        });
+    await getJSONFromURL(props.link, (status, res) => {
+        if(res) {
+            if(res.last) {
+                last = res.last;
+            }
+        } 
     });
+    const d = new Date();
+    d.setSeconds(d.getSeconds() - 2 * last.length);
 
-    return [
-        {
-            values: res,
-            key: 'Загрузка ' + type,
-            color: '#55b9e6',
-            area: true
+    chart.data = {
+          labels: last.map((val, i) => {
+            d.setSeconds(d.getSeconds() + 2 * (i + 1));
+            return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+          }),
+          datasets: [
+            {
+              label: props.name,
+              data: last,
+              backgroundColor: "rgba(82, 143, 255, 0.1)",
+              borderColor: "rgba(82, 143, 255, 1)",
+              fill: true
+            }
+          ]
         }
-    ];
+    chart.update();
 }
 
 class LineChart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = { seconds: 0 };
-    }
-    
-    tick() {
-        this.setState(state => ({
-            seconds: state.seconds + 1
-        }));
-        update(this.props.link);
-    }
-    
-    componentDidMount() {
-        this.interval = setInterval(() => this.tick(), 2000);
-    }
-    
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
+  tick() {
+    this.setState(state => ({
+        seconds: state.seconds + 1
+    }));
+    update(this.last, this.props, this.chart);
+  }
 
-    render() {
-        let data = getDatum(this.props.type);
-        return (
-            <div>
-                {
-                    React.createElement(NVD3Chart, {
-                        xAxis: {
+  componentDidMount() {
+    const node = this.node;
+    const chart = new Chart(node, {
+        type: "line",
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: this.props.name,
+              data: [],
+              borderColor: "rgba(82, 143, 255, 1)",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          legend: {
+              labels: {
+                  fontColor: '#E3E3E3'
+              }
+          },
+          animation: {
+            duration: 0
+          }
+        }
+    });
 
-                            tickFormat: function(d){ return d; },
-                            axisLabel: 'Время (сек.)'
-                        },
-                        yAxis: {
-                            axisLabel: 'Загрузка ' + this.props.type,
-                            tickFormat: function(d) {return parseFloat(d).toFixed(0); }
-                        },
-                        type:'lineChart',
-                        datum: data,
-                        x: 'x',
-                        y: 'y',
-                        height: 280,
-                        renderEnd: function(){
-                            console.log('renderEnd');
-                        }
-                    })
-                }
-            </div>
-        )
-    }
+    this.last = [];
+    this.chart = chart;
+    this.interval = setInterval(() => this.tick(), 2000);
+  }
+
+  render() {
+    return (
+      <div>
+        <canvas
+          style={{ width: 800, height: 300 }}
+          ref={node => (this.node = node)}
+        />
+      </div>
+    );
+  }
 }
 
 export default LineChart;

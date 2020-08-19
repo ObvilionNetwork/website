@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Dropdown} from 'react-bootstrap';
 import windowSize from 'react-window-size';
 
-import NavSearch from './NavSearch';
 import Aux from "../../../../components/Aux";
 import DEMO from "../../../../../store/constant";
 import * as actionTypes from "../../../../../store/actions";
@@ -42,7 +41,6 @@ class NavLeft extends Component {
                             </ul>
                         </Dropdown>
                     </li>
-                    <li className="nav-item"><NavSearch/></li>
                 </ul>
             </Aux>
         );

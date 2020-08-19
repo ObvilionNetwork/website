@@ -13,12 +13,12 @@ class SystemUsage extends Component {
                 <Row>
                     <Col md={6}>
                         <Card title={"Загрузка CPU [Сервер #1]"}>
-                            <LineChart type="CPU" link="https://api.jsonbin.io/b/5f3ab2d2af209d1016bd5664"/>
+                            <LineChart name='Загрузка CPU' link='https://api.jsonbin.io/b/5f3ab2d2af209d1016bd5664'/>
                         </Card>
                     </Col>
                     <Col md={6}>
                         <Card title={"Загрузка RAM [Сервер #1]"}>
-                            <LineChart type="RAM" link="https://api.jsonbin.io/b/5f3ab2d2af209d1016bd5664"/>
+                            <LineChart name='Загрузка RAM' link=''/>
                         </Card>
                     </Col>
                 </Row>
