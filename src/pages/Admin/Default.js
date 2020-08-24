@@ -3,14 +3,42 @@ import { Row, Col, Card, Table, Tabs, Tab } from "react-bootstrap";
 
 import Aux from "../../App/components/Aux";
 import DEMO from "../../store/constant";
+import getJSONFromURL from '../../App/utils/request'
 
 import avatar1 from "../../assets/images/user/avatar-1.jpg";
-import avatar2 from "../../assets/images/user/avatar-2.jpg";
-import avatar3 from "../../assets/images/user/avatar-3.jpg";
+
+let finances = {};
+let bugs = {};
+let players = {};
+let auths = {};
+let servers = {};
+
+
+function load() {
+  getJSONFromURL('https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/finances', (status, res) => {
+    finances = res;
+  });
+  getJSONFromURL('https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/bugs', (status, res) => {
+    bugs = res;
+  });
+  getJSONFromURL('https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/players', (status, res) => {
+    players = res;
+  });
+  getJSONFromURL('https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/lastauths', (status, res) => {
+    auths = res;
+  });
+  getJSONFromURL('https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/servers', (status, res) => {
+    servers = res;
+  });
+}
 
 class Dashboard extends React.Component {
+  componentDidMount() {
+    load();
+  }
+
   render() {
-    const tabContent = (
+    const tabToday = (
       <Aux>
         <Table responsive hover className="m-0">
           <tbody>
@@ -39,81 +67,6 @@ class Dashboard extends React.Component {
                 </h6>
               </td>
             </tr>
-            <tr className="unread">
-              <td>
-                <img
-                  className="rounded-circle"
-                  style={{ width: "40px" }}
-                  src={avatar1}
-                  alt="activity-user"
-                />
-              </td>
-              <td>
-                <h6 className="mb-1">Hohol</h6>
-                <p className="m-0">Администратор</p>
-              </td>
-              <td>
-                <h6 style={{padding: '6%'}} className="text-muted">
-                  <i className="fa fa-clock-o text-c-green f-14 m-r-15" />
-                  12 МАЯ 12:56
-                </h6>
-              </td>
-              <td>
-                <h6 style={{padding: '3%'}} >
-                  Изменил право Кик участников для роли Модератор
-                </h6>
-              </td>
-            </tr>
-            <tr className="unread">
-              <td>
-                <img
-                  className="rounded-circle"
-                  style={{ width: "40px" }}
-                  src={avatar1}
-                  alt="activity-user"
-                />
-              </td>
-              <td>
-                <h6 className="mb-1">Hohol</h6>
-                <p className="m-0">Администратор</p>
-              </td>
-              <td>
-                <h6 style={{padding: '6%'}} className="text-muted">
-                  <i className="fa fa-clock-o text-c-green f-14 m-r-15" />
-                  12 МАЯ 12:56
-                </h6>
-              </td>
-              <td>
-                <h6 style={{padding: '3%'}} >
-                  Изменил право Кик участников для роли Модератор
-                </h6>
-              </td>
-            </tr>
-            <tr className="unread">
-              <td>
-                <img
-                  className="rounded-circle"
-                  style={{ width: "40px" }}
-                  src={avatar1}
-                  alt="activity-user"
-                />
-              </td>
-              <td>
-                <h6 className="mb-1">Hohol</h6>
-                <p className="m-0">Администратор</p>
-              </td>
-              <td>
-                <h6 style={{padding: '6%'}} className="text-muted">
-                  <i className="fa fa-clock-o text-c-green f-14 m-r-15" />
-                  12 МАЯ 12:56
-                </h6>
-              </td>
-              <td>
-                <h6 style={{padding: '3%'}} >
-                  Изменил право Кик участников для роли Модератор
-                </h6>
-              </td>
-            </tr>
           </tbody>
         </Table>
       </Aux>
@@ -129,20 +82,21 @@ class Dashboard extends React.Component {
                 <div className="row d-flex align-items-center">
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
-                      <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />{" "}
-                      0р.
+                      <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />
+                      {!finances.profit ? 'Загрузка...' : finances.profit + 'р.'}
+                      <p className="m-r-5">{!finances.profitGoal ? 'Загрузка...' : 'из ' + finances.profitGoal + 'р.'}</p>
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">0%</p>
+                    <p className="m-b-0">{!finances.profit ? 'Загрузка...' : Math.round(finances.profit / finances.profitGoal * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme"
                     role="progressbar"
-                    style={{ width: "0%" }}
+                    style={{ width: !finances.profit ? '0%' : Math.round(finances.profit / finances.profitGoal * 100) + "%" }}
                     aria-valuenow="0"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -159,19 +113,20 @@ class Dashboard extends React.Component {
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
                       <i className="feather icon-arrow-down text-c-red f-30 m-r-5" />{" "}
-                      720р.
+                      {!finances.expenses ? 'Загрузка...' : finances.expenses + 'р.'}
+                      <p className="m-r-5">{!finances.expensesMax ? 'Загрузка...' : 'из ' + finances.expensesMax + 'р.'}</p>
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">16%</p>
+                    <p className="m-b-0">{!finances.expenses ? 'Загрузка...' : Math.round(finances.expenses / finances.expensesMax * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme2"
                     role="progressbar"
-                    style={{ width: "16%" }}
+                    style={{ width: !finances.expenses ? '0%' : Math.round(finances.expenses / finances.expensesMax * 100) + "%" }}
                     aria-valuenow="16"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -188,19 +143,20 @@ class Dashboard extends React.Component {
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
                       <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />{" "}
-                      2153р.
+                      {!finances.total ? 'Загрузка...' : finances.total + 'р.'}
+                      <p className="m-r-5">{!finances.totalMax ? 'Загрузка...' : 'из ' + finances.totalMax + 'р.'}</p>
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">70%</p>
+                    <p className="m-b-0">{!finances.totalMax ? 'Загрузка...' : Math.round(finances.total / finances.totalMax * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme"
                     role="progressbar"
-                    style={{ width: "70%" }}
+                    style={{ width: !finances.total ? '0%' : Math.round(finances.total / finances.totalMax * 100) + "%" }}
                     aria-valuenow="70"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -217,176 +173,46 @@ class Dashboard extends React.Component {
               <Card.Body className="px-0 py-2">
                 <Table responsive hover>
                   <tbody>
-                    <tr className="unread">
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src={avatar1}
-                          alt="activity-user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mb-1">KeviTV</h6>
-                        <p className="m-0">IP: 10.0.2.2.100</p>
-                      </td>
-                      <td>
-                        <h6 className="text-muted">
-                          <i className="fa fa-circle text-c-green f-10 m-r-15" />
-                          11 МАЯ 12:56
-                        </h6>
-                      </td>
-                      <td>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg2 text-white f-12"
-                        >
-                          Профиль
-                        </a>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg text-white f-12"
-                        >
-                          Управление
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="unread">
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src={avatar2}
-                          alt="activity-user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mb-1">HOffin</h6>
-                        <p className="m-0">IP: 10.0.2.2.100</p>
-                      </td>
-                      <td>
-                        <h6 className="text-muted">
-                          <i className="fa fa-circle text-c-red f-10 m-r-15" />
-                          11 МАЯ 10:35
-                        </h6>
-                      </td>
-                      <td>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg2 text-white f-12"
-                        >
-                          Профиль
-                        </a>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg text-white f-12"
-                        >
-                          Управление
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="unread">
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src={avatar3}
-                          alt="activity-user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mb-1">LolMC</h6>
-                        <p className="m-0">IP: 10.0.2.2.100</p>
-                      </td>
-                      <td>
-                        <h6 className="text-muted">
-                          <i className="fa fa-circle text-c-green f-10 m-r-15" />
-                          9 МАЯ 17:38
-                        </h6>
-                      </td>
-                      <td>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg2 text-white f-12"
-                        >
-                          Профиль
-                        </a>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg text-white f-12"
-                        >
-                          Управление
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="unread">
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src={avatar1}
-                          alt="activity-user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mb-1">TestJ</h6>
-                        <p className="m-0">IP: 10.0.2.2.100</p>
-                      </td>
-                      <td>
-                        <h6 className="text-muted f-w-300">
-                          <i className="fa fa-circle text-c-red f-10 m-r-15" />
-                          19 МАЯ 12:56
-                        </h6>
-                      </td>
-                      <td>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg2 text-white f-12"
-                        >
-                          Профиль
-                        </a>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg text-white f-12"
-                        >
-                          Управление
-                        </a>
-                      </td>
-                    </tr>
-                    <tr className="unread">
-                      <td>
-                        <img
-                          className="rounded-circle"
-                          style={{ width: "40px" }}
-                          src={avatar2}
-                          alt="activity-user"
-                        />
-                      </td>
-                      <td>
-                        <h6 className="mb-1">BanPoIp</h6>
-                        <p className="m-0">IP: 10.0.2.2.100</p>
-                      </td>
-                      <td>
-                        <h6 className="text-muted">
-                          <i className="fa fa-circle text-c-green f-10 m-r-15" />
-                          21 ИЮЛЯ 12:56
-                        </h6>
-                      </td>
-                      <td>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg2 text-white f-12"
-                        >
-                          Профиль
-                        </a>
-                        <a
-                          href={DEMO.BLANK_LINK}
-                          className="label theme-bg text-white f-12"
-                        >
-                          Управление
-                        </a>
-                      </td>
-                    </tr>
+                    { auths.result ? 
+                    auths.result.map((res, i) => i <= 4 ? (
+                      <tr key={i} className="unread">
+                        <td>
+                          <img
+                            className="rounded-circle"
+                            style={{ width: "40px"}}
+                            src={res.avatarURL}
+                            alt="activity-user"
+                          />
+                        </td>
+                        <td>
+                          <h6 className="mb-1">{res.name}</h6>
+                          <p className="m-0">IP: {res.ip}</p>
+                        </td>
+                        <td>
+                          <h6 className="text-muted">
+                            {
+                              res.type === 'out' ? <i className="fa fa-circle text-c-red f-10 m-r-15" /> : <i className="fa fa-circle text-c-green f-10 m-r-15" /> 
+                            }
+                            {res.time}
+                          </h6>
+                        </td>
+                        <td>
+                          <a
+                            href={DEMO.BLANK_LINK}
+                            className="label theme-bg2 text-white f-12"
+                          >
+                            Профиль
+                          </a>
+                          <a
+                            href={DEMO.BLANK_LINK}
+                            className="label theme-bg text-white f-12"
+                          >
+                            Управление
+                          </a>
+                        </td>
+                      </tr>
+                    ) : null )
+                    : null }
                   </tbody>
                 </Table>
               </Card.Body>
@@ -409,10 +235,10 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
                 <h2 className="mt-2 f-w-300">
-                  45<sub className="text-muted f-14">Репортов</sub>
+                  <sub className="text-muted f-14">{!bugs.total ? 'Загрузка...' : bugs.total} Репортов</sub>
                 </h2>
                 <h6 className="text-muted mt-3 mb-0">
-                  Среди них 2 особой важности
+                  Среди них {!bugs.important ? 'Загрузка...' : bugs.important} особой важности
                 </h6>
                 <i className="fa fa-exclamation-circle text-c-yellow f-50" />
               </Card.Body>
@@ -424,7 +250,7 @@ class Dashboard extends React.Component {
                     <i className="feather icon-users f-30 text-c-blue" />
                   </div>
                   <div className="col">
-                    <h3 className="f-w-300">235</h3>
+                    <h3 className="f-w-300">{!players.registred ? 'Загрузка...' : players.registred}</h3>
                     <span className="d-block text-uppercase">
                       всего игроков
                     </span>
@@ -437,7 +263,7 @@ class Dashboard extends React.Component {
                     <i className="feather icon-activity f-30 text-c-green" />
                   </div>
                   <div className="col">
-                    <h3 className="f-w-300">26</h3>
+                    <h3 className="f-w-300">{!players.online ? 'Загрузка...' : players.online}</h3>
                     <span className="d-block text-uppercase">
                       игроков онлайн
                     </span>
@@ -453,153 +279,37 @@ class Dashboard extends React.Component {
               </Card.Header>
               <Card.Body>
                 <div className="row">
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-green" />
-                      HiTech
-                    </h6>
-                    <h6 className="align-items-center float-right">30/45</h6>
-                    <div
-                      className="progress m-t-30 m-b-20"
-                      style={{ height: "6px" }}
-                    >
+                  {servers.results ? servers.results.map((res, i) => (
+                    <div className="col-xl-12">
+                      <h6 className="align-items-center float-left">
+                        {res.players === -1 ? <i className="fa fa-circle f-10 m-r-10 text-c-red" /> : res.players === res.maxPlayers ? <i className="fa fa-circle f-10 m-r-10 text-c-yellow" /> : <i className="fa fa-circle f-10 m-r-10 text-c-green" />}
+                        {res.name}
+                      </h6>
+                      <h6 className="align-items-center float-right">{res.players === -1 ? "Сервер выключен" : res.players + "/" + res.maxPlayers }</h6>
                       <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "70%" }}
-                        aria-valuenow="70"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
+                        className="progress m-t-30 m-b-20"
+                        style={{ height: "6px" }}
+                      >
+                        <div
+                          className="progress-bar progress-c-theme"
+                          role="progressbar"
+                          style={{ width: !res.players ? '0%' : Math.round(res.players / res.maxPlayers * 100) + "%" }}
+                          aria-valuenow="70"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )) : null}
 
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-yellow" />
-                      SkyTech
-                    </h6>
-                    <h6 className="align-items-center float-right">45/45</h6>
-                    <div
-                      className="progress m-t-30  m-b-20"
-                      style={{ height: "6px" }}
-                    >
-                      <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "100%" }}
-                        aria-valuenow="100"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-red" />
-                      Magic
-                    </h6>
-                    <h6 className="align-items-center float-right">
-                      Сервер выключен
-                    </h6>
-                    <div
-                      className="progress m-t-30  m-b-20"
-                      style={{ height: "6px" }}
-                    >
-                      <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "0%" }}
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-red" />
-                      Matter
-                    </h6>
-                    <h6 className="align-items-center float-right">
-                      Сервер выключен
-                    </h6>
-                    <div
-                      className="progress m-t-30  m-b-20"
-                      style={{ height: "6px" }}
-                    >
-                      <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "0%" }}
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-red" />
-                      Galactic
-                    </h6>
-                    <h6 className="align-items-center float-right">
-                      Сервер выключен
-                    </h6>
-                    <div
-                      className="progress m-t-30  m-b-20"
-                      style={{ height: "6px" }}
-                    >
-                      <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "0%" }}
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="col-xl-12">
-                    <h6 className="align-items-center float-left">
-                      <i className="fa fa-circle f-10 m-r-10 text-c-red" />В
-                      разработке...
-                    </h6>
-                    <h6 className="align-items-center float-right">
-                      Сервер выключен
-                    </h6>
-                    <div
-                      className="progress m-t-30  m-b-5"
-                      style={{ height: "6px" }}
-                    >
-                      <div
-                        className="progress-bar progress-c-theme"
-                        role="progressbar"
-                        style={{ width: "0%" }}
-                        aria-valuenow="0"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      />
-                    </div>
-                  </div>
                 </div>
               </Card.Body>
             </Card>
           </Col>
           <Col md={6} xl={8} className="m-b-30">
             <Tabs defaultActiveKey="today" id="uncontrolled-tab-example">
-              <Tab eventKey="today" title="Сегодня">
-                {tabContent}
-              </Tab>
-              <Tab eventKey="week" title="На этой неделе">
-                {tabContent}
-              </Tab>
-              <Tab eventKey="all" title="Всё время">
-                {tabContent}
+              <Tab eventKey="today" title="В последнее время">
+                {tabToday}
               </Tab>
             </Tabs>
           </Col>

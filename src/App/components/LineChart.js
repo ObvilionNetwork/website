@@ -10,26 +10,27 @@ async function update(last, props, chart) {
                 last = res.last;
             }
         } 
-    });
-    const d = new Date();
-    d.setSeconds(d.getSeconds() - 2 * last.length);
+        const d = new Date();
+        d.setSeconds(d.getSeconds() - 2 * last.length);
 
-    chart.data = {
-          labels: last.map((val, i) => {
-            d.setSeconds(d.getSeconds() + 2 * (i + 1));
-            return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
-          }),
-          datasets: [
-            {
-              label: props.name,
-              data: last,
-              backgroundColor: "rgba(82, 143, 255, 0.1)",
-              borderColor: "rgba(82, 143, 255, 1)",
-              fill: true
+        console.log(last);
+        chart.data = {
+            labels: last.map((val, i) => {
+                d.setSeconds(d.getSeconds() + 2 * (i + 1));
+                return `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+            }),
+            datasets: [
+                {
+                label: props.name,
+                data: last,
+                backgroundColor: "rgba(82, 143, 255, 0.1)",
+                borderColor: "rgba(82, 143, 255, 1)",
+                fill: true
+                }
+            ]
             }
-          ]
-        }
-    chart.update();
+        chart.update();
+    });
 }
 
 class LineChart extends React.Component {
@@ -75,6 +76,7 @@ class LineChart extends React.Component {
     this.last = [];
     this.chart = chart;
     this.interval = setInterval(() => this.tick(), 2000);
+    update(this.last, this.props, this.chart);
   }
 
   render() {

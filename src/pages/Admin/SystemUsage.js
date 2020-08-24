@@ -13,12 +13,12 @@ class SystemUsage extends Component {
                 <Row>
                     <Col md={6}>
                         <Card title={"Загрузка CPU [Сервер #1]"}>
-                            <LineChart name='Загрузка CPU' link='https://api.jsonbin.io/b/5f3ab2d2af209d1016bd5664'/>
+                            <LineChart name='Загрузка CPU' link='https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/cpuload'/>
                         </Card>
                     </Col>
                     <Col md={6}>
                         <Card title={"Загрузка RAM [Сервер #1]"}>
-                            <LineChart name='Загрузка RAM' link=''/>
+                            <LineChart name='Загрузка RAM' link='https://my-json-server.typicode.com/ObvilionNetwork/test-json-db/ramload'/>
                         </Card>
                     </Col>
                 </Row>

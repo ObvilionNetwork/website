@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
 import '../../node_modules/font-awesome/scss/font-awesome.scss';
+import '../assets/scss/scrollbar.css'
 
 import Loader from './layout/Loader'
 import Aux from "./components/Aux";
