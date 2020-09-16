@@ -3,7 +3,7 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 
 import chatMsg from './chat';
 import Messages from './Messages';
-import Aux from "../../../../../../../components/Aux";
+import Aux from "../../../../../../../components/_Aux";
 import DEMO from "../../../../../../../../store/constant";
 
 const chat = (props) => {

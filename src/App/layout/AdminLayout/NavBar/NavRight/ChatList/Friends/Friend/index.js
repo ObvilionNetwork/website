@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Aux from "../../../../../../../components/Aux";
+import Aux from "../../../../../../../components/_Aux";
 import DEMO from "../../../../../../../../store/constant";
 const images = require.context('../../../../../../../../assets/images/user', true);
 

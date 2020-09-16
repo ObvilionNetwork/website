@@ -24,6 +24,7 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
+    "react-text-input": "0.0.8",
     "react-window-size": "^1.2.2",
     "redux": "^4.0.5"
   },

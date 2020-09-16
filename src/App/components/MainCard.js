@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Dropdown, Card, Collapse} from 'react-bootstrap';
 import windowSize from 'react-window-size';
 
-import Aux from "./Aux";
+import Aux from "./_Aux";
 import DEMO from "../../store/constant";
 
 class MainCard extends Component {

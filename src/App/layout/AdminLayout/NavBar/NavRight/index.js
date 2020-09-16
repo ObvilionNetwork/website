@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Dropdown} from 'react-bootstrap';
 
 import ChatList from './ChatList';
-import Aux from "../../../../components/Aux";
+import Aux from "../../../../components/_Aux";
 import DEMO from "../../../../../store/constant";
 
 import Avatar1 from '../../../../../assets/images/user/avatar-1.jpg';

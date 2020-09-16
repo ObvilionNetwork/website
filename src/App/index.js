@@ -6,7 +6,7 @@ import '../../node_modules/font-awesome/scss/font-awesome.scss';
 import '../assets/scss/scrollbar.css'
 
 import Loader from './layout/Loader'
-import Aux from "./components/Aux";
+import Aux from "./components/_Aux";
 import ScrollToTop from './layout/ScrollToTop';
 import routes from "../routes";
 

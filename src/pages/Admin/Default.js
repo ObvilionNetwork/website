@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Card, Table, Tabs, Tab } from "react-bootstrap";
 
-import Aux from "../../App/components/Aux";
+import Aux from "../../App/components/_Aux";
 import DEMO from "../../store/constant";
 import getJSONFromURL from '../../App/utils/request'
 

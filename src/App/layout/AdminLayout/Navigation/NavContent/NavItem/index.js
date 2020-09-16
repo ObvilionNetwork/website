@@ -4,7 +4,7 @@ import {NavLink} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import windowSize from 'react-window-size';
 
-import Aux from "../../../../../components/Aux";
+import Aux from "../../../../../components/_Aux";
 import NavIcon from "./../NavIcon";
 import NavBadge from "./../NavBadge";
 import * as actionTypes from "../../../../../../store/actions";

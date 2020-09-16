@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-import Aux from "../../App/components/Aux";
+import Aux from "../../App/components/_Aux";
 import Card from "../../App/components/MainCard";
 
 import '../../assets/scss/buttons.css';

@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-import Aux from "../../App/components/Aux";
+import Aux from "../../App/components/_Aux";
 import Card from "../../App/components/MainCard";
 
 import docs from "./docs.json"
+
+import '../../assets/scss/buttons.css';
 
 const styles = {
     size17: {
@@ -46,7 +48,8 @@ class Docs extends Component {
                                     <div key={i}>
                                         <p> 
                                             <span style={pl.type === 'GET' ? styles.get : pl.type === 'POST' ? styles.post : pl.type === 'PATCH' ? styles.patch : styles.delete}>{pl.type}</span> 
-                                            <span style={styles.size17}>{pl.path}</span> 
+                                            <span style={styles.size17}>{pl.path}</span>
+                                            <button onClick={() => alert('Функция не робит :(')} style={{backgroundColor: '#343f5a', outline: 'none'}} className="float-right button-blue">Тестировать</button>
                                         </p>
                                         <div style={{backgroundColor: '#343f5a'}} className='p-2'>
                                             <span style={{color: 'white'}}>
@@ -60,7 +63,7 @@ class Docs extends Component {
                                                 }
                                                 {
                                                     pl.arguments.length !== 0 ? 
-                                                    <div>Аргументы: {pl.arguments.map((p, i) => (
+                                                    <div>Body: {pl.arguments.map((p, i) => (
                                                         <code key={i}>
                                                             {p}
                                                         </code>

@@ -1,6 +1,6 @@
 import React from 'react';
 import DEMO  from './../../../../../store/constant';
-import Aux from "../../../../components/Aux";
+import Aux from "../../../../components/_Aux";
 
 const navLogo = (props) => {
     let toggleClass = ['mobile-menu'];

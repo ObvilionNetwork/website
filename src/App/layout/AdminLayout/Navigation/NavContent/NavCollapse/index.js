@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Aux from "../../../../../components/Aux";
+import Aux from "../../../../../components/_Aux";
 import DEMO from "../../../../../../store/constant";
 import * as actionTypes from "../../../../../../store/actions";
 import NavIcon from './../NavIcon';

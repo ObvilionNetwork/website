@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import windowSize from 'react-window-size';
 
-import Aux from "../../../../components/Aux";
+import Aux from "../../../../components/_Aux";
 import NavGroup from './NavGroup';
 import DEMO from "../../../../../store/constant";
 import * as actionTypes from "../../../../../store/actions";
