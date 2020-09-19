@@ -22,6 +22,7 @@ class APITest extends Component {
             inputStyleh: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'},
             link: 'localhost:2000/api/',
             type: 'GET',
+            result: ''
         };
   
         this.onChangeName = this.onChangeName.bind(this);
@@ -114,6 +115,7 @@ class APITest extends Component {
             if (xhr.status !== 200) {
                 alert( xhr.status + ': ' + xhr.statusText );
             } else {
+                this.setState({result: xhr.responseText});
                 alert( xhr.responseText );
             }
         } catch (e) {
@@ -215,7 +217,7 @@ class APITest extends Component {
                     </Col>
                     <Col md={6}>
                         <Card title={"Result"}>
-                            
+                            <code>{this.state.result}</code>
                         </Card>
                     </Col>
                 </Row>
