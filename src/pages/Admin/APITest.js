@@ -20,7 +20,8 @@ class APITest extends Component {
             valuesh: [], 
             inputStyle: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'},
             inputStyleh: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'},
-            link: 'localhost:2000/api/'
+            link: 'localhost:2000/api/',
+            type: 'GET',
         };
   
         this.onChangeName = this.onChangeName.bind(this);
@@ -31,6 +32,7 @@ class APITest extends Component {
         this.onSubmit = this.onSubmit.bind(this);
         this.onSubmith = this.onSubmith.bind(this);
         this.onSubmitp = this.onSubmitp.bind(this);
+        this.handleChangeType = this.handleChangeType.bind(this);
     }
   
     onSubmit(event) {
@@ -105,7 +107,7 @@ class APITest extends Component {
         event.preventDefault();
 
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', this.state.link, false);
+        xhr.open(this.state.type, this.state.link, false);
 
         try {
             xhr.send();
@@ -117,6 +119,9 @@ class APITest extends Component {
         } catch (e) {
             alert(e);
         }
+    }
+    handleChangeType(event) {
+        this.setState({type: event.target.value});
     }
 
     render() {
@@ -193,18 +198,19 @@ class APITest extends Component {
                             <form onSubmit={this.onSubmitp}>
                                 <label style={{color: '#a9b7d0', fontSize: '14px'}}>
                                     Ссылка: 
-                                    <input type="text" style={{margin: '0 25px 0 7px', width: '280px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'}} value={this.state.link} onChange={this.onChangeLink}/>
+                                    <input type="text" style={{margin: '0 20px 0 7px', width: '280px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'}} value={this.state.link} onChange={this.onChangeLink}/>
                                 </label>
+
+                                <select style={{backgroundColor: '#587ED0', marginRight: '18px', border: '0', outline: 'none', color: 'white'}} value={this.state.type} onChange={this.handleChangeType}>
+                                    <option selected value="GET">GET</option>
+                                    <option value="POST">POST</option>
+                                    <option value="PUT">PUT</option>
+                                    <option value="DELETE">DELETE</option>
+                                    <option value='PATH'>PATH</option>
+                                </select>
 
                                 <input type="submit" style={{padding: '8px 12px', border: '0', color: 'white', backgroundColor: '#62a8e4'}} value="Отправить" />
                             </form>
-                            <select>
-                                <option selected value="get">GET</option>
-                                <option value="post">POST</option>
-                                <option value="put">PUT</option>
-                                <option value="delete">DELETE</option>
-                                <option value='path'>PATH</option>
-                            </select>
                         </Card>
                     </Col>
                     <Col md={6}>
