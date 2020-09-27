@@ -16,13 +16,14 @@ class APITest extends Component {
             values: [], 
             nameh: '',
             valueh: '', 
-            namesh: [], 
-            valuesh: [], 
+            namesh: ["Content-Type"], 
+            valuesh: ["application/json"], 
             inputStyle: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'},
             inputStyleh: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'},
-            link: 'localhost:2000/api/',
+            link: window.localStorage.getItem('apiLink'),
             type: 'GET',
-            result: ''
+            result: '{}',
+            code: 'Неизвестен',
         };
   
         this.onChangeName = this.onChangeName.bind(this);
@@ -49,8 +50,8 @@ class APITest extends Component {
                     // eslint-disable-next-line
                     this.state.values[ind] = this.state.value;
                 } else {
-                    delete this.state.values[ind];
-                    delete this.state.names[ind];
+                    this.state.names.splice(ind, 1);
+                    this.state.values.splice(ind, 1);
                 }
             } else
             this.setState({inputStyle: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #f76060', background: 'linear-gradient(#242c3e, #222833)'}});
@@ -73,8 +74,8 @@ class APITest extends Component {
                     // eslint-disable-next-line
                     this.state.valuesh[ind] = this.state.valueh;
                 } else {
-                    delete this.state.valuesh[ind];
-                    delete this.state.namesh[ind];
+                    this.state.namesh.splice(ind, 1);
+                    this.state.valuesh.splice(ind, 1);
                 }
             } else
             this.setState({inputStyleh: {margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #f76060', background: 'linear-gradient(#242c3e, #222833)'}});
@@ -103,6 +104,7 @@ class APITest extends Component {
 
     onChangeLink(event) {
         this.setState({link: event.target.value});
+        window.localStorage.setItem('apiLink', event.target.value);
     }
     onSubmitp(event) {
         event.preventDefault();
@@ -110,17 +112,32 @@ class APITest extends Component {
         var xhr = new XMLHttpRequest();
         xhr.open(this.state.type, this.state.link, false);
 
-        try {
-            xhr.send();
-            if (xhr.status !== 200) {
-                alert( xhr.status + ': ' + xhr.statusText );
+        this.state.namesh.forEach((e, i) => {
+            xhr.setRequestHeader(e, this.state.valuesh[i]);
+        });
+
+        let bodyText = "{ ";
+        this.state.names.forEach((e, i) => {
+            if(this.state.names.length !== i+1) {
+                bodyText += `"${e}": "${this.state.values[i]}", `;
             } else {
-                this.setState({result: xhr.responseText});
-                alert( xhr.responseText );
+                bodyText += `"${e}": "${this.state.values[i]}" `;
             }
+        });
+
+        bodyText += '}';
+
+        try {
+            xhr.send(bodyText);
+            this.setState({result: xhr.responseText, code: xhr.status});
+
+            const res = JSON.stringify(JSON.parse(xhr.responseText), 2, 2);
+            this.setState({result: res});
         } catch (e) {
             alert(e);
         }
+
+
     }
     handleChangeType(event) {
         this.setState({type: event.target.value});
@@ -204,11 +221,11 @@ class APITest extends Component {
                                 </label>
 
                                 <select style={{backgroundColor: '#587ED0', marginRight: '18px', border: '0', outline: 'none', color: 'white'}} value={this.state.type} onChange={this.handleChangeType}>
-                                    <option selected value="GET">GET</option>
+                                    <option defaultValue="GET">GET</option>
                                     <option value="POST">POST</option>
                                     <option value="PUT">PUT</option>
                                     <option value="DELETE">DELETE</option>
-                                    <option value='PATH'>PATH</option>
+                                    <option value='PATCH'>PATCH</option>
                                 </select>
 
                                 <input type="submit" style={{padding: '8px 12px', border: '0', color: 'white', backgroundColor: '#62a8e4'}} value="Отправить" />
@@ -217,7 +234,13 @@ class APITest extends Component {
                     </Col>
                     <Col md={6}>
                         <Card title={"Result"}>
-                            <code>{this.state.result}</code>
+                            <p style={{color: '#62a8e4'}}>
+                                Статус: {this.state.code}</p>
+                            <pre style={{height: '600px'}}>
+                                <code > 
+                                    {this.state.result}
+                                </code>
+                            </pre>
                         </Card>
                     </Col>
                 </Row>

@@ -137,6 +137,13 @@ export default {
                     url: '/admin/docs'
                 },
                 {
+                    id: 'testApi',
+                    title: 'Тестирование API',
+                    type: 'item',
+                    icon: 'feather icon-layers',
+                    url: '/admin/apitest'
+                },
+                {
                     id: 'github',
                     title: 'Github',
                     type: 'item',
