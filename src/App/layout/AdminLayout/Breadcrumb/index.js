@@ -76,7 +76,7 @@ class Breadcrumb extends Component {
                                     </div>
                                     <ul className="breadcrumb">
                                         <li className="breadcrumb-item">
-                                            <Link to="/"><i className="feather icon-home"/></Link>
+                                            <Link to="/admin"><i className="feather icon-home"/></Link>
                                         </li>
                                         {main}
                                         {item}
