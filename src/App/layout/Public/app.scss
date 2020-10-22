@@ -1,0 +1,144 @@
+.Navul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #202635;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 18px;
+    border-bottom: 1px,#151A1E;
+    z-index: 1;
+  
+
+  
+    .left {
+      float: left;
+      margin-left: 20px;
+    }
+
+  .right {
+      float: right;
+      margin-right: 20px;
+    }
+    
+  .icon-download {
+      font-size: 25px;
+  }
+
+  
+
+    li a {
+      display: flex;
+      color: #d8d8d8;
+      padding: 14px 14px;
+      text-decoration: none;
+      align-items: center;
+      height: 65px;
+      
+    }
+    
+    
+    li a:hover {
+      background-color: #151A20;
+      color: #fff;
+    }
+    .b-brand {
+      display: flex;
+      align-items: center;
+      
+
+      .b-bg {
+          background-image: url(../../../assets/images/logo35.png); 
+          border-radius: 10px;
+          width: 35px;
+          height: 35px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+
+          i {
+              color: #fff;
+          }
+      }
+
+      .b-title {
+          margin-left: 10px;
+          font-weight: 100;
+          color: #fff;
+          font-size: 25px;
+      }
+  }
+}
+
+
+
+.Login{
+  display: none;
+  position: absolute !important;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+
+
+
+
+}
+
+
+
+
+.HomePanel {
+  width: 100%;
+  height: 400px;
+  background: #23272a;
+  margin-top: 66px;
+  border-top: 1px #2f3743;
+  border-bottom: 1px #2f3743;
+  .HomePanelL{
+    float: left;
+    height: 100%;
+    background-image: url(../../../assets/images/HomePanelL.png);
+    width: 342px;
+    z-index: 3;
+  }
+  .HomeContent {
+    z-index: 2;
+    height: 100%;
+    text-align: center;
+    font-size: 29px;
+    color: #fff;
+    padding-top: 100px;
+    ul{
+      list-style-type: none;
+      width: 446px;
+      padding: 0;
+      overflow: hidden;
+      position: block;
+      font-size: 13px;
+      z-index: 1;
+      li {
+        width: 198px;
+        height: 58px;
+        border: 1px #b0d9ff;
+        .l {
+          float: left;
+        }
+        .r {
+          float: right;
+        }
+      }
+    }
+     
+  }
+  .HomePanelR {
+    float: right;
+    height: 100%;
+    background-image: url(../../../assets/images/HomePanelR.png);
+    width: 326px;
+    z-index: 3;
+  }
+}
