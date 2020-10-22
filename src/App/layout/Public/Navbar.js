@@ -26,28 +26,7 @@ class Navbar extends React.Component {
                         <li className="left"><a href="/">Форум</a></li>
                         <li className="left"><a href="/">Помощь</a></li>
                         <li className="right"><a href="/admin" className="feather icon-settings"/></li>
-                        <li className="right">
-
-
-                        {/* <Dropdown>
-                            <Dropdown.Toggle id="dropdown-basic">
-                                    Login
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu className="Login">
-                                <div className="Login-head">
-                                    head
-                                </div>
-                                <ul className="Login-body">
-                                    body
-                                </ul>
-                                <div className="Login-footer">
-                                    footer
-                                </div>
-                            </Dropdown.Menu>
-                        </Dropdown> */}
-
-                        
-                        </li>
+                        <li className="right"></li>
                         
                         
                     </ul>
