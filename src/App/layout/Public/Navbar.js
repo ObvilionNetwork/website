@@ -1,39 +1,59 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import {Dropdown} from 'react-bootstrap';
+
 import "../../../assets/scss/style.scss"
 import "./app.scss"
 
 
 
 class Navbar extends React.Component {
-    
-        render() {
+    render() {
+        return(
+            <ul className="NavPanel">
+                <li className="main">
+                    <a href="/" className="b-brand">
+                        <div className="b-bg" />
+                    <span className="b-title">Obvilion Network</span>
+                    </a>
+                </li>
 
-            return(
+                <li style={{marginLeft: '4%'}} className="left">
+                    <a href="/">
+                        <p className="text">Профиль</p>
+                        <div className="arrow-2">
+                            <div className="arrow-2-top"/>
+                            <div className="arrow-2-bottom"/>
+                        </div>
+                    </a>
+                </li>
 
-                    <ul className="Navul">
-                        <li className="left">
-                            <a href="/" className="b-brand">
-                                <div className="b-bg" />
-                            <   span className="b-title">Obvilion Network</span>
-                            </a>
-                        </li>
-                        <li className="left"><a href="/">Профиль</a></li>
-                        <li className="left"><a href="/">Магазин</a></li>
-                        <li className="left"><a href="/">Сервера</a></li>
-                        <li className="left"><a href="/">Форум</a></li>
-                        <li className="left"><a href="/">Помощь</a></li>
-                        <li className="right"><a href="/admin" className="feather icon-settings"/></li>
-                        <li className="right"></li>
-                        
-                        
-                    </ul>
-    
-            )
-        }
-    
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Магазин</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Сервера</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Форум</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Помощь</p>
+                    </a>
+                </li>
+
+                <li className="right"><a href="/admin" className="feather icon-settings"/></li>
+            </ul>
+        )
+    }
 }
 
 export default (Navbar);

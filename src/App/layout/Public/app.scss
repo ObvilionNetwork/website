@@ -1,74 +1,127 @@
-.Navul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #202635;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    font-size: 18px;
-    border-bottom: 1px,#151A1E;
-    z-index: 1;
-  
+@import url("/src/assets/fonts/style.css");
 
-  
-    .left {
-      float: left;
-      margin-left: 20px;
-    }
+.NavPanel {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1c1f24;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 18px;
+  border-bottom: 1px;
+  z-index: 1;
 
-  .right {
-      float: right;
-      margin-right: 20px;
-    }
-    
-  .icon-download {
-      font-size: 25px;
+  .main {
+    float: left;
+    margin-left: 7.7%;
   }
 
-  
+  .left {
+    float: left;
+    margin-left: 0.9%;
+  }
 
-    li a {
-      display: flex;
-      color: #d8d8d8;
-      padding: 14px 14px;
-      text-decoration: none;
-      align-items: center;
-      height: 65px;
-      
+  .right {
+    float: right;
+    margin-right: 20px;
+  }
+
+  li a {
+    display: flex;
+    color: #ffffff;
+    padding: 12px 12px;
+    text-decoration: none;
+    align-items: center;
+    height: 51px;
+
+    .text {
+      font-family:'Bahnschrift Regular';
+      font-weight: normal;
+      font-size: 18px;
+      margin-top: 20px;
     }
-    
-    
-    li a:hover {
-      background-color: #151A20;
-      color: #fff;
+
+    .arrow-2 {
+      cursor: pointer;
+      height: 15px;
+      width: 0;
+      position: relative;
+      margin-left: 17px;
+      margin-right: 6px;
     }
-    .b-brand {
-      display: flex;
-      align-items: center;
-      
+    .arrow-2-top,
+    .arrow-2-bottom {
+      background: #7e929c;
+      height: 2px;
+      left: -13px;
+      position: absolute;
+      top: 12px;
+      width: 10px;
+    }
+    .arrow-2-top {
+      top: 10px;
+      left: -15px;
+    }
+    .arrow-2-top {
+      transform: rotate(133deg);
+      transform-origin: bottom right;
+    }
+    .arrow-2-bottom {
+      transform: rotate(47deg);
+      transform-origin: top right;
+    }
+    .arrow-2-top::after,
+    .arrow-2-bottom::after {
+      background: #c0d4e2;
+      content: '';
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: all 0.15s;
+    }
+    .arrow-2-top::after {
+      left: 100%;
+      right: 0;
+      transition-delay: 0s;
+    }
+    .arrow-2-bottom::after {
+      left: 0;
+      right: 100%;
+      transition-delay: 0.15s;
+    }
+  }
 
-      .b-bg {
-          background-image: url(../../../assets/images/logo35.png); 
-          border-radius: 10px;
-          width: 35px;
-          height: 35px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
+  li a:hover {
+    background-color: #151A20;
+    color: #fff;
 
-          i {
-              color: #fff;
-          }
-      }
+    .arrow-2 .arrow-2-top::after {
+      left: 0;
+      transition-delay: 0.15s;
+    }
+    .arrow-2 .arrow-2-bottom::after {
+      right: 0;
+      transition-delay: 0s;
+    }
+  }
 
-      .b-title {
-          margin-left: 10px;
-          font-weight: 100;
-          color: #fff;
-          font-size: 25px;
-      }
+  .b-brand {
+    display: flex;
+    align-items: center;
+
+    .b-bg {
+        background: url(../../../assets/images/logo35.png);
+    }
+
+    .b-title {
+        margin-left: 10px;
+        font-weight: 400;
+        color: #e1ebf3;
+        font-family: 'Barlow', sans-serif;
+        font-size: 25px;
+    }
   }
 }
 
@@ -81,15 +134,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-
-
-
-
-
 }
-
-
-
 
 .HomePanel {
   width: 100%;

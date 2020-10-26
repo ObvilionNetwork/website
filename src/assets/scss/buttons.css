@@ -15,3 +15,9 @@
 .button-blue:hover {
     background-color: #2f405d;
 }
+
+.button-discord, .button-discord:active {
+    background: transparent;
+    border: none;
+    outline:0 none !important;
+}

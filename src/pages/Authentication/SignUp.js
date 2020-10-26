@@ -6,6 +6,8 @@ import Aux from "../../App/components/_Aux";
 import Breadcrumb from "../../App/layout/AdminLayout/Breadcrumb";
 import DEMO from "../../store/constant";
 
+const inputStyle = {border: 'none', color: '#d1d6e0', background: '#1d2131'};
+
 class SignUp1 extends React.Component {
     render () {
         return(
@@ -26,13 +28,13 @@ class SignUp1 extends React.Component {
                                 </div>
                                 <h3 className="mb-4">Регистрация</h3>
                                 <div className="input-group mb-3">
-                                    <input type="text" className="form-control" placeholder="Никнейм"/>
+                                    <input type="text" style={inputStyle} className="form-control" placeholder="Никнейм"/>
                                 </div>
                                 <div className="input-group mb-3">
-                                    <input type="email" className="form-control" placeholder="Почта"/>
+                                    <input type="email" style={inputStyle} className="form-control" placeholder="Почта"/>
                                 </div>
                                 <div className="input-group mb-4">
-                                    <input type="password" className="form-control" placeholder="Пароль"/>
+                                    <input type="password" style={inputStyle} className="form-control" placeholder="Пароль"/>
                                 </div>
                                 <div className="form-group text-left">
                                     <div className="checkbox checkbox-fill d-inline">
@@ -40,8 +42,8 @@ class SignUp1 extends React.Component {
                                             <label htmlFor="checkbox-fill-2" className="cr">Отправлять мне <a href={DEMO.BLANK_LINK}> Новости</a> на почту.</label>
                                     </div>
                                 </div>
-                                <button className="btn btn-primary shadow-2 mb-4">Регистрация</button>
-                                <p className="mb-0 text-muted">Уже есть аккаунт? <NavLink to="/auth/signin">Авторизируйтесь</NavLink></p>
+                                <button className="btn btn-primary shadow-2 mb-4" style={{background: '#5a8cd6', border: 'none'}}>Регистрация</button>
+                                <p className="mb-0" style={{color: '#a8b0b7', fontSize: '13px'}}>Уже есть аккаунт? <NavLink to="/auth/signin">Авторизируйтесь</NavLink></p>
                             </div>
                         </div>
                     </div>
