@@ -115,25 +115,17 @@ body {
     display: flex;
     align-items: center;
 
-    // .b-bg {
-    //     background: url(../../../assets/images/logo35.png);
-    // }
+    .b-bg {
+        background: url(../../../assets/images/logo35.png);
+    }
 
-
-
-
-      div {
-
-        background: url(../../../assets/images/logo35.png) no-repeat;
-
-          .b-title {
-              margin-left: 45px;
-              font-weight: 400;
-              color: #e1ebf3;
-              font-family: 'Barlow', sans-serif;
-              font-size: 25px;
-          }
-        }
+    .b-title {
+        margin-left: 10px;
+        font-weight: 400;
+        color: #e1ebf3;
+        font-family: 'Barlow', sans-serif;
+        font-size: 25px;
+    }
   }
 }
 
