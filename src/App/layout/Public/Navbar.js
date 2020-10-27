@@ -3,8 +3,6 @@ import React from 'react';
 import "../../../assets/scss/style.scss"
 import "./app.scss"
 
-
-
 class Navbar extends React.Component {
     render() {
         return(

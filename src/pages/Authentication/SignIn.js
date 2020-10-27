@@ -123,7 +123,7 @@ class SignUp1 extends React.Component {
                                 <div className="form-group text-left">
                                     <div className="checkbox checkbox-fill d-inline">
                                         <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" />
-                                            <label htmlFor="checkbox-fill-a1" className="cr"> Сохранять пароль</label>
+                                            <label htmlFor="checkbox-fill-a1" className="cr">Оставаться в аккаунте</label>
                                     </div>
                                 </div>
                                     <div className="d-inline">
@@ -138,7 +138,7 @@ class SignUp1 extends React.Component {
                                         </button>
                                     </div>
                                 <p className="mb-2" style={{color: '#a8b0b7', fontSize: '13px'}}>Забыли пароль? <NavLink to="/auth/resetpassword">Востановить</NavLink></p>
-                                <p className="mb-0" style={{color: '#a8b0b7', fontSize: '13px'}}>Нет аккаунта? <NavLink to="/auth/signup">Зарегеструйтесь</NavLink></p>
+                                <p className="mb-0" style={{color: '#a8b0b7', fontSize: '13px'}}>Нет аккаунта? <NavLink to="/auth/signup">Зарегестрироваться</NavLink></p>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Row, Col, Carousel} from 'react-bootstrap';
 
 import Aux from "../../App/components/_Aux";
 import Navbar from "../../App/layout/Public/Navbar";
