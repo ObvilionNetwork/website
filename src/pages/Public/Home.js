@@ -13,6 +13,9 @@ render() {
         <Aux>
              <Navbar />
              <HomePanel />
+              <div className="News">
+                  <div>Новости</div>
+             </div>
         </Aux>
         
     )
