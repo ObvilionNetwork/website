@@ -1,7 +1,7 @@
 import React from 'react';
 
 import "../../../assets/scss/style.scss"
-import "./app.scss"
+import "./Navbar.scss"
 
 class Navbar extends React.Component {
     render() {
@@ -15,13 +15,17 @@ class Navbar extends React.Component {
                 </li>
 
                 <li style={{marginLeft: '4%'}} className="left">
-                    <a href="/">
+                    <a>
                         <p className="text">Профиль</p>
                         <div className="arrow-2">
                             <div className="arrow-2-top"/>
                             <div className="arrow-2-bottom"/>
                         </div>
                     </a>
+                    <ul className="submenu">
+                        <li><a className="text" href="#">Личный кабинет</a></li>
+                        <li><a className="text" href="#">Выйти из аккаунта</a></li>
+                    </ul>
                 </li>
 
                 <li className="left">

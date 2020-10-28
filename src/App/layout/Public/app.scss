@@ -1,138 +1,19 @@
-@import url("/src/assets/fonts/style.css");
-
-.NavPanel {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #1c1f24;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  font-size: 18px;
-  border-bottom: 1px;
+.Login{
+  display: none;
+  position: absolute !important;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-
-  .main {
-    float: left;
-    margin-left: 7.7%;
-  }
-
-  .left {
-    float: left;
-    margin-left: 0.9%;
-  }
-
-  .right {
-    float: right;
-    margin-right: 20px;
-  }
-
-  li a {
-    display: flex;
-    color: #ffffff;
-    padding: 12px 12px;
-    text-decoration: none;
-    align-items: center;
-    height: 51px;
-
-    .text {
-      font-family:'Bahnschrift Regular';
-      font-weight: normal;
-      font-size: 18px;
-      margin-top: 20px;
-    }
-
-    .arrow-2 {
-      cursor: pointer;
-      height: 15px;
-      width: 0;
-      position: relative;
-      margin-left: 16px;
-      margin-right: 2px;
-    }
-    .arrow-2-top,
-    .arrow-2-bottom {
-      background: #7e929c;
-      height: 2px;
-      left: -13px;
-      position: absolute;
-      top: 12px;
-      width: 9px;
-    }
-    .arrow-2-top {
-      top: 10px;
-      left: -15px;
-    }
-    .arrow-2-top {
-      transform: rotate(130deg);
-      transform-origin: bottom right;
-    }
-    .arrow-2-bottom {
-      transform: rotate(50deg);
-      transform-origin: top right;
-    }
-    .arrow-2-top::after,
-    .arrow-2-bottom::after {
-      background: #c0d4e2;
-      content: '';
-      height: 100%;
-      position: absolute;
-      top: 0;
-      transition: all 0.15s;
-    }
-    .arrow-2-top::after {
-      left: 100%;
-      right: 0;
-      transition-delay: 0s;
-    }
-    .arrow-2-bottom::after {
-      left: 0;
-      right: 100%;
-      transition-delay: 0.15s;
-    }
-  }
-
-  li a:hover {
-    background-color: #151A20;
-    color: #fff;
-
-    .arrow-2 .arrow-2-top::after {
-      left: 0;
-      transition-delay: 0.15s;
-    }
-    .arrow-2 .arrow-2-bottom::after {
-      right: 0;
-      transition-delay: 0s;
-    }
-  }
-
-  .b-brand {
-    display: flex;
-    align-items: center;
-
-    .b-bg {
-        background: url(../../../assets/images/logo35.png);
-    }
-
-    .b-title {
-        margin-left: 10px;
-        font-weight: 400;
-        color: #e1ebf3;
-        font-family: 'Barlow', sans-serif;
-        font-size: 25px;
-    }
-  }
 }
-
 
 .HomePanel {
   width: 100%;
   height: 400px;
   background: #23272a;
-  margin-top: 51px;
   border-top: 1px #2f3743;
   border-bottom: 1px #2f3743;
+
   .HomePanelL{
     float: left;
     height: 100%;
@@ -140,6 +21,7 @@
     width: 342px;
     z-index: 3;
   }
+
   .HomeContent {
     div {
       z-index: 2;
@@ -149,11 +31,11 @@
     color: #fff;
     padding-top: 100px;
     }
-   
+
 
       ul {
-        
-          list-style: none; 
+
+          list-style: none;
           margin-top: 60px;
           width: 50%;
           overflow: hidden;
@@ -168,7 +50,7 @@
               font-size: 15px;
               text-decoration: none;
             }
-            
+
           }
 
           .left {
@@ -177,8 +59,8 @@
           .right {
             float: right;
           }
-        
-       
+
+
       }
 
   }
