@@ -12,10 +12,12 @@ class HomePanel extends React.Component {
                     Получи удовольствие от игры на
                     лучших серверах Obvilion Network.
                     <br />
+                    
                     <ul>
-                        <li><a className="l" href="#">Скачать лаунчер Windows</a></li>
-                        <li><a className="r" href="#">Скачать лаунчер Linux</a></li>
+                        <li className="left"><a href="/">Скачать для <br/>Windows</a></li>
+                        <li className="right"><a href="/">Скачать для <br/>Linux</a></li>
                     </ul>
+            
                 </div>
             </div>
         )
