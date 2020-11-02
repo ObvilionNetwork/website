@@ -1,32 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Bellota+Text&display=swap');
-
+@import "../../../assets/fonts/style.css";
 
 .NavPanel {
   list-style-type: none;
   margin-bottom: auto;
   padding: 0;
   overflow: hidden;
-  background-color: #1c1f24;
+  background: none;
   position: relative;
   top: 0;
   width: 100%;
-  font-size: 18px;
-  border-bottom: 1px;
+  font-size: 0.937vw;
   z-index: 1;
 
   .main {
     float: left;
-    margin-left: 7.7%;
+    margin-left: 0.72vw;
   }
 
   .left {
     float: left;
-    margin-left: 0.9%;
+    margin-left: 1.92vw;
   }
 
   .right {
     float: right;
-    margin-right: 20px;
+    margin-right: 1.04vw;
   }
 
   li .submenu {
@@ -35,14 +33,13 @@
     padding: 0;
     list-style: none;
     display: none;
-    font-family: 'Bellota Text', sans-serif;
+    font-family: 'CeraPro Regular', sans-serif;
     font-weight: 100;
-    font-size: 16px;
-    background: #181e21;
+    font-size: 0.833vw;
   }
 
   li .submenu li {
-    height: 33px;
+    height: 1.718vw;
     align-items: center;
     display: flex;
   }
@@ -54,41 +51,36 @@
   li a {
     display: flex;
     color: #ffffff;
-    padding: 12px 12px;
     text-decoration: none;
     align-items: center;
-    height: 51px;
+    height: 2.656vw;
     transition: 0.4s;
 
     .text {
-      font-family: 'Bahnschrift', Arial;
+      font-family: 'CeraPro Regular', Arial;
       font-weight: normal;
-      font-size: 18px;
-      margin-top: 20px;
+      font-size: 0.81vw;
+      margin-top: 17.99px;
     }
 
     .arrow-2 {
       cursor: pointer;
-      height: 15px;
-      width: 0;
+      height: 0.781vw;
       position: relative;
-      margin-left: 16px;
-      margin-right: 2px;
+      margin-left: 0.3vw;
+      margin-right: 0.104vw;
     }
     .arrow-2-top,
     .arrow-2-bottom {
       background: #c0d4e2;
-      height: 2px;
-      left: -13px;
+      height: 0.104vw;
       position: absolute;
-      top: 12px;
-      width: 9px;
+      top: 0.65vw;
+      width: 0.468vw;
     }
     .arrow-2-top {
-      top: 10px;
-      left: -15px;
-    }
-    .arrow-2-top {
+      top: 0.545vw;
+      left: calc(-1 * (100vw / 1920 * 1.7)); //-1.7px;
       transform: rotate(130deg);
       transform-origin: bottom right;
     }
@@ -139,15 +131,22 @@
     align-items: center;
 
     .b-bg {
-      background: url(../../../assets/images/logo35.png);
+      width: 2.08vw; //40px;
+      background: none;
+
+      img {
+        width: 100%;
+        height: auto;
+        pointer-events: none;
+      }
     }
 
     .b-title {
-      margin-left: 10px;
-      font-weight: 400;
+      margin-left: 0.52vw; //10px;
+      font-weight: 100;
       color: #e1ebf3;
-      font-family: 'Barlow', sans-serif;
-      font-size: 25px;
+      font-family: 'CeraPro Light', sans-serif;
+      font-size: 1.557vw; //29.9px
     }
   }
 }

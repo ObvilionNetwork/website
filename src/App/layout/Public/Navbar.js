@@ -9,14 +9,34 @@ class Navbar extends React.Component {
             <ul className="NavPanel">
                 <li className="main">
                     <a href="/" className="b-brand">
-                        <div className="b-bg" />
-                    <span className="b-title">Obvilion Network</span>
+                        <div className="b-bg">
+                            <img src={require('../../../assets/images/logo.png')} />
+                        </div>
+                        <span className="b-title">Obvilion Network</span>
                     </a>
                 </li>
 
-                <li style={{marginLeft: '4%'}} className="left">
+                <li style={{marginLeft: '2.6vw'}} className="left">
+                    <a href="/">
+                        <p className="text">Донат</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Магазин</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/">
+                        <p className="text">Форум</p>
+                    </a>
+                </li>
+
+                <li className="left">
                     <a>
-                        <p className="text">Профиль</p>
+                        <p className="text">Помощь</p>
                         <div className="arrow-2">
                             <div className="arrow-2-top"/>
                             <div className="arrow-2-bottom"/>
@@ -28,31 +48,17 @@ class Navbar extends React.Component {
                     </ul>
                 </li>
 
-                <li className="left">
-                    <a href="/">
-                        <p className="text">Магазин</p>
+                <li style={{ marginRight: '2.86vw' }} className="right">
+                    <a href="/auth/signup">
+                        <p className="text">Регистрация</p>
                     </a>
                 </li>
 
-                <li className="left">
-                    <a href="/">
-                        <p className="text">Сервера</p>
+                <li className="right">
+                    <a href="/auth/signin">
+                        <p className="text">Войти</p>
                     </a>
                 </li>
-
-                <li className="left">
-                    <a href="/">
-                        <p className="text">Форум</p>
-                    </a>
-                </li>
-
-                <li className="left">
-                    <a href="/">
-                        <p className="text">Помощь</p>
-                    </a>
-                </li>
-
-                <li className="right"><a href="/admin" className="feather icon-settings"/></li>
             </ul>
         )
     }

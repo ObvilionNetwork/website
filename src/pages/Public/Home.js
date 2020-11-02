@@ -2,25 +2,23 @@ import React, { Component } from 'react';
 
 import Aux from "../../App/components/_Aux";
 import Navbar from "../../App/layout/Public/Navbar";
-import HomePanel from "../../App/layout/Public/HomePanel";
+import Description from "../../App/layout/Public/Description";
+
 import "../../assets/scss/style.scss"
+import './Home.scss'
 
 class Home extends Component{
-        
-render() {
-   return ( 
-        
-        <Aux>
-             <Navbar />
-             <HomePanel />
-              <div className="News">
-                  <div>Новости</div>
-             </div>
-        </Aux>
-        
-    )
-}
-
+    render() {
+        return (
+            <Aux>
+                <div className="first-bg">
+                    <img src={require('../../assets/images/bg.png')} />
+                </div>
+                <Navbar />
+                <Description />
+            </Aux>
+         )
+    }
 }
 
 
