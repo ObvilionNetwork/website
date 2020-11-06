@@ -1,0 +1,76 @@
+.circle-chart__circle {
+  animation: circle-chart-fill 2s reverse; /* 1 */
+  transform: rotate(-90deg); /* 2, 3 */
+  transform-origin: center; /* 4 */
+}
+.circle-chart__circle--negative {
+  transform: rotate(-90deg) scale(1,-1); /* 1, 2, 3 */
+}
+.circle-chart__info {
+  animation: circle-chart-appear 2s forwards;
+  opacity: 0;
+  transform: translateY(0.3em);
+}
+@keyframes circle-chart-fill {
+  to { stroke-dasharray: 0 100; }
+}
+@keyframes circle-chart-appear {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.online-players {
+  fill: #fff;
+  font-family: 'CeraPro Light', sans-serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+.ServersPane {
+  position: relative;
+  width: 100%;
+  height: auto;
+
+  .name-container {
+    display: inline-flex;
+
+    svg {
+      margin-top: 7.6vw;
+      margin-left: 0.937vw;
+    }
+  }
+
+  h1 {
+    color: #fff;
+    font-family: 'CeraPro Bold', sans-serif;
+    font-size: 3.645vw; // 70px
+    margin-left: 7.552vw;
+    margin-top: 6.979vw;
+  }
+
+  .description {
+    color: #fff;
+    font-family: 'CeraPro Light', sans-serif;
+    font-size: 1.1658vw;
+    margin-left: 7.552vw;
+    margin-top: 1.9vw;
+    width: 40vw;
+  }
+
+  .date-wipe {
+    color: #fff;
+    font-family: 'CeraPro Medium', sans-serif;
+    font-size: 1.2187vw;
+    margin-left: 7.552vw;
+    margin-top: 0.7vw;
+    display: inline-flex;
+
+    .date {
+      font-size: 1.28vw;
+      color: #3c96da;
+      margin-left: 0.5vw;
+    }
+  }
+}

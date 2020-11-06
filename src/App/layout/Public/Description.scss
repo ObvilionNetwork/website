@@ -1,12 +1,162 @@
-.logo {
-  width: 7.812vw;
-  background: none;
+.arrow-8 {
   position: relative;
-  margin: 1.041vw auto 0;
+  width: 1.562vw;
+  height: 1.562vw;
+  margin: 0 auto;
+  left: -0.677vw;
+}
+.arrow-8:before {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-left: 0.1041vw solid #d0d0d0;
+  border-bottom: 0.1041vw solid #d0d0d0;
+  animation: arrow-8 1.5s linear infinite;
+}
+@keyframes arrow-8 {
+  0% {
+    opacity: 0;
+    transform: translate(0, -1.041vw) rotate(-45deg);
+  }
+  10%, 90% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    border-left: 0.1041vw solid #d0d0d0;
+    border-bottom: 0.1041vw solid #d0d0d0;
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0, 1.041vw) rotate(-45deg);
+  }
+}
 
-  img {
+.button-windows {
+  color: #fff;
+  font-family: 'CeraPro Regular', sans-serif;
+  font-size: 1.361vw; // 26.14px
+  padding: 0;
+  margin: 0;
+  margin-left: 1.2vw;
+  margin-top: -0.3vw;
+  transition: 0.3s;
+}
+
+.Description {
+  position: relative;
+  text-align: center;
+  margin: 0;
+  height: 46.7vw;
+
+  .logo {
+    width: 7.812vw;
+    background: none;
+    margin: 1.041vw auto 0;
+
+    img {
+      width: 100%;
+      height: auto;
+      pointer-events: none;
+    }
+  }
+
+  .to-servers {
+    position: relative;
+    text-align: center;
+    //margin: auto 0;
     width: 100%;
-    height: auto;
-    pointer-events: none;
+    bottom: -6.20833vw;
+    height: 10%;
+
+    a {
+      color: #dedede;
+      font-family: 'CeraPro Light', sans-serif;
+      font-size: 0.878vw; // 16,86px
+    }
+  }
+
+  .text {
+    padding: 0;
+    margin: 1.13vw 0 0;
+    color: #ffffff;
+    font-family: 'CeraPro Bold', sans-serif;
+    font-size: 3.212vw;
+    position: relative;
+  }
+
+  .text2 {
+    padding: 0;
+    margin: 1.4vw 0 0;
+    color: #dedede;
+    font-family: 'CeraPro Light', sans-serif;
+    font-size: 1.361vw; // 26.14px
+  }
+
+  .buttons-container {
+    display: inline-flex;
+    margin: 2.864vw auto 0;
+
+    .first, .next {
+      width: 13.437vw;
+      height: 4.114vw;
+      border: 0.165vw solid #1f7abf;
+      border-radius: 0.3645vw;
+      transition: 0.3s;
+
+      .button-download {
+        transition: 0.3s;
+        margin: 0;
+        color: #fff;
+        font-family: 'CeraPro Light', sans-serif;
+        font-size: 1.361vw; // 26.14px
+      }
+
+      .button-icon {
+        display: inline-flex;
+        width: 1.093vw;
+        height: 1.093vw;
+        background: none;
+        position: absolute;
+        padding: 0;
+        margin: 0.2vw 0 0 -3.67vw;
+
+        img {
+          transition: 0.3s;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .button-icon-linux {
+        margin: 0.2vw 0 0 -3.85vw;
+      }
+    }
+
+    .first {
+      margin-right: 1.875vw;
+    }
+    .next {
+      margin-left: 1.875vw;
+    }
+
+    .first:hover, .next:hover {
+      border-color: #adadad;
+
+      img {
+        opacity: 0.8;
+      }
+
+      .button-windows {
+        color: #d9e3e7;
+      }
+
+      .button-download {
+        color: #ebf1f6;
+      }
+    }
   }
 }

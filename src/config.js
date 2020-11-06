@@ -1,5 +1,5 @@
 export default {
-    defaultPath: '', // Куда будет пересылать юзера по дефолту
+    defaultPath: '/oops', // Куда будет пересылать юзера по дефолту
     basename: '', // Префикс для ссылки
     layout: 'vertical', // vertical
     preLayout: null, // (не работает)
