@@ -6,59 +6,96 @@ import "./Servers.scss"
 import Slider from 'react-animated-slider';
 import './Slider.scss';
 
+const apiLink = 'https://mindustry.space/api/';
+
 class Servers extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            servers: [],
+            rounds: []
+        };
+
+        this.loadServers = this.loadServers.bind(this);
+    }
+
+    loadServers() {
+        fetch(apiLink + 'servers', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: "GET"
+        }).then(val => {
+            val.json().then(result => {
+                this.setState({
+                    servers: result.servers,
+                });
+
+                const cl = this.state.servers.map(server => {
+                    return <div className="round" />
+                })
+                if (cl[0]) {
+                    cl[0] = <div className="round filled" />;
+                }
+
+                this.setState({
+                    rounds: cl
+                });
+            })
+        })
+    }
+
+    componentDidMount() {
+        this.loadServers();
+    }
+
     render() {
+
         return(
             <div className="ServersPane">
-                <Slider duration="900" infinite="true" onSlideChange={event => console.log(event.slideIndex)}>
-                    <div>
-                        <div className="name-container">
-                            <h1>HiTech</h1>
-                            <svg className="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="3.5416vw" height="3.5416vw" xmlns="http://www.w3.org/2000/svg">
-                                <circle className="circle-chart__background" stroke="#1f7abf" strokeWidth="0.156vw" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
-                                <circle className="circle-chart__circle" stroke="#dfdfdf" strokeWidth="0.156vw" strokeDasharray="10 100" strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
-                                <text x="17" y="20" className="online-players">
-                                    <tspan textAnchor="middle">
-                                        4/45
-                                    </tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <p className="description">
-                            Это индустриальный сервер с большим кол-вом технических модов для кофортной игры, который открывает перед вами мир высоких технологий и громадных заводов! Теперь вам не придётся вручную собирать урожай, плавить руду или собирать дроп! Появилось множество вещей, упрощающих жизнь, помогающих в развитии. Тут вы найдёте ваши любимые моды, такие как: Industrial Craft 2, BuildCraft, Forestry, Applied Energistics 2, Thermal Expansion, а так же ещё много чего интересного. Присоединяйся! Иди в ногу со временем!
-                        </p>
-                        <h3 className="date-wipe">
-                            Дата вайпа:
-                            <div className="date">
-                                01.11.2020
+                <Slider autoplay="5000ms" duration="900" infinite="true" onSlideChange={event => {
+                    this.setState({
+                        rounds: this.state.rounds.map((value, index) => {
+                            if (event.slideIndex === index) return <div className="round filled" />;
+                            if (value === <div className="round filled" />) return <div className="round" />;
+                            return <div className="round" />;
+                        })
+                    })
+                }}>
+                    { this.state.servers.map(server => {
+                        return <div>
+                            <div className="name-container">
+                                <h1>{server.name}</h1>
+                                <svg className="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="3.5416vw" height="3.5416vw" xmlns="http://www.w3.org/2000/svg">
+                                    <circle className="circle-chart__background" stroke="#1f7abf" strokeWidth="0.156vw" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
+                                    <circle className="circle-chart__circle" stroke="#dfdfdf" strokeWidth="0.156vw" strokeDasharray={ server.players === -1 ? '0 100' : server.players / server.maxPlayers * 100 + " 100"} strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
+                                    <text x="17" y="20" className="online-players">
+                                        <tspan textAnchor="middle">
+                                            {server.players === -1 ? 'Выкл.' : server.players + '/' + server.maxPlayers}
+                                        </tspan>
+                                    </text>
+                                </svg>
                             </div>
-                        </h3>
-                    </div>
-
-                    <div>
-                        <div className="name-container">
-                            <h1>SkyBlock</h1>
-                            <svg className="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="3.5416vw" height="3.5416vw" xmlns="http://www.w3.org/2000/svg">
-                                <circle className="circle-chart__background" stroke="#1f7abf" strokeWidth="0.156vw" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
-                                <circle className="circle-chart__circle" stroke="#dfdfdf" strokeWidth="0.156vw" strokeDasharray="19 100" strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
-                                <text x="17" y="20" className="online-players">
-                                    <tspan textAnchor="middle">
-                                        8/45
-                                    </tspan>
-                                </text>
-                            </svg>
-                        </div>
-                        <p className="description">
-                            Это индустриальный сервер с большим кол-вом технических модов для кофортной игры, который открывает перед вами мир высоких технологий и громадных заводов! Теперь вам не придётся вручную собирать урожай, плавить руду или собирать дроп! Появилось множество вещей, упрощающих жизнь, помогающих в развитии. Тут вы найдёте ваши любимые моды, такие как: Industrial Craft 2, BuildCraft, Forestry, Applied Energistics 2, Thermal Expansion, а так же ещё много чего интересного. Присоединяйся! Иди в ногу со временем!
-                        </p>
-                        <h3 className="date-wipe">
-                            Дата вайпа:
-                            <div className="date">
-                                01.11.2020
+                            <div className="server-logo">
+                                <img src="https://mindustry.space/api/files/HiTechSpawn.png" />
                             </div>
-                        </h3>
-                    </div>
+                            <p className="description">
+                                {server.description}
+                            </p>
+                            <h3 className="date-wipe">
+                                Дата вайпа:
+                                <div className="date">
+                                    {new Date().toISOString().replace('-', '.').split('T')[0].replace('-', '.')}
+                                </div>
+                            </h3>
+                        </div>
+                    })}
                 </Slider>
+
+                <div className="rounds">
+                    { this.state.rounds }
+                </div>
             </div>
         )
     }

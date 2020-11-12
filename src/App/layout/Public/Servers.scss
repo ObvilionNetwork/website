@@ -21,6 +21,47 @@
   }
 }
 
+.rounds {
+  left: 50%;
+  margin-left: -2.7vw;
+  position: absolute;
+  margin-top: -3.3vw;
+  height: 2vw;
+
+  .round {
+    width: 0.9vw;
+    height: 0.9vw;
+
+    border: white solid 0.15vw;
+
+    display: inline-block;
+    margin: -3.3vw 0.5vw 0 0.833vw;
+    position: relative;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+  }
+
+  .filled {
+    background: white;
+  }
+}
+
+.server-logo {
+  float: right;
+  margin-right: 10.4vw;
+  margin-top: 9vw;
+  width: 21vw;
+  height: 21vw;
+
+  img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+}
+
 .online-players {
   fill: #fff;
   font-family: 'CeraPro Light', sans-serif;
@@ -48,6 +89,7 @@
     font-size: 3.645vw; // 70px
     margin-left: 7.552vw;
     margin-top: 6.979vw;
+    margin-bottom: 0;
   }
 
   .description {
@@ -56,6 +98,7 @@
     font-size: 1.1658vw;
     margin-left: 7.552vw;
     margin-top: 1.9vw;
+    margin-bottom: 0;
     width: 40vw;
   }
 
@@ -64,7 +107,8 @@
     font-family: 'CeraPro Medium', sans-serif;
     font-size: 1.2187vw;
     margin-left: 7.552vw;
-    margin-top: 0.7vw;
+    margin-top: 1.3vw;
+    margin-bottom: 0;
     display: inline-flex;
 
     .date {

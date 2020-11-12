@@ -27,6 +27,14 @@ class Home extends Component{
                     <a id="servers"/>
                     <Servers />
                 </div>
+
+                <div className="first-bg">
+                    <img src={require('../../assets/images/bg3.png')} />
+                </div>
+                <div className="whyObvilion">
+                    <a id="servers"/>
+                    <Servers />
+                </div>
             </Aux>
          )
     }
