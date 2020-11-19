@@ -7,6 +7,7 @@ import "../../assets/scss/style.scss"
 import './Home.scss'
 import Description from "../../App/layout/Public/Description";
 import Servers from "../../App/layout/Public/Servers";
+import WhyObvilion from "../../App/layout/Public/WhyObvilion";
 
 class Home extends Component{
     render() {
@@ -32,8 +33,9 @@ class Home extends Component{
                     <img src={require('../../assets/images/bg3.png')} />
                 </div>
                 <div className="whyObvilion">
-                    <a id="servers"/>
-                    <Servers />
+                    <WhyObvilion>
+
+                    </WhyObvilion>
                 </div>
             </Aux>
          )

@@ -68,14 +68,17 @@
     position: relative;
     text-align: center;
     //margin: auto 0;
-    width: 100%;
+    width: 10vw;
     bottom: -6.20833vw;
-    height: 10%;
+    height: 20vw;
+    cursor: pointer;
 
-    a {
+    .text4 {
       color: #dedede;
       font-family: 'CeraPro Light', sans-serif;
       font-size: 0.878vw; // 16,86px
+      margin-left: 0.3vw;
+      padding-bottom: 0.2vw;
     }
   }
 

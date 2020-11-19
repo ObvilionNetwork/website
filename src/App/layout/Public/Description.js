@@ -21,7 +21,7 @@ class Description extends React.Component {
                 </h3>
 
                 <div className="buttons-container">
-                    <a className="first" href="/">
+                    <a className="first" href="/api/files/launchers/ObvilionNetworkLauncher.jar">
                         <p className="button-download">Скачать лаунчер</p>
 
                         <div className="button-icon">
@@ -30,7 +30,7 @@ class Description extends React.Component {
                         <p className="button-windows">Windows</p>
                     </a>
 
-                    <a className="next" href="/">
+                    <a className="next" href="/api/files/launchers/ObvilionNetworkLauncher.jar">
                         <p className="button-download">Скачать лаунчер</p>
                         <div className="button-icon button-icon-linux">
                             <img src={require('../../../assets/images/linux.png')} />
@@ -39,13 +39,13 @@ class Description extends React.Component {
                     </a>
                 </div>
 
-                <div className="to-servers">
-                    <a onClick={() => document.getElementById('servers').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    })}>К серверам</a>
+                <a onClick={() => document.getElementById('servers').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                })} className="to-servers">
+                    <div className="text4">К серверам</div>
                     <div className="arrow-8 servers-arrow" />
-                </div>
+                </a>
             </div>
         )
     }
