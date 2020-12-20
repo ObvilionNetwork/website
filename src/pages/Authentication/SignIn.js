@@ -138,7 +138,7 @@ class SignUp1 extends React.Component {
                                         </button>
                                     </div>
                                 <p className="mb-2" style={{color: '#a8b0b7', fontSize: '13px'}}>Забыли пароль? <NavLink to="/auth/resetpassword">Востановить</NavLink></p>
-                                <p className="mb-0" style={{color: '#a8b0b7', fontSize: '13px'}}>Нет аккаунта? <NavLink to="/auth/signup">Зарегестрироваться</NavLink></p>
+                                <p className="mb-0" style={{color: '#a8b0b7', fontSize: '13px'}}>Нет аккаунта? <NavLink to="/auth/signup">Зарегистрироваться</NavLink></p>
                             </div>
                         </div>
                     </div>
