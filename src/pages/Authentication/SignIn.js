@@ -7,7 +7,7 @@ import Aux from "../../App/components/_Aux";
 import Breadcrumb from "../../App/layout/AdminLayout/Breadcrumb";
 import discordLogo from '../../assets/images/discord.png';
 
-const apiLink = 'https://mindustry.space/api/';
+const apiLink = 'https://obvilionnetwork.ru/api/';
 
 class SignUp1 extends React.Component {
 
@@ -132,7 +132,7 @@ class SignUp1 extends React.Component {
                                         <label style={{color: '#b2bdc8', verticalAlign: '10px', marginRight: '3px'}}>или</label>
 
                                         <button onClick={() => {
-                                            window.location.assign('https://discord.com/api/oauth2/authorize?client_id=657878741703327754&redirect_uri=https%3A%2F%2Fmindustry.space&response_type=code&scope=identify');
+                                            window.location.assign('https://discord.com/api/oauth2/authorize?client_id=657878741703327754&redirect_uri=https%3A%2F%2Fobvilionnetwork.ru&response_type=code&scope=identify');
                                         }} className='button-discord'>
                                             <img src={discordLogo} style={{ width: '40px', marginBottom: '22px' }} />
                                         </button>

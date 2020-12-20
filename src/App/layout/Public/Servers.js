@@ -6,7 +6,7 @@ import "./Servers.scss"
 import Slider from 'react-animated-slider';
 import './Slider.scss';
 
-const apiLink = 'https://mindustry.space/api/';
+const apiLink = 'https://obvilionnetwork.ru/api/';
 
 class Servers extends React.Component {
     constructor(props) {

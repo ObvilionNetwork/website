@@ -16,34 +16,28 @@
   }
 }
 
+.title {
+  padding: 0;
+  margin: 1.4vw 0 0;
+  color: #ffffff;
+  font-family: 'CeraPro Bold', sans-serif;
+  font-size: 2.29vw;
+  position: relative;
+  text-align: center;
+}
+
 .first {
   width: 100%;
-  height: 49.1vw;
+  height: 47.1vw;
   position: relative;
   display: block;
 }
 
-.servers {
-  width: 100%;
-  height: 39.7vw;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.whyObvilion {
-  width: 100%;
-  height: 31vw;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
 .end {
   width: 100%;
-  height: 22.7vw;
+  height: 8.5vw;
   display: block;
-  margin: 0;
+  margin: 3.5vw 0 0;
   padding: 0;
 }
 

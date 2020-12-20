@@ -1,5 +1,24 @@
 @import "../../../assets/fonts/style.css";
 
+.b-bg {
+  width: 2.08vw; //40px;
+  background: none;
+
+  img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -o-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
+}
+
 .NavPanel {
   list-style-type: none;
   margin-bottom: auto;

@@ -1,0 +1,207 @@
+.button-windows {
+  color: #fff;
+  font-family: 'CeraPro Regular', sans-serif;
+  font-size: 1.361vw; // 26.14px
+  padding: 0;
+  margin: 0;
+  margin-left: 1.2vw;
+  margin-top: -0.3vw;
+  transition: 0.3s;
+}
+
+.BottomPane {
+  position: relative;
+  color: white;
+  width: 100%;
+  height: 10vw;
+  text-align: center;
+
+  .contacts {
+    display: block;
+
+    .title {
+      font-family: "CeraPro Bold";
+      color: white;
+      font-size: 1.6vw;
+      margin: 0;
+      margin-top: 3.5vw;
+      margin-left: 10.8vw;
+      float: left;
+    }
+
+    .firstContainer, .nextContainer {
+      float: left;
+      display: block;
+      height: 0.5vw;
+
+      a {
+        margin: 0;
+        padding: 0;
+        height: 0.3vw;
+        display: inline-block;
+      }
+
+      p {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        height: 0.2vw;
+        p {
+          display: inline-block;
+          margin: 0;
+          padding: 0;
+        }
+
+        .vk {
+          color: #788aaa;
+        }
+        .ds {
+          color: #7586a5;
+        }
+        .yt {
+          color: #9a6b6c;
+        }
+        .mm {
+          color: #79b185;
+        }
+        .tc {
+          color: #7bafae;
+        }
+        .mr {
+          color: #30aa81;
+        }
+
+        display: inline-block;
+        font-family: "CeraPro Regular";
+        color: #bbbcbe;
+        font-size: 0.78vw;
+        padding-right: 0.76vw;
+      }
+    }
+
+    .firstContainer {
+      margin-top: 6.6vw;
+      margin-left: -12.5vw;
+    }
+    .nextContainer {
+      margin-top: 8.2vw;
+      margin-left: -20.13vw;
+    }
+  }
+
+  .owners {
+    p {
+      p {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .own {
+        color: #1f7abf;
+      }
+
+      display: block;
+      font-family: "CeraPro Regular";
+      color: #bbbcbe;
+      font-size: 0.78vw;
+      padding-right: 0.76vw;
+    }
+
+    .fatonn {
+      float: right;
+      margin-right: 5vw;
+      margin-top: 5.2vw;
+    }
+    .qwirner {
+      float: right;
+      margin-right: -6.58vw;
+      margin-top: 6.4vw;
+    }
+    .copyright {
+      float: right;
+      margin-right: -7.4vw;
+      margin-top: 8.23vw;
+    }
+  }
+
+  .go {
+    font-family: "CeraPro Bold";
+    color: white;
+    font-size: 2.2vw;
+    text-align: center;
+    margin-top: 2.9vw;
+  }
+
+  .comment {
+    font-family: "CeraPro Light";
+    color: white;
+    font-size: 1.354vw;
+    text-align: center;
+    margin-top: 0.4vw;
+  }
+
+  .buttons-container {
+    display: inline-flex;
+    margin: 2.1vw auto 0;
+
+    .first, .next {
+      width: 13.437vw;
+      height: 4.114vw;
+      border: 0.165vw solid #1f7abf;
+      border-radius: 0.3645vw;
+      transition: 0.3s;
+
+      .button-download {
+        transition: 0.3s;
+        margin: 0;
+        color: #fff;
+        font-family: 'CeraPro Light', sans-serif;
+        font-size: 1.361vw; // 26.14px
+      }
+
+      .button-icon {
+        display: inline-flex;
+        width: 1.093vw;
+        height: 1.093vw;
+        background: none;
+        position: absolute;
+        padding: 0;
+        margin: 0.2vw 0 0 -3.67vw;
+
+        img {
+          transition: 0.3s;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .button-icon-linux {
+        margin: 0.2vw 0 0 -3.85vw;
+      }
+    }
+
+    .first {
+      margin-right: 1.875vw;
+    }
+    .next {
+      margin-left: 1.875vw;
+    }
+
+    .first:hover, .next:hover {
+      border-color: #adadad;
+
+      img {
+        opacity: 0.8;
+      }
+
+      .button-windows {
+        color: #d9e3e7;
+      }
+
+      .button-download {
+        color: #ebf1f6;
+      }
+    }
+  }
+}

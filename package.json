@@ -10,6 +10,7 @@
     "font-awesome": "^4.7.0",
     "google-maps-react": "^2.0.6",
     "jquery": "^3.5.1",
+    "minerender": "^1.4.6",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -26,10 +27,13 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
+    "react-skinview3d": "^1.3.3",
     "react-text-input": "0.0.8",
     "react-window-size": "^1.2.2",
     "redux": "^4.0.5",
-    "styled-components": "^5.2.1"
+    "skinview3d": "^2.0.0-beta.1",
+    "styled-components": "^5.2.1",
+    "three": "^0.122.0"
   },
   "scripts": {
     "start": "react-scripts start",

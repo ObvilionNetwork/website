@@ -3,7 +3,6 @@ import { Row, Col, Card, Table, Tabs, Tab } from "react-bootstrap";
 
 import Aux from "../../App/components/_Aux";
 import DEMO from "../../store/constant";
-import getJSONFromURL from '../../App/utils/request'
 
 import avatar1 from "../../assets/images/user/avatar-1.jpg";
 
@@ -13,38 +12,81 @@ let players = {};
 let auths = {};
 let servers = {};
 
-const apiLink = 'http://api.obvilionnetwork.ban/';
-const token = 'a4HH.iF1fpzuo8oDR9RslwYJnOHEOEEni9wZsu9sXg7wzSvD20';
+const apiLink = 'https://obvilionnetwork.ru/api/';
 
-async function load() {
-  finances = await (await fetch(apiLink + 'finances', {
-    headers: {
-      Authorization: token
-    }
-  })).json();
+async function loa1d() {
+  const token = window.localStorage.getItem('token');
 
-  bugs = await (await fetch(apiLink + 'bugs', {
-    headers: {
-      Authorization: token
-    }
-  })).json();
-
-  players = await (await fetch(apiLink + 'users/stats', {
-    headers: {
-      Authorization: token
-    }
-  })).json();
-
-  servers = await (await fetch(apiLink + 'servers', {
-    headers: {
-      Authorization: token
-    }
-  })).json();
 }
 
 class Dashboard extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      finances: {},
+      bugs: {},
+      players: {},
+      auths: {},
+      servers: {},
+    };
+
+    this.load = this.load.bind(this);
+  }
+
+  load() {
+    const token = window.localStorage.getItem('token');
+
+    fetch(apiLink + 'finances', {
+      headers: {
+        Authorization: token
+      }
+    }).then(res => {
+      res.json().then(value => {
+          this.setState({
+            finances: value
+          })
+      });
+    })
+
+    fetch(apiLink + 'bugs', {
+      headers: {
+        Authorization: token
+      }
+    }).then(res => {
+      res.json().then(value => {
+        this.setState({
+          bugs: value
+        });
+      });
+    });
+
+    fetch(apiLink + 'users/stats', {
+      headers: {
+        Authorization: token
+      }
+    }).then(res => {
+      res.json().then(value => {
+        this.setState({
+          players: value
+        });
+      });
+    });
+
+    fetch(apiLink + 'servers', {
+      headers: {
+        Authorization: token
+      }
+    }).then(res => {
+      res.json().then(value => {
+        this.setState({
+          servers: value
+        });
+      });
+    });
+  }
+
   componentDidMount() {
-    load();
+    this.load();
   }
 
   render() {
@@ -93,20 +135,19 @@ class Dashboard extends React.Component {
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
                       <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />
-                      {finances.profit === undefined ? 'Загрузка...' : finances.profit + 'р.'}
-                      <p className="m-r-5">{!finances.profitGoal ? 'Загрузка...' : 'из ' + finances.profitGoal + 'р.'}</p>
+                      {this.state.finances.profit === undefined ? 'Загрузка...' : this.state.finances.profit + 'р.'}
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">{finances.profit === undefined ? 'Загрузка...' : Math.round(finances.profit / finances.profitGoal * 100) + "%"}</p>
+                    <p className="m-b-0">{this.state.finances.profit === undefined ? 'Загрузка...' : Math.round(this.state.finances.profit / this.state.finances.profitGoal * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme"
                     role="progressbar"
-                    style={{ width: finances.profit === undefined ? '0%' : Math.round(finances.profit / finances.profitGoal * 100) + "%" }}
+                    style={{ width: this.state.finances.profit === undefined ? '0%' : Math.round(this.state.finances.profit / this.state.finances.profitGoal * 100) + "%" }}
                     aria-valuenow="0"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -123,20 +164,19 @@ class Dashboard extends React.Component {
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
                       <i className="feather icon-arrow-down text-c-red f-30 m-r-5" />{" "}
-                      {!finances.expenses ? 'Загрузка...' : finances.expenses + 'р.'}
-                      <p className="m-r-5">{!finances.expensesMax ? 'Загрузка...' : 'из ' + finances.expensesMax + 'р.'}</p>
+                      {this.state.finances.expenses === undefined ? 'Загрузка...' : this.state.finances.expenses + 'р.'}
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">{!finances.expenses ? 'Загрузка...' : Math.round(finances.expenses / finances.expensesMax * 100) + "%"}</p>
+                    <p className="m-b-0">{this.state.finances.expenses === undefined ? 'Загрузка...' : Math.round(this.state.finances.expenses / this.state.finances.expensesMax * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme2"
                     role="progressbar"
-                    style={{ width: !finances.expenses ? '0%' : Math.round(finances.expenses / finances.expensesMax * 100) + "%" }}
+                    style={{ width: this.state.finances.expenses === undefined ? '0%' : Math.round(this.state.finances.expenses / this.state.finances.expensesMax * 100) + "%" }}
                     aria-valuenow="16"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -153,20 +193,19 @@ class Dashboard extends React.Component {
                   <div className="col-9">
                     <h3 className="f-w-300 d-flex align-items-center m-b-0">
                       <i className="feather icon-arrow-up text-c-green f-30 m-r-5" />{" "}
-                      {!finances.total ? 'Загрузка...' : finances.total + 'р.'}
-                      <p className="m-r-5">{finances.totalMax === undefined ? 'Загрузка...' : 'из ' + finances.totalMax + 'р.'}</p>
+                      {this.state.finances.total === undefined ? 'Загрузка...' : this.state.finances.total + 'р.'}
                     </h3>
                   </div>
 
                   <div className="col-3 text-right">
-                    <p className="m-b-0">{finances.totalMax === undefined ? 'Загрузка...' : Math.round(finances.total / finances.totalMax * 100) + "%"}</p>
+                    <p className="m-b-0">{this.state.finances.totalMax === undefined ? 'Загрузка...' : Math.round(this.state.finances.total / this.state.finances.totalMax * 100) + "%"}</p>
                   </div>
                 </div>
                 <div className="progress m-t-30" style={{ height: "7px" }}>
                   <div
                     className="progress-bar progress-c-theme"
                     role="progressbar"
-                    style={{ width: finances.total === undefined ? '0%' : Math.round(finances.total / finances.totalMax * 100) + "%" }}
+                    style={{ width: this.state.finances.total === undefined ? '0%' : Math.round(this.state.finances.total / this.state.finances.totalMax * 100) + "%" }}
                     aria-valuenow="70"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -183,8 +222,8 @@ class Dashboard extends React.Component {
               <Card.Body className="px-0 py-2">
                 <Table responsive hover>
                   <tbody>
-                    { auths.result ? 
-                    auths.result.map((res, i) => i <= 4 ? (
+                    { this.state.auths.result !== undefined ?
+                        this.state.auths.result.map((res, i) => i <= 4 ? (
                       <tr key={i} className="unread">
                         <td>
                           <img
@@ -245,10 +284,10 @@ class Dashboard extends React.Component {
                   </div>
                 </div>
                 <h2 className="mt-2 f-w-300">
-                  <sub className="text-muted f-14">{bugs.count === undefined ? 'Загрузка...' : bugs.count} Репортов</sub>
+                  <sub className="text-muted f-14">{this.state.bugs.count === undefined ? 'Загрузка...' : this.state.bugs.count} Репортов</sub>
                 </h2>
                 <h6 className="text-muted mt-3 mb-0">
-                  Среди них {bugs.important === undefined ? 'Загрузка...' : bugs.important} особой важности
+                  Среди них {this.state.bugs.important === undefined ? 'Загрузка...' : this.state.bugs.important} особой важности
                 </h6>
                 <i className="fa fa-exclamation-circle text-c-yellow f-50" />
               </Card.Body>
@@ -260,7 +299,7 @@ class Dashboard extends React.Component {
                     <i className="feather icon-users f-30 text-c-blue" />
                   </div>
                   <div className="col">
-                    <h3 className="f-w-300">{players.count === undefined ? 'Загрузка...' : players.count}</h3>
+                    <h3 className="f-w-300">{this.state.players.count === undefined ? 'Загрузка...' : this.state.players.count}</h3>
                     <span className="d-block text-uppercase">
                       всего игроков
                     </span>
@@ -273,7 +312,7 @@ class Dashboard extends React.Component {
                     <i className="feather icon-activity f-30 text-c-green" />
                   </div>
                   <div className="col">
-                    <h3 className="f-w-300">{players.online === undefined ? 'Загрузка...' : players.online}</h3>
+                    <h3 className="f-w-300">{this.state.players.online === undefined ? 'Загрузка...' : this.state.players.online}</h3>
                     <span className="d-block text-uppercase">
                       игроков онлайн
                     </span>
@@ -289,7 +328,7 @@ class Dashboard extends React.Component {
               </Card.Header>
               <Card.Body>
                 <div className="row">
-                  {servers.servers ? servers.servers.map((res, i) => (
+                  {this.state.servers.servers ? this.state.servers.servers.map((res, i) => (
                     <div className="col-xl-12">
                       <h6 className="align-items-center float-left">
                         {res.players === -1 ? <i className="fa fa-circle f-10 m-r-10 text-c-red" /> : res.players === res.maxPlayers ? <i className="fa fa-circle f-10 m-r-10 text-c-yellow" /> : <i className="fa fa-circle f-10 m-r-10 text-c-green" />}

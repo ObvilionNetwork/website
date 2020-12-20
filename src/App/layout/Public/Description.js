@@ -21,7 +21,7 @@ class Description extends React.Component {
                 </h3>
 
                 <div className="buttons-container">
-                    <a className="first" href="/api/files/launchers/ObvilionNetworkLauncher.jar">
+                    <a className="first" href="/api/files/launchers/ObvilionNetworkLauncher.exe">
                         <p className="button-download">Скачать лаунчер</p>
 
                         <div className="button-icon">
