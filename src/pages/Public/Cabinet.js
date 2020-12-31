@@ -7,6 +7,7 @@ import "../../assets/scss/style.scss"
 import './Cabinet.scss'
 import Contacts from "../../App/layout/Public/Contacts";
 import Skin from "../../App/layout/Public/Skin";
+import Info from "../../App/layout/Public/Info";
 
 class Cabinet extends Component {
     render() {
@@ -22,7 +23,8 @@ class Cabinet extends Component {
                         Личный кабинет
                     </div>
 
-                    <Skin/>
+                    <Skin />
+                    <Info />
                 </div>
 
                 <div className="first-bg endBg">

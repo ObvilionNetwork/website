@@ -25,6 +25,8 @@ class Navbar extends React.Component {
         }).then(async result => {
             const res = await result.json();
             if (res.name) {
+                window.localStorage.setItem('user', JSON.stringify(res));
+                
                 this.setState({
                     user: res,
                 })
