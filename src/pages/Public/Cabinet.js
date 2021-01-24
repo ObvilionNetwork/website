@@ -8,6 +8,8 @@ import './Cabinet.scss'
 import Contacts from "../../App/layout/Public/Contacts";
 import Skin from "../../App/layout/Public/Skin";
 import Info from "../../App/layout/Public/Info";
+import News from "../../App/layout/Public/News";
+import LCButtons from "../../App/layout/Public/LCButtons";
 
 class Cabinet extends Component {
     render() {
@@ -19,12 +21,15 @@ class Cabinet extends Component {
                         <img src={require('../../assets/images/bg.png')} />
                     </div>
                     <Navbar />
+                    <News />
+
                     <div className="title">
                         Личный кабинет
                     </div>
 
                     <Skin />
                     <Info />
+                    <LCButtons />
                 </div>
 
                 <div className="first-bg endBg">

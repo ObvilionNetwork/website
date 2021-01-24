@@ -1,0 +1,38 @@
+.LCButtons {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 1vw;
+
+  .button-lc {
+    display: inline-block;
+    background-color: rgba(45, 48, 53, 0.66);
+    margin-right: 2vw;
+    margin-top: 0.6vw;
+    width: 11vw;
+    height: 9.7vw;
+    border-radius: 0.2vw;
+
+    .title-lc {
+      text-align: left;
+      margin-left: 0.85vw;
+      margin-top: 0.5vw;
+
+      line-height: 1.75vw;
+      font-family: "CeraPro Medium", sans-serif;
+      font-size: 1.3vw;
+      color: white;
+    }
+
+    .description-lc {
+      text-align: left;
+      margin-left: 0.85vw;
+      margin-top: 0.25vw;
+      font-family: "CeraPro Regular", sans-serif;
+      font-size: 0.8vw;
+      width: 9.3vw;
+      line-height: 1.08vw;
+      color: #909090;
+    }
+  }
+}

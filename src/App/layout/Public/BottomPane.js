@@ -24,7 +24,7 @@ class BottomPane extends React.Component {
                         <div className="button-icon button-icon-linux">
                             <img src={require('../../../assets/images/linux.png')} />
                         </div>
-                        <p className="button-windows">Linux, Mac</p>
+                        <p className="button-windows">Linux</p>
                     </a>
                 </div>
             </div>

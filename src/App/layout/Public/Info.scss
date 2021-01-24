@@ -1,22 +1,60 @@
 .Info {
   position: absolute;
-  margin-top: -21vw;
+  margin-top: -20.5vw;
+  margin-left: 52vw;
 
   .info-table {
-    width: 10vw;
-    height: 3vw;
-    background-color: #1d2431;
-  }
+    width: 26.9vw;
+    background-color: rgba(45, 48, 53, 0.76);
 
-  .info-user {
+    font-family: 'CeraPro Regular', sans-serif;
+    font-size: 0.85vw;
+    color: white;
 
+    padding-left: 0.7vw;
+    padding-top: 0.7vw;
+    padding-bottom: 0.7vw;
+    border-radius: 0.2vw;
   }
 
   .info-discord {
-
+    margin-top: 2vw;
   }
 
   .info-group {
+    margin-top: 2vw;
+  }
+}
 
+.name-u {
+  display: inline-block;
+  width: 7vw;
+}
+
+.value-u {
+  width: 17.1vw;
+  text-align: right;
+  display: inline-block;
+  color: #85878b;
+}
+
+.vu2 {
+  width: 18.2vw;
+}
+
+.button-icon {
+  display: inline-flex;
+  width: 0.7vw;
+  height: 0.7vw;
+  background: none;
+  position: absolute;
+  padding: 0;
+  margin-left: 0.45vw;
+  margin-top: 0.3vw;
+
+  img {
+    transition: 0.3s;
+    width: 100%;
+    height: auto;
   }
 }

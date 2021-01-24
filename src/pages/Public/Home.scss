@@ -16,6 +16,10 @@
   }
 }
 
+.firstbg {
+  margin-top: -4.5vw;
+}
+
 .first {
   width: 100%;
   height: 49.1vw;
@@ -25,10 +29,10 @@
 
 .servers {
   width: 100%;
-  height: 39.7vw;
+  height: 38.2vw;
   display: block;
-  margin: 0;
-  padding: 0;
+  margin: -7vw 0 0;
+  padding: 0 0 2vw;
 }
 
 .whyObvilion {
@@ -39,12 +43,23 @@
   padding: 0;
 }
 
+.endbg {
+  margin-top: -3vw;
+  z-index: 10;
+}
+
 .end {
   width: 100%;
-  height: 22.7vw;
+  height: 21vw;
   display: block;
   margin: 0;
+  z-index: 20;
   padding: 0;
+
+  .BottomPane {
+    margin-top: 4vw;
+    height: 8.5vw;
+  }
 }
 
 ::-webkit-scrollbar {

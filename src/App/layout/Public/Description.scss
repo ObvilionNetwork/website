@@ -46,6 +46,17 @@
   transition: 0.3s;
 }
 
+.button-linux {
+  color: #fff;
+  font-family: 'CeraPro Regular', sans-serif;
+  font-size: 1.361vw; // 26.14px
+  padding: 0;
+  margin: 0;
+  margin-left: 0.9vw;
+  margin-top: -0.3vw;
+  transition: 0.3s;
+}
+
 .Description {
   position: relative;
   text-align: center;
@@ -76,7 +87,7 @@
     .text4 {
       color: #dedede;
       font-family: 'CeraPro Light', sans-serif;
-      font-size: 0.878vw; // 16,86px
+      font-size: 0.95vw; // 16,86px
       margin-left: 0.3vw;
       padding-bottom: 0.2vw;
     }
@@ -135,7 +146,7 @@
       }
 
       .button-icon-linux {
-        margin: 0.2vw 0 0 -3.85vw;
+        margin: 0.25vw 0 0 -2.52vw;
       }
     }
 

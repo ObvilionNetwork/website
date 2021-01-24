@@ -12,6 +12,25 @@ class Navbar extends React.Component {
             user: null,
         };
         this.update = this.update.bind(this);
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            fetch(apiLink + 'auth/discord?code=' + code, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                method: "GET"
+            }).then(async result => {
+                const res = await result.json();
+                if (!res.token) return;
+
+                window.localStorage.setItem('token', res.token);
+                this.update();
+            })
+        }
+
         this.update();
     }
 
@@ -55,6 +74,12 @@ class Navbar extends React.Component {
                 <li className="left">
                     <a href="/shop">
                         <p className="text">Магазин</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="https://discord.gg/cg82mjh">
+                        <p className="text">Discord</p>
                     </a>
                 </li>
 

@@ -11,7 +11,7 @@ class Skin extends React.Component {
                     {"#skin-viewer *{ background-image: url('https://obvilionnetwork.ru/api/users/get/" + (user.name ? user.name : 'Admin') + "/skin'); } #skin-viewer .cape{ background-image: url('https://obvilionnetwork.ru/api/users/get/" + (user.name ? user.name : 'Admin') + "/cape'); }"}
                 </style>
 
-                <div id="skin-viewer" className="mc-skin-viewer-11x legacy legacy-cape spin" style={{marginLeft: '24vw', marginTop: '6vw'}}>
+                <div id="skin-viewer" className="mc-skin-viewer-11x legacy legacy-cape spin" style={{marginLeft: '31vw', marginTop: '2vw'}}>
                     <div className="player">
 
                         <div className="head">

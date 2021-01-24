@@ -23,8 +23,8 @@ class Home extends Component{
                     <Description  />
                 </div>
 
-                <div className="first-bg">
-                    <img src={require('../../assets/images/bg2.png')} />
+                <div className="first-bg firstbg">
+                    <img src={require('../../assets/images/bg6.png')} />
                 </div>
                 <div className="servers">
                     <a id="servers"/>
@@ -38,7 +38,7 @@ class Home extends Component{
                     <WhyObvilion />
                 </div>
 
-                <div className="first-bg">
+                <div className="first-bg endbg">
                     <img src={require('../../assets/images/bg4.png')} />
                 </div>
                 <div className="end">

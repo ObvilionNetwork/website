@@ -1,0 +1,31 @@
+.News {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1vw;
+  height: 2.5vw;
+  width: 60vw;
+
+  border-color: rgba(41, 44, 49, 0.68);
+  border-width: 0.15vw 0 0.15vw 0;
+  border-style: solid;
+  text-align: center;
+
+  .news {
+    color: white;
+    font-family: "CeraPro Regular", sans-serif;
+    display: inline-block;
+    margin-top: 0.4vw;
+    font-size: 0.9vw;
+    padding-right: 1.3vw;
+  }
+
+  .lm-news {
+    color: #a3a4a8;
+    font-family: "CeraPro Regular", sans-serif;
+    display: inline-block;
+    padding-right: 1.3vw;
+    font-size: 0.86vw;
+    margin-top: 0.3vw;
+  }
+}
