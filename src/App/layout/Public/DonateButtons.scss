@@ -1,0 +1,96 @@
+.DonateButtons {
+  position: absolute;
+  width: 60vw;
+  text-align: center;
+  margin-top: 0.5vw;
+  margin-left: 20vw;
+
+  .button-lc {
+    display: inline-block;
+    background-color: rgba(45, 48, 53, 0.66);
+    margin-right: 2vw;
+    width: 16.2vw;
+    height: 17vw;
+    border-radius: 0.2vw;
+    transition: 0.3s;
+
+    .title-lc {
+      margin-top: 0.8vw;
+      width: 100%;
+      text-align: center;
+
+      line-height: 1.75vw;
+      font-family: "CeraPro Bold", sans-serif;
+      font-size: 1.5vw;
+      color: white;
+    }
+
+    .description-lc {
+      text-align: center;
+      padding-left: 1.5vw;
+      padding-right: 1.5vw;
+      margin-top: 0.6vw;
+      font-family: "CeraPro Light", sans-serif;
+      font-size: 1.07vw;
+      width: 100%;
+      line-height: 1.24vw;
+      color: #909090;
+    }
+
+    .price {
+      color: #f5f5f5;
+      font-family: "CeraPro Regular", sans-serif;
+      font-size: 1.2vw;
+      margin-top: 2vw;
+    }
+
+    .max-price {
+      color: #aaaaaa;
+      font-family: "CeraPro Regular", sans-serif;
+      font-size: 0.78vw;
+      margin-top: -0.1vw;
+    }
+  }
+}
+
+.plus-margin {
+  margin-top: 1.5vw;
+}
+
+.button-don {
+  position: absolute;
+  width: 9vw;
+  height: 2.4vw;
+  border: 0.165vw solid #1f7abf;
+  border-radius: 0.15vw;
+  transition: 0.3s;
+  margin-left: -4.55vw;
+  margin-top: 0.5vw;
+
+  .text {
+    color: #f5f5f5;
+    font-family: "CeraPro Regular", sans-serif;
+    font-size: 1vw;
+    margin-top: 0.25vw;
+  }
+}
+
+.button-don:hover {
+  border: 0.165vw solid #a3b6c2;
+}
+
+.button-lc:hover {
+  background-color: rgba(45, 48, 53, 0.84);
+}
+
+.info-don {
+  margin-top: 3.45vw;
+  margin-left: -2.6vw;
+  position: absolute;
+  transition: 0.3s;
+  color: #607786;
+}
+
+.info-don:hover {
+  color: #9fbacd;
+}
