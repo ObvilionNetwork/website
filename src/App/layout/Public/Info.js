@@ -59,12 +59,12 @@ class Info extends React.Component {
 
                <div>
                   <div className="name-u">Привилегия</div>
-                  <div className="value-u vu2" style={{color: "#bc9bff"}}>{user.group.name}</div>
+                  <div className="value-u vu2" style={{color: "#bc9bff"}}>{user.group ? user.group.name : 'Игрок'}</div>
                </div>
 
                <div>
                   <div className="name-u">Дата окончания</div>
-                  <div className="value-u vu2">{user.group.end ? user.group.end : 'Нет'}</div>
+                  <div className="value-u vu2">{user.group ? user.group.end ? user.group.end : 'Нет' : 'Нет'}</div>
                </div>
             </div>
          </div>
