@@ -4,6 +4,7 @@ import {Row, Col} from 'react-bootstrap';
 import Aux from "../../App/components/_Aux";
 import Card from "../../App/components/MainCard";
 
+import './APITest.scss';
 
 class APITest extends Component {
     constructor(props) {
@@ -148,99 +149,130 @@ class APITest extends Component {
         return (
             <Aux>
                 <Row>
-                    <Col md={6}>
-                        <Card title={"Body"}>
-                            <form onSubmit={this.onSubmit}>
-                                <label style={{color: '#a9b7d0', fontSize: '14px'}}>
-                                    Название: 
-                                    <input type="text" style={this.state.inputStyle} value={this.state.name} onChange={this.onChangeName}/>
+                    <Col >
+                        <Card title="Информация о запросе" isOption>
+                            <div className="parent-block">
+                                <div className="asdp" style={{ maxWidth: '135px', marginBottom: '10px' }}>
+                                    <p style={{ marginTop: '-10px' }} className="title">
+                                        Метод запроса
+                                    </p>
 
-                                    <label>
-                                        Значение: 
-                                        <input type="text" style={{margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'}} value={this.state.value} onChange={this.onChangeValue}/>
-                                    </label>
-                                </label>
-
-                                <input type="submit" style={{padding: '8px 12px', border: '0', color: 'white', backgroundColor: '#62a8e4'}} value="Добавить" />
-                            </form>
-
-                            {this.state.names.map((e, i) => 
-                                <div key={i} style={{color: '#848E9A'}}>
-                                    <label style={{color: '#62a8e4', marginRight: '5px'}}>#{i+1}</label>
-                                    Название: 
-                                    <label key={i + '1'} style={{color: 'white', marginLeft: '5px', marginRight: '12px'}}>
-                                        {e}
-                                    </label> 
-
-                                    Значение:
-                                    <label key={i + '2'} style={{color: 'white', marginLeft: '5px'}}>
-                                        {this.state.values[i]}
-                                    </label>
+                                    <select style={{ }} value={this.state.type} onChange={this.handleChangeType}>
+                                        <option defaultValue="GET">GET</option>
+                                        <option value="POST">POST</option>
+                                        <option value="PUT">PUT</option>
+                                        <option value="DELETE">DELETE</option>
+                                        <option value='PATCH'>PATCH</option>
+                                    </select>
                                 </div>
-                            )}
-                        </Card>
-                    </Col>
-                    <Col md={6}>
-                        <Card title={"Headers"}>
-                            <form onSubmit={this.onSubmith}>
-                                <label style={{color: '#a9b7d0', fontSize: '14px'}}>
-                                    Название: 
-                                    <input type="text" style={this.state.inputStyleh} value={this.state.nameh} onChange={this.onChangeNameh}/>
 
-                                    <label>
-                                        Значение: 
-                                        <input type="text" style={{margin: '0 25px 0 7px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'}} value={this.state.valueh} onChange={this.onChangeValueh}/>
-                                    </label>
-                                </label>
+                                <div className="asdp" style={{ minWidth: '160px', width: '20%' }}>
+                                    <p style={{ marginTop: '-10px' }} className="title">
+                                        Ссылка на API
+                                    </p>
 
-                                <input type="submit" style={{padding: '8px 12px', border: '0', color: 'white', backgroundColor: '#62a8e4'}} value="Добавить" />
-                            </form>
-
-                            {this.state.namesh.map((e, i) => 
-                                <div key={i} style={{color: '#848E9A'}}>
-                                    <label style={{color: '#62a8e4', marginRight: '5px'}}>#{i+1}</label>
-                                    Название: 
-                                    <label key={i + '1'} style={{color: 'white', marginLeft: '5px', marginRight: '12px'}}>
-                                        {e}
-                                    </label> 
-
-                                    Значение:
-                                    <label key={i + '2'} style={{color: 'white', marginLeft: '5px'}}>
-                                        {this.state.valuesh[i]}
-                                    </label>
+                                    <input style={{ width: '100%' }} className="input-cui" placeholder="Введите ссылку к API" value="https://obvilionnetwork.ru/api" type="text" />
                                 </div>
-                            )}
-                        </Card>
-                    </Col>
-                    <Col md={6}>
-                        <Card title={"Settings"}>
-                            <form onSubmit={this.onSubmitp}>
-                                <label style={{color: '#a9b7d0', fontSize: '14px'}}>
-                                    Ссылка: 
-                                    <input type="text" style={{margin: '0 20px 0 7px', width: '280px', color: 'white', border: 'none', borderBottom: '2px solid #62a8e4', background: 'linear-gradient(#242c3e, #222833)'}} value={this.state.link} onChange={this.onChangeLink}/>
-                                </label>
 
-                                <select style={{backgroundColor: '#587ED0', marginRight: '18px', border: '0', outline: 'none', color: 'white'}} value={this.state.type} onChange={this.handleChangeType}>
-                                    <option defaultValue="GET">GET</option>
-                                    <option value="POST">POST</option>
-                                    <option value="PUT">PUT</option>
-                                    <option value="DELETE">DELETE</option>
-                                    <option value='PATCH'>PATCH</option>
-                                </select>
+                                <div className="asdp" style={{ width: '45%' }}>
+                                    <p style={{ marginTop: '-10px' }} className="title">
+                                        Путь к запросу
+                                    </p>
 
-                                <input type="submit" style={{padding: '8px 12px', border: '0', color: 'white', backgroundColor: '#62a8e4'}} value="Отправить" />
-                            </form>
+                                    <input style={{ width: '100%' }} className="input-cui" placeholder="Введите ссылку URI" type="text" />
+                                </div>
+
+                                <div className="asdp">
+                                    <input className="input-cuib" type="button" value="Отправить запрос" />
+                                </div>
+                            </div>
+
+                            <div className="parent-block">
+                                <div className="asd-block" style={{ marginBottom: '10px' }}>
+                                    <p className="title ntitle">
+                                        Аргументы Query
+                                    </p>
+
+                                    <div style={{ color: '#fdf4f4'}}>
+                                        <label className="arg-label">#1</label>
+                                        <input style={{ width: '35%', marginTop: '10px' }} className="input-cui opk" placeholder="Введите название" type="text" />
+                                        <label className="arg-label">=</label>
+                                        <input style={{ width: '50%' }} className="input-cui opk" placeholder="Введите значение" type="text" />
+                                        <label style={{
+                                            fontSize: '1.1rem', fontWeight: 'normal', position: 'fixed',
+                                            marginTop: '9px', color: 'rgba(255,173,173,0.9)'
+                                        }} className="arg-label">x</label>
+                                    </div>
+                                    <div style={{ color: '#fdf4f4'}}>
+                                        <label className="arg-label">#2</label>
+                                        <input style={{ width: '35%', marginTop: '8px' }} className="input-cui opk" placeholder="Введите название" type="text" />
+                                        <label className="arg-label">=</label>
+                                        <input style={{ width: '50%' }} className="input-cui opk" placeholder="Введите значение" type="text" />
+                                        <label style={{
+                                            fontSize: '1.1rem', fontWeight: 'normal', position: 'fixed',
+                                            marginTop: '8px', color: 'rgba(255,173,173,0.9)'
+                                        }} className="arg-label">x</label>
+                                    </div>
+                                    <input style={{
+                                        marginLeft: '7px', marginTop: '10px', borderRadius: '100px',
+                                        padding: '0 15px', fontSize: '0.9rem', backgroundColor: 'rgba(159,207,255,0.13)',
+                                        marginBottom: '10px'
+                                    }} className="input-cuib" type="button" value="Создать Query аргумент" />
+                                </div>
+
+                                <div className="asd-block">
+                                    <p className="title ntitle">
+                                        Header-ы
+                                    </p>
+
+                                    <div style={{ color: '#fdf4f4'}}>
+                                        <label className="arg-label">#1</label>
+                                        <input style={{ width: '35%', marginTop: '10px' }} className="input-cui opk" placeholder="Введите название" type="text" />
+                                        <label className="arg-label">=</label>
+                                        <input style={{ width: '50%' }} className="input-cui opk" placeholder="Введите значение" type="text" />
+                                        <label style={{
+                                            fontSize: '1.1rem', fontWeight: 'normal', position: 'fixed',
+                                            marginTop: '9px', color: 'rgba(255,173,173,0.9)'
+                                        }} className="arg-label">x</label>
+                                    </div>
+                                    <div style={{ color: '#fdf4f4'}}>
+                                        <label className="arg-label">#2</label>
+                                        <input style={{ width: '35%', marginTop: '8px' }} className="input-cui opk" placeholder="Введите название" type="text" />
+                                        <label className="arg-label">=</label>
+                                        <input style={{ width: '50%' }} className="input-cui opk" placeholder="Введите значение" type="text" />
+                                        <label style={{
+                                            fontSize: '1.1rem', fontWeight: 'normal', position: 'fixed',
+                                            marginTop: '8px', color: 'rgba(255,173,173,0.9)'
+                                        }} className="arg-label">x</label>
+                                    </div>
+                                    <input style={{
+                                        marginLeft: '7px', marginTop: '10px', borderRadius: '100px',
+                                        padding: '0 15px', fontSize: '0.9rem', backgroundColor: 'rgba(159,207,255,0.13)',
+                                        marginBottom: '10px'
+                                    }} className="input-cuib" type="button" value="Создать заголовок" />
+                                </div>
+
+                                <div className="asd-block">
+                                    <p className="title ntitle">
+                                        Body
+                                    </p>
+                                    <div contentEditable="true">
+                                        <div style={{ color: 'red' }}>
+                                            Цветной текст
+                                        </div>
+                                        <div style={{ color: 'green' }}>
+                                            это
+                                        </div>
+                                        <div style={{ color: 'blue' }}>
+                                            круто
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </Card>
-                    </Col>
-                    <Col md={6}>
-                        <Card title={"Result"}>
-                            <p style={{color: '#62a8e4'}}>
-                                Статус: {this.state.code}</p>
-                            <pre style={{height: '600px'}}>
-                                <code > 
-                                    {this.state.result}
-                                </code>
-                            </pre>
+
+                        <Card title="Ответ" isOption>
+
                         </Card>
                     </Col>
                 </Row>

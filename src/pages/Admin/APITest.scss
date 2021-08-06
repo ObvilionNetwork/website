@@ -13,6 +13,11 @@
   font-weight: bolder;
 }
 
+.ntitle {
+  margin-left: 6px;
+  margin-top: 4px;
+}
+
 .input-cui {
   background-color: var(--baseBg);
   border: none;
@@ -22,6 +27,10 @@
   height: 30px;
   padding-left: 8px;
   width: 280px;
+}
+
+.opk {
+  background-color: rgba(0, 0, 0, 0.22);
 }
 
 .input-cuib {
@@ -45,7 +54,7 @@
   justify-content: left;
 }
 
-.asd {
+.asdp {
   flex: 1 0 auto;
   border-radius: 6px;
   min-width: 120px;
@@ -54,6 +63,22 @@
   float: left;
 }
 
+.asd-block {
+  flex: 1 0 40%;
+  min-width: 400px;
+  max-width: 100%;
+  background-color: rgba(130, 165, 255, 0.05);
+  border-radius: 6px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.arg-label {
+  color: #62a8e4;
+  margin-left: 7px;
+  margin-right: 5px;
+  font-weight: bolder;
+}
 
 select {
   font-size: 0.85rem;
