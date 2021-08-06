@@ -28,8 +28,14 @@ class Servers extends React.Component {
             method: "GET"
         }).then(val => {
             val.json().then(result => {
+                const minecraft_servers = [];
+                for (const s of result.servers) {
+                    if (s.type === 'minecraft')
+                        minecraft_servers.push(s);
+                }
+
                 this.setState({
-                    servers: result.servers,
+                    servers: minecraft_servers,
                 });
 
                 const cl = this.state.servers.map(server => {
@@ -51,7 +57,6 @@ class Servers extends React.Component {
     }
 
     render() {
-
         return(
             <div className="ServersPane">
                 <Slider autoplay="5000ms" duration="900" infinite="true" onSlideChange={event => {

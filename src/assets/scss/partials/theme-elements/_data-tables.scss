@@ -65,7 +65,7 @@
 
 .table-dark {
     color: #fff;
-    background-color: $dark-color;
+    background-color: #ffffff03;
 
     td,
     th,
@@ -82,7 +82,7 @@
     &.table-hover {
         tbody tr {
             &:hover {
-                background-color: darken($dark-color,5%);
+                background-color: darken(#ffffff03, 10%);
             }
         }
     }
