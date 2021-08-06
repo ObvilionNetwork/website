@@ -1,0 +1,92 @@
+:root {
+  --radius: 3px;
+  --baseFg: rgba(0, 0, 0, 0);
+  --baseBg: #4d5771;
+  --accentFg: rgb(58, 59, 66);
+  --accentBg: #7ebff8;
+}
+
+.title {
+  font-size: 1.0rem;
+  margin-bottom: 4px;
+  color: #dce0e3;
+  font-weight: bolder;
+}
+
+.input-cui {
+  background-color: var(--baseBg);
+  border: none;
+  border-radius: var(--radius);
+  color: #efefef;
+  font-size: 0.95rem;
+  height: 30px;
+  padding-left: 8px;
+  width: 280px;
+}
+
+.input-cuib {
+  background-color: #60a9e5;
+  border: none;
+  border-radius: var(--radius);
+  color: #efefef;
+  font-weight: bolder;
+  font-size: 0.95rem;
+  height: 30px;
+  padding-left: 9px;
+  padding-right: 9px;
+  margin-top: 18px;
+}
+
+
+.parent-block {
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.asd {
+  flex: 1 0 auto;
+  border-radius: 6px;
+  min-width: 120px;
+  margin: 10px;
+  padding: 5px;
+  float: left;
+}
+
+
+select {
+  font-size: 0.85rem;
+  -webkit-appearance: none;
+  appearance: none;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  line-height: 1;
+  outline: 0;
+  padding: 0.65em 2.5em 0.55em 0.75em;
+  background-color: var(--baseBg);
+  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+  linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+  linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+  linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  background-position: right 20px center, right bottom, right bottom, right bottom;
+}
+
+select:hover {
+  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+  linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+  linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+  linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+}
+
+select:active {
+  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+  linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+  linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+  linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+  color: var(--accentBg);
+  background-color: var(--accentFg);
+}

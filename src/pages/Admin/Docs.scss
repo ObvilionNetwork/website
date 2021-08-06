@@ -1,0 +1,16 @@
+.parent-block {
+  width: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.asd {
+  flex: 1 0 40%;
+  min-width: 400px;
+  max-width: 100%;
+  background-color: rgba(130, 165, 255, 0.04);
+  border-radius: 6px;
+  margin: 10px;
+  padding: 5px;
+}
