@@ -51,6 +51,41 @@ const styles = {
   };
 
 class Docs extends Component {
+    _clone(obj) {
+        let copy;
+
+        // Handle the 3 simple types, and null or undefined
+        if (null == obj || "object" != typeof obj) return obj;
+
+        // Handle Date
+        if (obj instanceof Date) {
+            copy = new Date();
+            copy.setTime(obj.getTime());
+            return copy;
+        }
+
+        // Handle Array
+        if (obj instanceof Array) {
+            copy = [];
+            for (var i = 0, len = obj.length; i < len; i++) {
+                copy[i] = this._clone(obj[i]);
+            }
+            return copy;
+        }
+
+        // Handle Object
+        if (obj instanceof Object) {
+            copy = {};
+            for (const attr in obj) {
+                if (obj.hasOwnProperty(attr)) copy[attr] = this._clone(obj[attr]);
+            }
+            return copy;
+        }
+
+        throw new Error("Unable to copy obj! Its type isn't supported.");
+    }
+
+
     render() {
         const to_object = (array, level) => {
             let s = '<r style="color: #c3cbd2">{</r><br/>';
@@ -92,7 +127,19 @@ class Docs extends Component {
                                             <span style={pl.type === 'GET' ? styles.get : pl.type === 'POST' ? styles.post : pl.type === 'PATCH' ? styles.patch : styles.delete}>{pl.type}</span>
                                             <span style={styles.size17}> {pl.path.content} </span>
                                             <span style={styles.name}> {pl.name} </span>
-                                            <button onClick={() => alert('Функция не робит :(')} style={{backgroundColor: '#191f2b', outline: 'none', marginRight: 0, marginTop: '-2px'}} className="float-right button-blue">Тестировать</button>
+                                            <button onClick={() => {
+                                                const copy = { ...pl };
+
+                                                delete copy.description;
+                                                delete copy.path.params;
+                                                delete copy.result;
+                                                delete copy.permissions;
+
+                                                this.setState({});
+
+                                                window.location.pathname = '/admin/apitest';
+                                                window.localStorage.setItem('apidocs', JSON.stringify(copy));
+                                            }} style={{backgroundColor: '#191f2b', outline: 'none', marginRight: 0, marginTop: '-2px'}} className="float-right button-blue">Тестировать</button>
                                         </p>
 
                                         <div style={{ backgroundColor: '#191f2b', borderRadius: '6px', marginTop: '-6px' }} className='p-2'>

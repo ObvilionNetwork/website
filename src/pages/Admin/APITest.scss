@@ -1,9 +1,18 @@
 :root {
   --radius: 3px;
   --baseFg: rgba(0, 0, 0, 0);
-  --baseBg: #4d5771;
+  --baseBg: #444d65;
   --accentFg: rgb(58, 59, 66);
   --accentBg: #7ebff8;
+}
+
+.body-content {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding-top: 10px;
+  padding-left: 13px;
+  padding-bottom: 11px;
+  white-space: pre-wrap;
 }
 
 .title {
@@ -67,7 +76,7 @@
   flex: 1 0 40%;
   min-width: 400px;
   max-width: 100%;
-  background-color: rgba(130, 165, 255, 0.05);
+  background-color: rgba(4, 5, 7, 0.2);
   border-radius: 6px;
   margin: 10px;
   padding: 5px;
@@ -115,3 +124,9 @@ select:active {
   color: var(--accentBg);
   background-color: var(--accentFg);
 }
+
+.field{color: #d3666d}
+.string{color: #7fbe6d}
+.number{color: #5c80ec}
+.bool{color: #ce9664}
+.null{color: #915aec}
