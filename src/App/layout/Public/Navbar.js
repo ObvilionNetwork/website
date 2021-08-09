@@ -91,7 +91,7 @@ class Navbar extends React.Component {
 
                 <li className="left">
                     <a>
-                        <p className="text">Помощь</p>
+                        <p style={{color: 'rgb(255, 255, 255)'}} className="text">Помощь</p>
                         <div className="arrow-2">
                             <div className="arrow-2-top"/>
                             <div className="arrow-2-bottom"/>
