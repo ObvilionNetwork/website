@@ -131,7 +131,7 @@ class Navbar extends React.Component {
                             <a href="/cabinet">
                                 <p style={{ fontSize: '0.9vw', marginRight: '0.6vw', marginTop: '-0.1vw' }} className="text">{this.state.user.name}</p>
                                 <div className="b-bg">
-                                    <img style={{ borderRadius: '10vw' }} src={`${apiLink}users/get/${this.state.user.name}/avatar`} />
+                                    <img style={{ borderRadius: '10vw' }} src={`${apiLink}users/${this.state.user.name}/avatar`} />
                                 </div>
                             </a>
                         </li>
