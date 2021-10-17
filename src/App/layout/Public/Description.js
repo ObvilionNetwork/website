@@ -21,7 +21,7 @@ class Description extends React.Component {
                 </h3>
 
                 <div className="buttons-container">
-                    <a className="first" href="/api/files/launchers/ObvilionNetworkLauncher.exe">
+                    <a className="first" href="/api/files/launchers/obvilion-launcher.exe">
                         <p className="button-download">Скачать лаунчер</p>
 
                         <div className="button-icon">
@@ -30,12 +30,12 @@ class Description extends React.Component {
                         <p className="button-windows">Windows</p>
                     </a>
 
-                    <a className="next" href="/api/files/launchers/ObvilionNetworkLauncher.jar">
+                    <a className="next" href="/api/files/launchers/obvilion-launcher.jar">
                         <p className="button-download">Скачать лаунчер</p>
                         <div className="button-icon button-icon-linux">
                             <img src={require('../../../assets/images/linux.png')} />
                         </div>
-                        <p className="button-linux">Linux</p>
+                        <p className="button-linux">Linux, macOs</p>
                     </a>
                 </div>
 
