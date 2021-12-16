@@ -12,7 +12,7 @@ let players = {};
 let auths = {};
 let servers = {};
 
-const apiLink = 'https://obvilionnetwork.ru/api/';
+const apiLink = 'https://obvilion.ru/api/';
 
 async function loa1d() {
   const token = window.localStorage.getItem('token');

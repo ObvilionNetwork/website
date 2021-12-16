@@ -6,7 +6,7 @@ import "./Servers.scss"
 import Slider from 'react-animated-slider';
 import './Slider.scss';
 
-const apiLink = 'https://obvilionnetwork.ru/api/';
+const apiLink = 'https://obvilion.ru/api/';
 
 class Servers extends React.Component {
     constructor(props) {
@@ -83,7 +83,7 @@ class Servers extends React.Component {
                                 </svg>
                             </div>
                             <div className="server-logo">
-                                <img src="https://obvilionnetwork.ru/api/files/HiTechSpawn.png" />
+                                <img src="https://obvilion.ru/api/files/HiTechSpawn.png" />
                             </div>
                             <p className="description">
                                 {server.description}

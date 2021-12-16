@@ -6,7 +6,7 @@ import Aux from "../../App/components/_Aux";
 import Breadcrumb from "../../App/layout/AdminLayout/Breadcrumb";
 import DEMO from "../../store/constant";
 
-const apiLink = 'https://obvilionnetwork.ru/api/';
+const apiLink = 'https://obvilion.ru/api/';
 const inputStyle = { border: '0', color: '#d1d6e0', background: '#1d2131' };
 
 class SignUp1 extends React.Component {

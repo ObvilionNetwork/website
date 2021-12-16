@@ -444,7 +444,7 @@ class APITest extends Component {
 
                                     <input onInput={this._onApiLinkEdited} style={{ width: '100%' }} className="input-cui"
                                            ref={this.Content.api_link} placeholder="Введите ссылку к API"
-                                           defaultValue={this.state.config.path.api_link ? this.state.config.path.api_link : "https://obvilionnetwork.ru/api"} type="text" />
+                                           defaultValue={this.state.config.path.api_link ? this.state.config.path.api_link : "https://obvilion.ru/api"} type="text" />
                                 </div>
 
                                 <div className="asdp" style={{ width: '45%' }}>

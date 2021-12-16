@@ -3,7 +3,7 @@ import React from 'react';
 import "../../../assets/scss/style.scss"
 import "./Navbar.scss"
 
-const apiLink = 'https://obvilionnetwork.ru/api/';
+const apiLink = 'https://obvilion.ru/api/';
 
 class Navbar extends React.Component {
     constructor(props) {

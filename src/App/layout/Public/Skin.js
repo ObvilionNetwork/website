@@ -8,7 +8,7 @@ class Skin extends React.Component {
         return(
             <div>
                 <style>
-                    {"#skin-viewer *{ background-image: url('https://obvilionnetwork.ru/api/users/" + (user.name ? user.name : 'Admin') + "/skin'); } #skin-viewer .cape{ background-image: url('https://obvilionnetwork.ru/api/users/" + (user.name ? user.name : 'Admin') + "/cape'); }"}
+                    {"#skin-viewer *{ background-image: url('https://obvilion.ru/api/users/" + (user.name ? user.name : 'Admin') + "/skin'); } #skin-viewer .cape{ background-image: url('https://obvilionnetwork.ru/api/users/" + (user.name ? user.name : 'Admin') + "/cape'); }"}
                 </style>
 
                 <div id="skin-viewer" className="mc-skin-viewer-11x legacy legacy-cape spin" style={{marginLeft: '31vw', marginTop: '2vw'}}>
