@@ -1,0 +1,60 @@
+.parent-block {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.asd {
+  flex: 1 0 40%;
+  min-width: 10vw;
+  max-width: 100%;
+  background-color: rgba(45, 48, 53, 0.85);
+  border-radius: 0.4vw;
+  margin: 0.8vw 1.2vw 0.8vw 1.2vw;
+  padding: 0.7vw;
+  position: relative;
+  transition: 0.3s;
+  opacity: 0.85;
+}
+
+.asd:hover {
+  background-color: rgba(45, 48, 53, 0.85);
+  opacity: 1;
+}
+
+.title-rcs {
+  text-align: left;
+  margin-left: 0.15vw;
+  padding-bottom: 0.8vw;
+  font-family: "CeraPro Medium", sans-serif;
+  font-size: 1.05vw;
+  color: white;
+}
+
+.title-rcd {
+  text-align: left;
+  margin-left: 0.15vw;
+  font-family: "CeraPro Medium", sans-serif;
+  font-size: 0.8vw;
+  color: white;
+}
+
+.title-rcf {
+  margin-left: 0.35vw;
+  font-family: "CeraPro Regular", sans-serif;
+  font-size: 0.8vw;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 0.8vw;
+}
+
+.rule {
+  padding-bottom: 0.5vw;
+  line-height: 0.8vw;
+}
+
+r {
+  line-height: 1vw;
+  padding: 0;
+  margin: 0;
+}
