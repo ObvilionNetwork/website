@@ -42,13 +42,13 @@ class SignUp1 extends React.Component {
                         window.localStorage.setItem('token', result.token);
                         window.location.assign('/');
                     } else {
-                        if (result.message === 'User not found.') {
+                        if (result.error === 'User not found') {
                             this.setState({
                                 inputStyleLogin: { borderWidth: '1px', borderColor: '#7591ff', color: '#d1d6e0', background: '#1d2131' },
                                 inputStylePass: { border: '0', color: '#d1d6e0', background: '#1d2131' },
                                 stateText: 'Неверный логин'
                             });
-                        } else if (result.message === 'Invalid login data.') {
+                        } else if (result.error === 'Invalid password') {
                             this.setState({
                                 inputStylePass: { borderWidth: '1px', borderColor: '#7591ff', color: '#d1d6e0', background: '#1d2131' },
                                 inputStyleLogin: { border: '0', color: '#d1d6e0', background: '#1d2131' },

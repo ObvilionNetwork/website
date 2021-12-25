@@ -6,7 +6,7 @@ import "./BottomPane.scss"
 class Contacts extends React.Component {
     render() {
         return(
-            <div style={{marginTop: '2vw'}} className="BottomPane">
+            <div style={{ marginTop: '2vw' }} className="BottomPane">
                 <div className="contacts">
                     <p className="title">Наши контакты:</p>
                     <div className="firstContainer">

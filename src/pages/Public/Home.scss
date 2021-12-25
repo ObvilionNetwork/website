@@ -17,7 +17,10 @@
 }
 
 .firstbg {
-  margin-top: -4.5vw;
+  margin-top: -6vw;
+  img {
+    -webkit-mask: linear-gradient(to top, rgba(0,0,0,1) 82%, rgba(0,0,0,0) 100%);
+  }
 }
 
 .first {

@@ -1,6 +1,7 @@
 .first-bg {
   width: 100%;
   background: none;
+  position: absolute;
 
   img {
     position: absolute;
@@ -16,6 +17,12 @@
   }
 }
 
+.bgg {
+  margin-top: -5vw;
+  img {
+    -webkit-mask: linear-gradient(to top, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 0) 100%);
+  }
+}
 
 .title {
   padding: 0;
@@ -25,6 +32,10 @@
   font-size: 2.29vw;
   position: relative;
   text-align: center;
+}
+
+.titleP1 {
+  font-size: 2.5vw;
 }
 
 .first {

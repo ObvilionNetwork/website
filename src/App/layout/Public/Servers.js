@@ -77,7 +77,7 @@ class Servers extends React.Component {
                                     <circle className="circle-chart__circle" stroke="#dfdfdf" strokeWidth="0.156vw" strokeDasharray={ server.players === -1 ? '0 100' : server.players / server.maxPlayers * 100 + " 100"} strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
                                     <text x="17" y="20" className="online-players">
                                         <tspan textAnchor="middle">
-                                            {server.players === -1 ? 'Выкл.' : server.online + '/' + server.maxOnline}
+                                            {server.online === -1 ? 'Выкл.' : server.online + '/' + server.maxOnline}
                                         </tspan>
                                     </text>
                                 </svg>

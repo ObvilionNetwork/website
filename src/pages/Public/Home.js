@@ -11,29 +11,30 @@ import WhyObvilion from "../../App/layout/Public/WhyObvilion";
 import BottomPane from "../../App/layout/Public/BottomPane";
 import Contacts from "../../App/layout/Public/Contacts";
 
-class Home extends Component{
+class Home extends Component {
     render() {
         return (
             <Aux>
                 <div className="first">
                     <div className="first-bg">
-                        <img src={require('../../assets/images/bg.png')} />
+                        <img src={require('../../assets/images/bg.jpg')} />
                     </div>
                     <Navbar />
                     <Description  />
                 </div>
 
                 <div className="first-bg firstbg">
-                    <img src={require('../../assets/images/bg6.png')} />
+                    <img src={require('../../assets/images/bg1.jpg')} />
                 </div>
+                <div className="first-bg firstbg">
+                    <img src={require('../../assets/images/bg2.jpg')} style={{ marginTop: '28vw' }} />
+                </div>
+
                 <div className="servers">
                     <a id="servers"/>
                     <Servers />
                 </div>
 
-                <div className="first-bg">
-                    <img src={require('../../assets/images/bg3.png')} />
-                </div>
                 <div className="whyObvilion">
                     <WhyObvilion />
                 </div>

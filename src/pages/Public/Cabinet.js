@@ -18,7 +18,7 @@ class Cabinet extends Component {
             <Aux>
                 <div className="first">
                     <div className="first-bg">
-                        <img src={require('../../assets/images/bg.png')} />
+                        <img src={require('../../assets/images/bg.jpg')} />
                     </div>
                     <Navbar />
                     <News />

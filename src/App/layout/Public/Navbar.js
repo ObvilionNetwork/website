@@ -90,6 +90,18 @@ class Navbar extends React.Component {
                 </li>
 
                 <li className="left">
+                    <a href="/rules">
+                        <p className="text">Правила</p>
+                    </a>
+                </li>
+
+                <li className="left">
+                    <a href="/event">
+                        <p className="text">Подарки</p>
+                    </a>
+                </li>
+
+                <li className="left">
                     <a>
                         <p style={{color: 'rgb(255, 255, 255)'}} className="text">Помощь</p>
                         <div className="arrow-2">
@@ -98,7 +110,6 @@ class Navbar extends React.Component {
                         </div>
                     </a>
                     <ul className="submenu">
-                        <li><a className="text" href="/rules">Правила</a></li>
                         <li><a className="text" href="/banlist">Бан-лист</a></li>
                         <li><a className="text" href="/bugreport">Отправить баг-репорт</a></li>
                     </ul>
