@@ -1,0 +1,60 @@
+.descLeft {
+  padding: 1vw;
+  margin-top: 1.5vw;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'CeraPro Regular', sans-serif;
+  font-size: 1.1vw;
+  position: relative;
+  background-color: rgba(27, 31, 33, 0.5);
+  border-radius: 0.4vw;
+  width: 40vw;
+  line-height: 1.35vw;
+  transition: 0.3s;
+}
+
+.descM1 {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'CeraPro Regular', sans-serif;
+  font-size: 1.1vw;
+  line-height: 1.35vw;
+}
+
+.descLeft:hover {
+  background-color: rgba(27, 31, 33, 0.6);
+}
+
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titleM1 {
+  padding: 0;
+  margin-top: 0.1vw;
+  margin-bottom: 0.9vw;
+  line-height: 1.35vw;
+  color: #ffffff;
+  font-family: 'CeraPro Bold', sans-serif;
+  font-size: 1.3vw;
+  position: relative;
+}
+
+.buttonM1 {
+  background-color: rgba(94, 138, 224, 0.3);
+  padding: 0.5vw;
+  width: 8.8vw;
+  border-radius: 0.2vw;
+  position: absolute;
+  margin-top: -2.89vw;
+  margin-left: 28vw;
+}
+
+.strM1 {
+  width: 8.8vw;
+  border-radius: 0.2vw;
+  position: absolute;
+  margin-top: 3vw;
+  margin-left: 18vw;
+}
+
