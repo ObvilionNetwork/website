@@ -96,12 +96,6 @@ class Navbar extends React.Component {
                 </li>
 
                 <li className="left">
-                    <a href="/event">
-                        <p className="text">Подарки</p>
-                    </a>
-                </li>
-
-                <li className="left">
                     <a>
                         <p style={{color: 'rgb(255, 255, 255)'}} className="text">Помощь</p>
                         <div className="arrow-2">
