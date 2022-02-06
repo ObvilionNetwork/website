@@ -72,6 +72,7 @@ class Servers extends React.Component {
                         return <div>
                             <div className="name-container">
                                 <h1>{server.name}</h1>
+                                <h2>{server.version}</h2>
                                 <svg className="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="3.5416vw" height="3.5416vw" xmlns="http://www.w3.org/2000/svg">
                                     <circle className="circle-chart__background" stroke="#1f7abf" strokeWidth="0.156vw" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
                                     <circle className="circle-chart__circle" stroke="#dfdfdf" strokeWidth="0.156vw" strokeDasharray={ server.players === -1 ? '0 100' : server.players / server.maxPlayers * 100 + " 100"} strokeLinecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"/>
