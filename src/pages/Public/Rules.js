@@ -30,11 +30,23 @@ class Rules extends Component {
                <img src={require('../../assets/images/bg3.jpg')} />
             </div>
 
-            <div className="first-bg" style={{ paddingTop: '136vw' }}>
+            <div className="first-bg bgg" style={{ paddingTop: '136vw' }}>
+               <img src={require('../../assets/images/bg1.jpg')} />
+            </div>
+
+            <div className="first-bg bgg" style={{ paddingTop: '160vw' }}>
+               <img src={require('../../assets/images/bg2.jpg')} />
+            </div>
+
+            <div className="first-bg bgg" style={{ paddingTop: '183vw' }}>
+               <img src={require('../../assets/images/bg3.jpg')} />
+            </div>
+
+            <div className="first-bg" style={{ paddingTop: '223vw' }}>
                <img src={require('../../assets/images/bg5.png')} />
             </div>
 
-            <div className="first" style={{ height: '122.1vw' }}>
+            <div className="first" style={{ height: '209.5vw' }}>
                <Navbar />
                <News />
 
@@ -42,7 +54,7 @@ class Rules extends Component {
                   Правила проекта Obvilion.ru
                </div>
 
-               <div style={{ marginTop: '1vw', paddingLeft: '7vw', paddingRight: '7vw' }}>
+               <div style={{ marginTop: '2vw', paddingLeft: '7vw', paddingRight: '7vw' }}>
                   <RulesComp />
                </div>
             </div>
