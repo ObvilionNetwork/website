@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import Aux from "../../App/components/_Aux";
 import Card from "../../App/components/MainCard";
 
-import docs from "./docs_new.json"
+import docs from "./docs.json"
 
 import '../../assets/scss/buttons.css';
 import './Docs.scss';

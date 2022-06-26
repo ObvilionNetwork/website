@@ -23,7 +23,7 @@ const routes = [
     { path: '/oops', exact: true, name: 'Упс... Произошла ошибка.', component: Oops },
     { path: '/donate', exact: true, name: 'Донат услуги', component: Donate },
     { path: '/rules', exact: true, name: 'Правила проекта', component: Rules },
-    { path: '/event', exact: true, name: 'Новогодний ивент', component: NewYearEvent }
+    { path: '/event', exact: true, name: 'Новогодний ивент', component: NewYearEvent },
 ];
 
 export default routes;

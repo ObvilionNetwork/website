@@ -1,74 +1,821 @@
-{
-    "cards": [
-        {
-            "name": "Авторизация",
-            "routes": [
-                {
-                    "type": "GET",
-                    "path": "/api/auth/register/",
-                    "description": "Регистрирует пользователя в базе данных",
-                    "return": "{ \"registred\": true, \"token\": \"\" }",
-                    "returnErr": "{ \"registred\": false, \"reason\": \"\" }",
-                    "headers": ["nickname", "email", "password"],
-                    "arguments": [],
-                    "permissions": []
-                },
-                {
-                    "type": "GET",
-                    "path": "/api/auth/login/",
-                    "description": "Авторизирует пользователя и выдает токен доступа",
-                    "return": "{ \"authorized\": true, \"token\": \"\" }",
-                    "returnErr": "{ \"authorized\": false, \"reason\": \"\" }",
-                    "headers": ["login", "password"],
-                    "arguments": [],
-                    "permissions": []
-                }
+[
+   {
+      "content": [
+         {
+            "name": "Регистрация пользователя",
+            "description": "Создаёт нового пользователя в БД. Впрочем, ничего необычного.",
+            "path": {
+               "content": "/api/auth/register",
+               "params": [],
+               "query": []
+            },
+            "type": "POST",
+            "headers": [],
+            "body": [
+               {
+                  "name": "name",
+                  "description": "Никнейм пользователя. Длина 3-16 символов",
+                  "type": "string"
+               },
+               {
+                  "name": "email",
+                  "description": "E-mail пользователя",
+                  "type": "string"
+               },
+               {
+                  "name": "password",
+                  "description": "Пароль пользователя",
+                  "type": "string"
+               }
+            ],
+            "result": {
+               "error": [
+                  {
+                     "code": "400",
+                     "description": "Недостаточно аргументов",
+                     "type": "ErrorList"
+                  },
+                  {
+                     "code": "400",
+                     "description": "Пользователь уже существует",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "201",
+                     "type": [
+                        {
+                           "name": "message",
+                           "description": "Ответ от сервера",
+                           "type": "string"
+                        },
+                        {
+                           "name": "token",
+                           "description": "Токен для входа в аккаунт",
+                           "type": "string"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": []
+         },
+         {
+            "name": "Авторизация пользователя через Discord OAuth",
+            "description": "Выдаёт токен пользователя, у которого привязана учетная запись Discord",
+            "path": {
+               "content": "/api/auth/discord?={code}",
+               "params": [],
+               "query": [
+                  {
+                     "name": "code",
+                     "description": "Discord OAuth code"
+                  }
+               ]
+            },
+            "type": "GET",
+            "headers": [],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "400",
+                     "description": "Недостаточно аргументов или пользователь не существует",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "token",
+                           "description": "Токен для входа в аккаунт",
+                           "type": "string"
+                        },
+                        {
+                           "name": "ip",
+                           "description": "IP пользователя",
+                           "type": "ip"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": []
+         },
+         {
+            "name": "Авторизация пользователя",
+            "description": "Получет токен авторизации пользователя.",
+            "path": {
+               "content": "/api/auth/login",
+               "params": [],
+               "query": []
+            },
+            "type": "POST",
+            "headers": [],
+            "body": [
+               {
+                  "name": "login",
+                  "description": "Никнейм или E-mail пользователя",
+                  "type": "string"
+               },
+               {
+                  "name": "password",
+                  "description": "Пароль пользователя",
+                  "type": "string"
+               }
+            ],
+            "result": {
+               "error": [
+                  {
+                     "code": "400",
+                     "description": "Недостаточно аргументов",
+                     "type": "ErrorList"
+                  },
+                  {
+                     "code": "404",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "400",
+                     "description": "Неверные данные входа (пароль)",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "userId",
+                           "description": "Ответ от сервера",
+                           "type": "string"
+                        },
+                        {
+                           "name": "username",
+                           "description": "Никнейм пользователя",
+                           "type": "string"
+                        },
+                        {
+                           "name": "token",
+                           "description": "Токен для входа в аккаунт",
+                           "type": "string"
+                        },
+                        {
+                           "name": "uuid",
+                           "description": "ID для minecraft пользователя",
+                           "type": "uuid"
+                        },
+                        {
+                           "name": "ip",
+                           "description": "IP пользователя",
+                           "type": "ip"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": []
+         }
+      ],
+      "name": "Aвторизация"
+   },
+   {
+      "content": [
+         {
+            "name": "Список багов",
+            "description": "Получет список текущах не закрытых багов.",
+            "path": {
+               "content": "/api/bugs",
+               "params": [],
+               "query": []
+            },
+            "type": "GET",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "bugs",
+                           "description": "Список не закрытых багов",
+                           "type": "Bug[]"
+                        },
+                        {
+                           "name": "count",
+                           "description": "Количество этих багов",
+                           "type": "number"
+                        },
+                        {
+                           "name": "important",
+                           "description": "Количество багов с меткой \"Важно\"",
+                           "type": "number"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": [
+               "MANAGE_BUGS"
             ]
-        },
-        {
-            "name": "Сервера",
-            "routes": [
-                {
-                    "type": "GET",
-                    "path": "/api/servers/",
-                    "description": "Выдаёт полный список всех серверов и информации о них.",
-                    "return": "{ \"results\": [ { \"name\": \"\", \"description\": \"\", \"image\": \"\", \"id\": 0, \"players\": 0, \"maxPlayers\": 0, \"wipeDate\": \"\", \"inDev\": false, \"ip\": \"\" } ] }",
-                    "returnErr": "",
-                    "headers": [],
-                    "arguments": [],
-                    "permissions": []
-                },
-                {
-                    "type": "POST",
-                    "path": "/api/servers/add",
-                    "description": "Добавляет новый сервер в список серверов",
-                    "return": "{ \"added\": true }",
-                    "returnErr": "{ \"added\": false, \"error\": \"\" }",
-                    "headers": ["token"],
-                    "arguments": ["name", "description", "image", "inDev", "ip"],
-                    "permissions": ["MANAGE_SERVERS"]
-                },
-                {
-                    "type": "PATCH",
-                    "path": "/api/servers/{id}",
-                    "description": "Изменяет частично или полностью информацию о сервере",
-                    "return": "{ \"edited\": true }",
-                    "returnErr": "{ \"edited\": false, \"reason\": \"\" }",
-                    "headers": ["token"],
-                    "arguments": ["name", "description", "image", "inDev", "ip"],
-                    "permissions": ["MANAGE_SERVERS"]
-                },
-                {
-                    "type": "GET",
-                    "path": "/api/servers/online",
-                    "description": "Показывает онлайн серверов в сумме",
-                    "return": "{ \"online\": 0, \"maxOnline\": 0 }",
-                    "returnErr": "",
-                    "headers": [],
-                    "arguments": [],
-                    "permissions": []
-                }
+         },
+         {
+            "name": "Получить баг",
+            "description": "Получет обьект бага по ID.",
+            "path": {
+               "content": "/api/bugs/{id}",
+               "params": [
+                  {
+                     "name": "id",
+                     "description": "ID бага"
+                  }
+               ],
+               "query": []
+            },
+            "type": "GET",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "404",
+                     "description": "Баг не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": "Bug"
+                  }
+               ]
+            },
+            "permissions": [
+               "MANAGE_BUGS"
             ]
-        }
-    ]
-}
+         },
+         {
+            "name": "Удаление бага",
+            "description": "Удаляет баг по указанному ID.",
+            "path": {
+               "content": "/api/bugs/{id}",
+               "params": [
+                  {
+                     "name": "id",
+                     "description": "ID бага"
+                  }
+               ],
+               "query": []
+            },
+            "type": "DELETE",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "404",
+                     "description": "Баг не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "message",
+                           "description": "Возращает 'Successful.'",
+                           "type": "string"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": [
+               "MANAGE_BUGS"
+            ]
+         },
+         {
+            "name": "Установить статус",
+            "description": "Устанавливает статус багу по указанному ID.",
+            "path": {
+               "content": "/api/bugs/{id}/status",
+               "params": [
+                  {
+                     "name": "id",
+                     "description": "ID бага"
+                  }
+               ],
+               "query": []
+            },
+            "type": "POST",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [
+               {
+                  "name": "status",
+                  "description": "Новый статус бага",
+                  "type": "BugStatus"
+               }
+            ],
+            "result": {
+               "error": [
+                  {
+                     "code": "400",
+                     "description": "Неверный статус для обновления",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "401",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "404",
+                     "description": "Баг не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "message",
+                           "description": "Возращает 'Successful.'",
+                           "type": "string"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": [
+               "MANAGE_BUGS"
+            ]
+         },
+         {
+            "name": "Создать баг репорт",
+            "description": "Создает новый баг в базе данных.",
+            "path": {
+               "content": "/api/bugs",
+               "params": [],
+               "query": []
+            },
+            "type": "POST",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [
+               {
+                  "name": "status",
+                  "description": "Новый статус бага",
+                  "type": "BugStatus"
+               }
+            ],
+            "result": {
+               "error": [
+                  {
+                     "code": "400",
+                     "description": "Недостаточно аргументов в body",
+                     "type": "ErrorList"
+                  },
+                  {
+                     "code": "401",
+                     "description": "Пользователь не найден",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "201",
+                     "type": [
+                        {
+                           "name": "message",
+                           "description": "Возращает 'Bug created.'",
+                           "type": "string"
+                        },
+                        {
+                           "name": "id",
+                           "description": "ID созданного бага",
+                           "type": "number"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": []
+         }
+      ],
+      "name": "Баги"
+   },
+   {
+      "content": [
+         {
+            "name": "Получить файл",
+            "description": "Получает файл по указанному пути в query",
+            "path": {
+               "content": "/api/files/?path={path}",
+               "params": [],
+               "query": [
+                  {
+                     "name": "path",
+                     "description": "Путь к файлу в папке /resources"
+                  }
+               ]
+            },
+            "type": "GET",
+            "headers": [],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "404",
+                     "description": "Файл по указанному пути не найден",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "files",
+                           "description": "Список файлов",
+                           "type": "FileInfo[]"
+                        }
+                     ]
+                  },
+                  {
+                     "code": "200",
+                     "description": "Отправка файла",
+                     "type": "File"
+                  }
+               ]
+            },
+            "permissions": []
+         },
+         {
+            "name": "Получить файл",
+            "description": "Получает файл по указанному пути",
+            "path": {
+               "content": "/api/files/{path}...",
+               "params": [
+                  {
+                     "name": "path",
+                     "description": "Путь к файлу в папке /resources"
+                  }
+               ],
+               "query": []
+            },
+            "type": "GET",
+            "headers": [],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "404",
+                     "description": "Файл по указанному пути не найден",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "files",
+                           "description": "Список файлов",
+                           "type": "FileInfo[]"
+                        }
+                     ]
+                  },
+                  {
+                     "code": "200",
+                     "description": "Отправка файла",
+                     "type": "File"
+                  }
+               ]
+            },
+            "permissions": []
+         }
+      ],
+      "name": "Файлы"
+   },
+   {
+      "content": [
+         {
+            "name": "Получить статистику по финансам",
+            "description": "Получает средние значения финансов за месяц и текущий баланс проекта",
+            "path": {
+               "content": "/api/finances",
+               "params": [],
+               "query": []
+            },
+            "type": "GET",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Необходима авторизация",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "description": "Полученная статистика",
+                     "type": "FinanceStats"
+                  }
+               ]
+            },
+            "permissions": [
+               "FINANCES_VIEW"
+            ]
+         },
+         {
+            "name": "Получить историю финансов",
+            "description": "Получает средние значения финансов за месяц и текущий баланс проекта",
+            "path": {
+               "content": "/api/finances/history",
+               "params": [],
+               "query": []
+            },
+            "type": "GET",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Необходима авторизация",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "description": "Полученная статистика",
+                     "type": [
+                        {
+                           "name": "history",
+                           "type": "Finance[]"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": [
+               "FINANCES_VIEW"
+            ]
+         },
+         {
+            "name": "Удалить платеж",
+            "description": "Удаляет платёж из БД по указанном ID",
+            "path": {
+               "content": "/api/finances/{id}",
+               "params": [
+                  {
+                     "name": "id",
+                     "description": "ID платежа"
+                  }
+               ],
+               "query": []
+            },
+            "type": "DELETE",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Необходима авторизация",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "404",
+                     "description": "Платёж не найден",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "description": "Операция прошла успешно"
+                  }
+               ]
+            },
+            "permissions": [
+               "FINANCES_EDIT"
+            ]
+         },
+         {
+            "name": "Создать платёж",
+            "description": "Создает платеж с указанной информацией в body",
+            "path": {
+               "content": "/api/finances",
+               "params": [],
+               "query": []
+            },
+            "type": "POST",
+            "headers": [
+               {
+                  "name": "Authorization",
+                  "description": "Токен авторизации"
+               }
+            ],
+            "body": [
+               {
+                  "name": "name",
+                  "description": "Название платежа",
+                  "type": "string"
+               },
+               {
+                  "name": "value",
+                  "description": "Сумма (отрицатетьная - расходы, положительная - прибыль)",
+                  "type": "number"
+               }
+            ],
+            "result": {
+               "error": [
+                  {
+                     "code": "401",
+                     "description": "Необходима авторизация",
+                     "type": "Error"
+                  },
+                  {
+                     "code": "405",
+                     "description": "Недостаточно прав",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "201",
+                     "description": "Операция прошла успешно",
+                     "type": [
+                        {
+                           "name": "id",
+                           "description": "Айди, установленный новому платежу",
+                           "type": "number"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": [
+               "FINANCES_EDIT"
+            ]
+         }
+      ],
+      "name": "Финансы"
+   },
+   {
+      "content": [
+         {
+            "name": "Получить список файлов с Java",
+            "description": "Получает модули (файлы) с ссылкой до /api/files/...",
+            "path": {
+               "content": "/api/java/download/?os={os}&version={version}",
+               "params": [],
+               "query": [
+                  {
+                     "name": "os",
+                     "description": "Система для загрузки Java ['linux64', 'windows32', 'windows64', 'macos64']"
+                  },
+                  {
+                     "name": "version",
+                     "description": "Версия Java с сервера ['default'"
+                  }
+               ]
+            },
+            "type": "GET",
+            "headers": [],
+            "body": [],
+            "result": {
+               "error": [
+                  {
+                     "code": "404",
+                     "description": "Данной версии java для указанной системы не найдено",
+                     "type": "Error"
+                  }
+               ],
+               "success": [
+                  {
+                     "code": "200",
+                     "type": [
+                        {
+                           "name": "files",
+                           "description": "Список файлов",
+                           "type": "FileInfo[]"
+                        }
+                     ]
+                  }
+               ]
+            },
+            "permissions": []
+         }
+      ],
+      "name": "Лаунчер"
+   }
+]
