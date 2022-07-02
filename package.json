@@ -28,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && npm run deploy_last",
+    "deploy_last": "node tools/deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +42,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-to-print": "^2.14.7"
+    "react-to-print": "^2.14.7",
+    "ssh2": "^1.11.0",
+    "tar-fs": "^2.1.1"
   }
 }
