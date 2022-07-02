@@ -26,8 +26,8 @@ class RulesComp extends React.Component {
                                  </r>
                                  <div style={{ marginTop: dc.content !== undefined ? '0.2vw' : '0vw' }}>
                                     {
-                                       dc.content ? dc.content.map(dv => {
-                                          return <div style={{ marginLeft: '0.9vw', marginBottom: '0.45vw'}}>
+                                       dc.content ? dc.content.map((dv, i) => {
+                                          return <div style={{ marginTop: i === 0 ? '0.45vw' : undefined, marginLeft: '0.9vw', marginBottom: '0.45vw'}}>
                                              <r>
                                                 <r className='title-rcd'>
                                                    { dv.title }
