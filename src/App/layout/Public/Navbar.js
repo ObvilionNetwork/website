@@ -27,14 +27,25 @@ class Navbar extends React.Component {
                 if (!res.token) return;
 
                 window.localStorage.setItem('token', res.token);
-                this.update();
+                this.update(true);
             })
         }
 
-        this.update();
+        this.update(false);
     }
 
-    async update() {
+    async update(skip) {
+        if (!window.localStorage.getItem('token')) {
+            return;
+        }
+
+        if (!skip) {
+            let last_update = +window.localStorage.getItem('last_update');
+            if (last_update + 10000 > new Date().getTime()) {
+                return;
+            }
+        }
+
         fetch(apiLink + 'users/@me', {
             headers: {
                 'Content-Type': 'application/json',
@@ -45,6 +56,7 @@ class Navbar extends React.Component {
             const res = await result.json();
             if (res.name) {
                 window.localStorage.setItem('user', JSON.stringify(res));
+                window.localStorage.setItem('last_update', new Date().getTime());
                 
                 this.setState({
                     user: res,
