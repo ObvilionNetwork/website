@@ -1,0 +1,258 @@
+.Buy {
+  position: absolute;
+  width: 100vw;
+  text-align: center;
+  margin-top: 2.5vw;
+
+  .sub {
+    display: inline-block;
+  }
+
+  .sub {
+    height: 32vw;
+  }
+
+  .block, .sub .block-in {
+    padding: 1.5vw;
+    margin-left: 0.9vw;
+    margin-right: 0.9vw;
+    display: table;
+
+    width: 30vw;
+
+    background: rgba(39, 39, 39, 0.7);
+    box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.25);
+    border-radius: 0.55vw;
+
+    .block-in-error {
+      font-family: 'CeraPro Regular', sans-serif;
+      font-size: 1.3vw;
+      color: white;
+    }
+
+    .bc-main-in {
+      display: flex;
+      justify-content: space-between;
+
+      .bc-input {
+        display: inline;
+        background: rgba(0, 0, 0, 0.1);
+        border: 0.156vw solid #808080;
+        border-radius: 0.3vw;
+        width: 23.2vw;
+        height: 2.5vw;
+        color: white;
+        font-family: 'CeraPro Regular', sans-serif;
+        font-size: 1.1vw;
+        padding-left: 0.8vw;
+        padding-right: 0.8vw;
+      }
+
+      .bc-ok {
+        display: inline;
+        background: rgba(0, 0, 0, 0.1);
+        border: 0.156vw solid #7294AE;
+        border-radius: 0.3vw;
+        width: 2.5vw;
+        height: 2.5vw;
+
+        transition: border 0.5s;
+        cursor: pointer;
+      }
+
+      .bc-ok:hover {
+        border: 0.156vw solid #9ec7e5;
+      }
+    }
+
+    .title-23 {
+      font-family: 'CeraPro Regular', sans-serif;
+      font-size: 1.23vw;
+      color: white;
+      text-align: left;
+      padding-bottom: 0.7vw;
+    }
+
+    .t {
+      margin-top: 0.85vw;
+    }
+
+    .bc-inline-block {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
+      margin-top: 0.2vw;
+
+      .block-inside:hover {
+        border: 0.156vw solid rgba(253, 253, 253, 0.7);
+      }
+
+      .block-inside {
+        position: inherit;
+        display: inline;
+        width: 8.3vw;
+        height: 4.5vw;
+
+        transition: 0.5s;
+
+        text-align: left;
+        font-family: 'CeraPro Medium', sans-serif;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.15vw;
+        padding-left: 0.7vw;
+        padding-top: 0.4vw;
+
+        background: rgba(0, 0, 0, 0.1);
+        background-repeat:   no-repeat;
+        background-position: center center;
+
+        border: 0.156vw solid rgba(129, 129, 129, 0.9);
+        border-radius: 0.4vw;
+
+        cursor: pointer;
+
+        .sale {
+          font-family: 'CeraPro Regular', sans-serif;
+          font-size: 0.83vw;
+          margin-top: 0.2vw;
+        }
+      }
+
+
+      .block-inside-im {
+        color: rgba(0, 0, 0, 0.8);
+        padding-top: 2.13vw;
+        font-size: 0.9vw;
+        letter-spacing: -0.017vw;
+
+        .sale {
+          margin-top: -0.25vw;
+          font-size: 0.73vw;
+        }
+      }
+
+      .block-inside-im:hover {
+        box-shadow: 0px 0px 0.8vw rgba(103, 152, 255, 0.9);
+      }
+
+      .block-inside-im, .block-inside-im:hover  {
+        border: none;
+      }
+
+
+      .block-inside-selected:hover {
+        border: 0.156vw solid rgb(110, 188, 255);
+      }
+
+      .block-inside-selected {
+        border: 0.156vw solid rgba(60, 145, 210, 0.9);
+      }
+
+      .block-inside-im-selected:hover {
+        box-shadow: 0px 0px 0.8vw rgba(177, 204, 255, 0.63);
+      }
+
+      .block-inside-im-selected {
+        transition: box-shadow 0.3s;
+        box-shadow: 0px 0px 0.8vw rgba(255, 255, 255, 0.63);
+      }
+
+
+    }
+
+    .inf {
+      text-align: left;
+      margin-top: 1vw;
+      font-family: 'CeraPro Regular', sans-serif;
+      font-size: 0.9vw;
+      line-height: 1.2vw;
+      color: rgba(255, 255, 255, 0.7);
+
+      .more {
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+
+    .button-f {
+      width: 20vw;
+      margin-left: 3.5vw;
+      margin-top: 1vw;
+
+      background: rgba(0, 0, 0, 0.1);
+      background-repeat:   no-repeat;
+      background-position: center center;
+
+      border: 0.156vw solid rgba(129, 129, 129, 0.9);
+      border-radius: 0.4vw;
+
+      cursor: pointer;
+
+      font-family: 'CeraPro Regular', sans-serif;
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.15vw;
+      padding: 0.3vw 0.7vw;
+    }
+  }
+}
+
+.inline-info {
+  position: relative;
+  padding-bottom: 2vw;
+
+  .inline-left, .inline-right {
+    position: absolute;
+    display: inline;
+    font-family: 'CeraPro Regular', sans-serif;
+    font-size: 1.12vw;
+  }
+
+  .inline-left {
+    left: 0;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .inline-right {
+    right: 0;
+    color: rgba(255, 255, 255, 0.8);
+
+    .button-icon {
+      display: inline-flex;
+      width: 0.92vw;
+      height: 0.92vw;
+      background: none;
+      position: absolute;
+      padding: 0;
+      margin-left: 0.45vw;
+      margin-top: 0.5vw;
+      cursor: pointer;
+
+      img {
+        transition: 0.3s;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+#first {
+  height: 100%;
+}
+
+#right-1 {
+  height: 25%;
+}
+
+#right-2 {
+  margin-top: 5%;
+  height: 70%;
+}
+
+.svg-bc {
+  width: 2.135vw;
+  height: 2.135vw;
+
+
+}

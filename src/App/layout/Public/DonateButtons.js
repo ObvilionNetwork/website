@@ -24,11 +24,11 @@ class DonateButtons extends React.Component {
                   или 1199р навсегда
                </div>
 
-               <a className="button-don " href="/buy">
+               <a className="button-don " href="/buy?id=vip">
                   <div className="text">Приобрести</div>
                </a>
 
-               <a className="info-don" href="/">
+               <a className="info-don" href="/donate/about?id=vip">
                   Подробнее >
                </a>
             </div>
@@ -50,11 +50,11 @@ class DonateButtons extends React.Component {
                   или 1599р навсегда
                </div>
 
-               <a className="button-don " href="/buy">
+               <a className="button-don " href="/buy?id=premium">
                   <div className="text">Приобрести</div>
                </a>
 
-               <a className="info-don" href="/">
+               <a className="info-don" href="/donate/about?id=premium">
                   Подробнее >
                </a>
             </div>
@@ -76,11 +76,11 @@ class DonateButtons extends React.Component {
                   или 2499р навсегда
                </div>
 
-               <a className="button-don " href="/buy">
+               <a className="button-don " href="/buy?id=deluxe">
                   <div className="text">Приобрести</div>
                </a>
 
-               <a className="info-don" href="/">
+               <a className="info-don" href="/donate/about?id=deluxe">
                   Подробнее >
                </a>
             </div>
@@ -102,11 +102,11 @@ class DonateButtons extends React.Component {
                   или 3699р навсегда
                </div>
 
-               <a className="button-don " href="/buy">
+               <a className="button-don " href="/buy?id=legend">
                   <div className="text">Приобрести</div>
                </a>
 
-               <a className="info-don" href="/">
+               <a className="info-don" href="/donate/about?id=legend">
                   Подробнее >
                </a>
             </div>
@@ -128,11 +128,11 @@ class DonateButtons extends React.Component {
                   или 1399р навсегда
                </div>
 
-               <a className="button-don " href="/buy">
+               <a className="button-don " href="/buy?id=prefix">
                   <div className="text">Приобрести</div>
                </a>
 
-               <a className="info-don" href="/">
+               <a className="info-don" href="/donate/about?id=prefix">
                   Подробнее >
                </a>
             </div>
