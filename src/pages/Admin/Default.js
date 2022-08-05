@@ -5,6 +5,8 @@ import Aux from "../../App/components/_Aux";
 import DEMO from "../../store/constant";
 
 import avatar1 from "../../assets/images/user/avatar-1.jpg";
+import Navbar from "../../App/layout/Public/Navbar";
+import Contacts from "../../App/layout/Public/Contacts";
 
 let finances = {};
 let bugs = {};
