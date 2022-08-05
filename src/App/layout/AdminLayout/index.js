@@ -13,6 +13,11 @@ import Aux from "../../components/_Aux";
 import * as actionTypes from "../../../store/actions";
 
 import './app.scss';
+import "../../../assets/scss/style.scss"
+import '../../../pages/Public/Oops.scss'
+import '../../../pages/Public/Cabinet.scss'
+import Navbar from "../Public/Navbar";
+import Contacts from "../Public/Contacts";
 
 class AdminLayout extends Component {
 
@@ -35,6 +40,36 @@ class AdminLayout extends Component {
     }
 
     render() {
+        if (!window.localStorage.getItem('user')) {
+            return (
+               <Aux>
+                   <div className="first">
+                       <div className="first-bg">
+                           <img src={require('../../../assets/images/bg.jpg')} />
+                       </div>
+
+                       <Navbar />
+
+                       <div className="title2" style={{ marginTop: '4vw', fontSize: '4.9vw', lineHeight: '5.2vw' }}>
+                           Авторизируйтесь, <br/> прежде чем просматривать эту страницу
+                       </div>
+
+                       <div className="title2 title3">
+                           Вы можете вернуться <br/>
+                           на главную страницу или проверить <br/>
+                           правильность своего запроса.
+                       </div>
+                   </div>
+
+                   <div className="first-bg endBg">
+                       <img src={require('../../../assets/images/bg5.png')} />
+                   </div>
+                   <div className="end">
+                       <Contacts />
+                   </div>
+               </Aux>
+            )
+        }
 
         /* full screen exit call */
         document.addEventListener('fullscreenchange', this.fullScreenExitHandler);
