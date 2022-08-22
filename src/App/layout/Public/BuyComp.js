@@ -347,12 +347,13 @@ class BuyComp extends React.Component {
          try {
             const args = '?username=' + this.state.for_player
                         + '&paymentType=' + type
-                        + '&type=group'
-                        + '&service=' + ((this.state.groupId === 'prefix') ? document.getElementById('prefix-text').value : this.state.groupId)
-                        + (this.state.groupId === 'prefix' ? ('&color=' + document.getElementById('prefix-color').value) : '')
-                        + '&duration=' + duration[this.state.selDur]
+                        + '&type=' + (this.state.groupId === 'prefix' ? 'prefix' : this.state.groupId)
                         + '&email=' + document.getElementById('donate-email').value
+                        + '&service=' + ((this.state.groupId === 'prefix') ? document.getElementById('prefix-text').value : this.state.groupId)
+                        + ((this.state.groupId === 'prefix') ? ('&color=' + document.getElementById('prefix-color').value.replace('#', '%23')) : '')
+                        + '&duration=' + duration[this.state.selDur]
                         + (this.state.promocode ? ('&promo=' + this.state.promocode) : '');
+
             const r = await fetch(apiLink + 'pay/yoomoney' + args, {
                headers: {
                   'Content-Type': 'application/json'
@@ -475,7 +476,7 @@ class BuyComp extends React.Component {
                         </div>
 
                         <div className="bc-main-in">
-                           <input id='prefix-color' type='color' className="bc-ok" value="#ffffff">
+                           <input id='prefix-color' type='color' className="bc-ok">
                            </input>
 
                            <input id='prefix-text' className="bc-input" maxLength="14">
