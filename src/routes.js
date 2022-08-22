@@ -15,6 +15,7 @@ const Donate = React.lazy(() => import('./pages/Public/Donate'));
 const Rules = React.lazy(() => import('./pages/Public/Rules'));
 const NewYearEvent = React.lazy(() => import('./pages/Public/NewYearEvent'));
 const Buy = React.lazy(() => import('./pages/Public/Buy'));
+const Offer = React.lazy(() => import('./pages/Public/Offer'));
 
 const routes = [
     { path: '/auth/signup', exact: true, name: 'Регистрация', component: SignUp },
@@ -26,6 +27,7 @@ const routes = [
     { path: '/rules', exact: true, name: 'Правила проекта', component: Rules },
     { path: '/event', exact: true, name: 'Новогодний ивент', component: NewYearEvent },
     { path: '/buy', exact: true, name: 'Покупка донат услуги', component: Buy },
+    { path: '/buy/offer', exact: true, name: 'Оферта', component: Offer },
 ];
 
 export default routes;

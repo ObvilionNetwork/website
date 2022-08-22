@@ -88,7 +88,7 @@ class APITest extends Component {
 
         const getCursorPosition = (parent) => {
             let selection = document.getSelection();
-            let range = new Range;
+            let range = new Range();
             range.setStart(parent, 0);
             range.setEnd(selection.anchorNode, selection.anchorOffset);
             return range.toString().length;

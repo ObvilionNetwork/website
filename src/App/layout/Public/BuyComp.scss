@@ -48,6 +48,14 @@
         padding-right: 0.8vw;
       }
 
+      .bc-input:disabled {
+        border: 0.156vw solid #80d573;
+      }
+
+      .bc-input:invalid {
+        border: 0.156vw solid #d57373;
+      }
+
       .bc-ok {
         display: inline;
         background: rgba(0, 0, 0, 0.1);
@@ -150,15 +158,21 @@
       }
 
       .block-inside-im-selected:hover {
-        box-shadow: 0px 0px 0.8vw rgba(177, 204, 255, 0.63);
+        box-shadow: 0 0 0.8vw rgba(177, 204, 255, 0.63);
       }
 
       .block-inside-im-selected {
         transition: box-shadow 0.3s;
-        box-shadow: 0px 0px 0.8vw rgba(255, 255, 255, 0.63);
+        box-shadow: 0 0 0.8vw rgba(255, 255, 255, 0.63);
       }
 
-
+      .block-inside-im-not-available {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .block-inside-im-not-available:hover {
+        box-shadow: none;
+      }
     }
 
     .inf {

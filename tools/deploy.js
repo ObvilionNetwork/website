@@ -10,10 +10,10 @@ const settings = {
    tar_name: 'temp-deployment.tar',
 
    ssh: {
-      host: '1.2.3.4',
-      port: 123,
+      host: '185.13.47.146',
+      port: 44022,
       username: 'root',
-      privateKey: fs.readFileSync('C:/Users/User/.ssh/key'),
+      privateKey: fs.readFileSync('C:/Users/Fatonn/.ssh/id_ed25519'),
    }
 };
 
