@@ -9,7 +9,7 @@ class Navbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: null,
+            user: {},
         };
         this.update = this.update.bind(this);
 
@@ -42,6 +42,12 @@ class Navbar extends React.Component {
         if (!skip) {
             let last_update = +window.localStorage.getItem('last_update');
             if (last_update + 10000 > new Date().getTime()) {
+                this.state.user = JSON.parse(window.localStorage.getItem('user'));
+
+                this.setState({
+                    user: JSON.parse(window.localStorage.getItem('user')),
+                })
+
                 return;
             }
         }
@@ -122,7 +128,7 @@ class Navbar extends React.Component {
                 </li>
 
                 {
-                    this.state.user ? <div>
+                    this.state.user?.name ? <div>
                         {
                             this.state.user.group ?
                             this.state.user.group.permissions.indexOf('ADMIN_PANE') !== -1 ?

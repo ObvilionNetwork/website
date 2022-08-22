@@ -14,7 +14,7 @@ import LCButtons from "../../App/layout/Public/LCButtons";
 
 class Cabinet extends Component {
     render() {
-        if (!window.localStorage.getItem('user')) {
+        if (!window.localStorage.getItem('user') || !window.localStorage.getItem('token')) {
            return (
               <Aux>
                  <div className="first">

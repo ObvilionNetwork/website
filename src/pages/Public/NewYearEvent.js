@@ -11,7 +11,7 @@ import Contacts from "../../App/layout/Public/Contacts";
 
 class NewYearEvent extends Component {
    render() {
-      if (!window.localStorage.getItem('user')) {
+      if (!window.localStorage.getItem('user') || !window.localStorage.getItem('token')) {
          return (
             <Aux>
                <div className="first">

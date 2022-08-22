@@ -347,7 +347,7 @@ class BuyComp extends React.Component {
          try {
             const args = '?username=' + this.state.for_player
                         + '&paymentType=' + type
-                        + '&type=' + (this.state.groupId === 'prefix' ? 'prefix' : this.state.groupId)
+                        + '&type=' + (this.state.groupId === 'prefix' ? 'prefix' : 'group')
                         + '&email=' + document.getElementById('donate-email').value
                         + '&service=' + ((this.state.groupId === 'prefix') ? document.getElementById('prefix-text').value : this.state.groupId)
                         + ((this.state.groupId === 'prefix') ? ('&color=' + document.getElementById('prefix-color').value.replace('#', '%23')) : '')
@@ -375,6 +375,8 @@ class BuyComp extends React.Component {
                error: true
             });
          }
+      } else {
+         alert('Вы не выбрали способ оплаты!');
       }
    }
 
