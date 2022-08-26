@@ -45,6 +45,8 @@ class Cabinet extends Component {
            )
         }
 
+        const user = JSON.parse(window.localStorage.getItem('user'))
+
         return (
             <Aux>
                 <div className="first">
@@ -58,8 +60,8 @@ class Cabinet extends Component {
                         Личный кабинет
                     </div>
 
-                    <Skin />
-                    <Info />
+                    <Skin user={user} />
+                    <Info user={user} />
 
                     <LCButtons />
                 </div>

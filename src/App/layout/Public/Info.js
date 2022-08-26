@@ -5,6 +5,8 @@ class Info extends React.Component {
    render() {
       const user = JSON.parse(window.localStorage.getItem('user'));
 
+      const group = user.groups.length > 0 ? user.groups.sort((a,b) => b.id - a.id)[0] : null;
+
       return(
          <div className='Info'>
             <div className='info-table info-user'>
@@ -52,16 +54,26 @@ class Info extends React.Component {
             </div>
 
             <div className='info-table info-group'>
-               <div>
-                  <div className="name-u">Баланс</div>
-                  <div className="value-u vu2">{user.money} p.</div>
-               </div>
+               {
+                  user.money !== undefined ? <div>
+                     <div className="name-u">Баланс</div>
+                     <div className="value-u vu2">{user.money} p.</div>
+                  </div> : undefined
+               }
 
                <div>
                   <div className="name-u">Привилегия</div>
-                  <div className="value-u vu2" style={{color: "#bc9bff"}}>{user.group ? user.group.name : 'Игрок'}</div>
+                  <div className="value-u vu2" style={{color: group ? group.color : "#bc9bff"}}>{group ? group.name : 'Не указано'}</div>
                </div>
 
+               {
+                  group && user.prefix === group.name
+                     ? undefined
+                     : <div>
+                        <div className="name-u">Префикс</div>
+                        <div className="value-u vu2" style={{color: user.prefixColor ? user.prefixColor : "#bc9bff"}}>{user.prefix}</div>
+                     </div>
+               }
                <div>
                   <div className="name-u">Дата окончания</div>
                   <div className="value-u vu2">{user.group ? user.group.end ? user.group.end : 'Нет' : 'Нет'}</div>
