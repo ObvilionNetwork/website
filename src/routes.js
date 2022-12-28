@@ -18,11 +18,12 @@ const Buy = React.lazy(() => import('./pages/Public/Buy'));
 const Offer = React.lazy(() => import('./pages/Public/Offer'));
 
 const routes = [
+    { path: '/oops', exact: true, name: 'Упс... Произошла ошибка.', component: Oops },
+
     { path: '/auth/signup', exact: true, name: 'Регистрация', component: SignUp },
     { path: '/auth/signin', exact: true, name: 'Вход', component: Signin },
     { path: '/', exact: true, name: 'Главная', component: Home },
     { path: '/cabinet', exact: true, name: 'Личный Кабинет', component: Cabinet },
-    { path: '/oops', exact: true, name: 'Упс... Произошла ошибка.', component: Oops },
     { path: '/donate', exact: true, name: 'Донат услуги', component: Donate },
     { path: '/rules', exact: true, name: 'Правила проекта', component: Rules },
     { path: '/event', exact: true, name: 'Новогодний ивент', component: NewYearEvent },

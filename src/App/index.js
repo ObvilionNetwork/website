@@ -30,13 +30,18 @@ class App extends Component {
           ) : (null);
         });
 
+        // <Route path="/" component={AdminLayout} />
+
         return (
             <Aux>
                 <ScrollToTop>
                     <Suspense fallback={<Loader/>}>
                         <Switch>
                             {menu}
-                            <Route path="/" component={AdminLayout} /> 
+
+                            <Route path="/admin" component={AdminLayout} />
+
+                            <Route component = {routes[0].component} />
                         </Switch>
                     </Suspense>
                 </ScrollToTop>
