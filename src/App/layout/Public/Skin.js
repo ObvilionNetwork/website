@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Skin.scss"
+import Config from "../../../config";
 
 class Skin extends React.Component {
     top = document.getElementById('top-cape');
@@ -65,11 +66,11 @@ class Skin extends React.Component {
         const user = this.props.user;
         const animated = false;
 
-        // https://obvilion.ru/api/files/capes/animated-2.png
+        // https://mc.obvilion.ru/api/files/capes/animated-2.png
         return(
             <div>
                 <style>
-                    {"#skin-viewer *{ background-image: url('https://obvilion.ru/api/users/" + (user.name ? user.name : 'Admin') + "/skin'); } #skin-viewer .cape{ background-image: url('https://obvilion.ru/api/users/" + user.name + "/cape'); }"}
+                    {"#skin-viewer *{ background-image: url('" + Config.api_link + "users/" + (user.name ? user.name : 'Admin') + "/skin'); } #skin-viewer .cape{ background-image: url('" + Config.api_link + "users/" + user.name + "/cape'); }"}
                 </style>
 
                 <div id="skin-viewer" className={'mc-skin-viewer-11x legacy spin ' + (animated ? 'animated-cape' : 'legacy-cape')} style={{marginLeft: '31vw', marginTop: '2vw'}}>

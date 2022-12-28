@@ -5,8 +5,9 @@ import './../../assets/scss/style.scss';
 import Aux from "../../App/components/_Aux";
 import Breadcrumb from "../../App/layout/AdminLayout/Breadcrumb";
 import DEMO from "../../store/constant";
+import Config from "../../config";
 
-const apiLink = 'https://obvilion.ru/api/';
+const apiLink = Config.api_link;
 const inputStyle = { border: '0', color: '#d1d6e0', background: '#1d2131' };
 
 class SignUp1 extends React.Component {

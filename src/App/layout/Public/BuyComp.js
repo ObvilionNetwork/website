@@ -2,12 +2,13 @@ import React from 'react';
 
 import "../../../assets/scss/style.scss"
 import "./BuyComp.scss"
+import Config from "../../../config"
 import Aux from "../../components/_Aux";
 import Navbar from "./Navbar";
 import Contacts from "./Contacts";
 import navLogo from "../AdminLayout/Navigation/NavLogo";
 
-const apiLink = 'https://obvilion.ru/api/';
+const apiLink = Config.api_link;
 const messages = {
    none: '',
    vip: 'VIP',

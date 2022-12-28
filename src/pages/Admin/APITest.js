@@ -5,6 +5,7 @@ import Aux from "../../App/components/_Aux";
 import Card from "../../App/components/MainCard";
 
 import './APITest.scss';
+import Config from "../../config";
 
 class APITest extends Component {
     constructor(props) {
@@ -444,7 +445,7 @@ class APITest extends Component {
 
                                     <input onInput={this._onApiLinkEdited} style={{ width: '100%' }} className="input-cui"
                                            ref={this.Content.api_link} placeholder="Введите ссылку к API"
-                                           defaultValue={this.state.config.path.api_link ? this.state.config.path.api_link : "https://obvilion.ru/api"} type="text" />
+                                           defaultValue={this.state.config.path.api_link ? this.state.config.path.api_link : Config.api_link} type="text" />
                                 </div>
 
                                 <div className="asdp" style={{ width: '45%' }}>
@@ -575,6 +576,6 @@ class APITest extends Component {
             </Aux>
         );
     }
-} 
+}
 
 export default APITest;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Config from "../../../config";
 
 import "../../../assets/scss/style.scss"
 import "./Servers.scss"
@@ -6,7 +7,7 @@ import "./Servers.scss"
 import Slider from 'react-animated-slider';
 import './Slider.scss';
 
-const apiLink = 'https://obvilion.ru/api/';
+const apiLink = Config.api_link;
 
 class Servers extends React.Component {
     constructor(props) {
@@ -84,7 +85,7 @@ class Servers extends React.Component {
                                 </svg>
                             </div>
                             <div className="server-logo">
-                                <img src="https://obvilion.ru/api/files/HiTechSpawn.png" />
+                                <img src={ Config.api_link + "files/HiTechSpawn.png" } />
                             </div>
                             <p className="description">
                                 {server.description}

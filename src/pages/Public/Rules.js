@@ -51,7 +51,7 @@ class Rules extends Component {
                <News />
 
                <div className="title">
-                  Правила проекта Obvilion.ru
+                  Правила проекта mc.obvilion.ru
                </div>
 
                <div style={{ marginTop: '2vw', paddingLeft: '7vw', paddingRight: '7vw' }}>

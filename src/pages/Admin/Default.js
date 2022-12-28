@@ -7,6 +7,7 @@ import DEMO from "../../store/constant";
 import avatar1 from "../../assets/images/user/avatar-1.jpg";
 import Navbar from "../../App/layout/Public/Navbar";
 import Contacts from "../../App/layout/Public/Contacts";
+import Config from "../../config";
 
 let finances = {};
 let bugs = {};
@@ -14,7 +15,7 @@ let players = {};
 let auths = {};
 let servers = {};
 
-const apiLink = 'https://obvilion.ru/api/';
+const apiLink = Config.api_link;
 
 async function loa1d() {
   const token = window.localStorage.getItem('token');
@@ -242,7 +243,7 @@ class Dashboard extends React.Component {
                         <td>
                           <h6 className="text-muted">
                             {
-                              res.type === 'out' ? <i className="fa fa-circle text-c-red f-10 m-r-15" /> : <i className="fa fa-circle text-c-green f-10 m-r-15" /> 
+                              res.type === 'out' ? <i className="fa fa-circle text-c-red f-10 m-r-15" /> : <i className="fa fa-circle text-c-green f-10 m-r-15" />
                             }
                             {res.time}
                           </h6>

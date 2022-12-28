@@ -43,7 +43,7 @@ class Rules extends Component {
                <News />
 
                <div className="title">
-                  Договор оферты Obvilion.ru
+                  Договор оферты mc.Obvilion.ru
                </div>
 
                <div style={{ marginTop: '2vw', paddingLeft: '7vw', paddingRight: '7vw' }}>

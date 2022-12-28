@@ -1,9 +1,10 @@
 import React from 'react';
+import Config from "../../../config"
 
 import "../../../assets/scss/style.scss"
 import "./Navbar.scss"
 
-const apiLink = 'https://obvilion.ru/api/';
+const apiLink = Config.api_link;
 
 class Navbar extends React.Component {
     constructor(props) {
@@ -63,7 +64,7 @@ class Navbar extends React.Component {
             if (res.name) {
                 window.localStorage.setItem('user', JSON.stringify(res));
                 window.localStorage.setItem('last_update', new Date().getTime());
-                
+
                 this.setState({
                     user: res,
                 })

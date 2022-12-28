@@ -1,5 +1,6 @@
 import React from 'react';
 import "./DonateButtons.scss"
+import Config from "../../../config"
 
 class DonateButtons extends React.Component {
    constructor(props) {
@@ -23,7 +24,7 @@ class DonateButtons extends React.Component {
 
    async getData() {
       try {
-         const r = await fetch('https://obvilion.ru/api/donate', {
+         const r = await fetch(Config.api_link + 'donate', {
             headers: {
                'Content-Type': 'application/json'
             },
