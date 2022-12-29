@@ -11,6 +11,10 @@ import Contacts from "../../App/layout/Public/Contacts";
 import DonateButtons from "../../App/layout/Public/DonateButtons";
 
 class Donate extends Component{
+    componentDidMount() {
+        document.title = "Донат-услуги | Obvilion Network";
+    }
+
    render() {
       return (
          <Aux>

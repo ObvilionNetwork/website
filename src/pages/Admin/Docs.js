@@ -31,26 +31,34 @@ const styles = {
     post: {
         'color': '#4eb6ff',
         'fontSize': '1.1875rem',
-        'fontWeight': 'bolder'
+        'fontWeight': 'bolder',
+        'marginLeft': '10px'
     },
     get: {
         'color': '#4eff6b',
         'fontSize': '1.1875rem',
-        'fontWeight': 'bolder'
+        'fontWeight': 'bolder',
+        'marginLeft': '10px'
     },
     patch: {
         'color': '#ffc04e',
         'fontSize': '1.1875rem',
-        'fontWeight': 'bolder'
+        'fontWeight': 'bolder',
+        'marginLeft': '10px'
     },
     delete: {
         'color': '#ff4e4e',
         'fontSize': '1.1875rem',
-        'fontWeight': 'bolder'
+        'fontWeight': 'bolder',
+        'marginLeft': '10px'
     }
   };
 
 class Docs extends Component {
+    componentDidMount() {
+        document.title = "Документация для разработчиков | Obvilion Network";
+    }
+
     _clone(obj) {
         let copy;
 
@@ -120,10 +128,10 @@ class Docs extends Component {
                                 {place.content.map((pl, i) => (
                                     <div key={i}>
                                         {
-                                            i !== 0 ? <div style={{ paddingTop: '10px'}} /> : undefined
+                                            i !== 0 ? <div style={{ paddingTop: '50px'}} /> : undefined
                                         }
 
-                                        <p> 
+                                        <p>
                                             <span style={pl.type === 'GET' ? styles.get : pl.type === 'POST' ? styles.post : pl.type === 'PATCH' ? styles.patch : styles.delete}>{pl.type}</span>
                                             <span style={styles.size17}> {pl.path.content} </span>
                                             <span style={styles.name}> {pl.name} </span>
@@ -139,10 +147,10 @@ class Docs extends Component {
 
                                                 window.location.pathname = '/admin/apitest';
                                                 window.localStorage.setItem('apidocs', JSON.stringify(copy));
-                                            }} style={{backgroundColor: '#191f2b', outline: 'none', marginRight: 0, marginTop: '-2px'}} className="float-right button-blue">Тестировать</button>
+                                            }} style={{backgroundColor: 'rgb(37 38 40)', outline: 'none', marginRight: '10px', marginTop: '-2px', borderRadius: '10px'}} className="float-right button-blue">Тестировать</button>
                                         </p>
 
-                                        <div style={{ backgroundColor: '#191f2b', borderRadius: '6px', marginTop: '-6px' }} className='p-2'>
+                                        <div style={{ borderRadius: '6px', marginTop: '-6px' }}>
                                             <div className="parent-block">
                                                 <div className="asd">
                                                     <p style={styles.title}>
@@ -329,6 +337,6 @@ class Docs extends Component {
             </Aux>
         );
     }
-} 
+}
 
 export default Docs;

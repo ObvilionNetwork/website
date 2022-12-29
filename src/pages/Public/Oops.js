@@ -10,6 +10,10 @@ import Contacts from "../../App/layout/Public/Contacts";
 import News from "../../App/layout/Public/News";
 
 class Oops extends Component {
+    componentDidMount() {
+        document.title = "Страница не найдена | Obvilion Network";
+    }
+
    render() {
 
       return (

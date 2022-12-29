@@ -10,6 +10,10 @@ import News from "../../App/layout/Public/News";
 import OfferComp from "../../App/layout/Public/OfferComp";
 
 class Rules extends Component {
+    componentDidMount() {
+        document.title = "Договор офферты | Obvilion Network";
+    }
+
    render() {
 
       return (

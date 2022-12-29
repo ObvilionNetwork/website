@@ -10,6 +10,10 @@ import './NewYearEvent.scss'
 import Contacts from "../../App/layout/Public/Contacts";
 
 class NewYearEvent extends Component {
+   componentDidMount() {
+      document.title = "Новогодний ивент | Obvilion Network";
+   }
+
    render() {
       if (!window.localStorage.getItem('user') || !window.localStorage.getItem('token')) {
          return (

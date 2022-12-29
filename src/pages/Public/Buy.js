@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
 import Aux from "../../App/components/_Aux";
 import Navbar from "../../App/layout/Public/Navbar";
@@ -20,6 +20,10 @@ const messages = {
 }
 
 class Buy extends Component {
+    componentDidMount() {
+        document.title = "Покупка донат привилегии | Obvilion Network";
+    }
+
    render() {
       const urlParams = new URLSearchParams(window.location.search);
 

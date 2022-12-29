@@ -13,6 +13,10 @@ import News from "../../App/layout/Public/News";
 import LCButtons from "../../App/layout/Public/LCButtons";
 
 class Cabinet extends Component {
+    componentDidMount() {
+        document.title = "Личный кабинет | Obvilion Network";
+    }
+
     render() {
         if (!window.localStorage.getItem('user') || !window.localStorage.getItem('token')) {
            return (

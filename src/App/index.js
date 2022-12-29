@@ -41,7 +41,7 @@ class App extends Component {
 
                             <Route path="/admin" component={AdminLayout} />
 
-                            <Route component = {routes[0].component} />
+                            <Route component = {routes[0].component} status={404} />
                         </Switch>
                     </Suspense>
                 </ScrollToTop>

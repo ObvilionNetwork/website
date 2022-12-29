@@ -10,6 +10,10 @@ import News from "../../App/layout/Public/News";
 import RulesComp from "../../App/layout/Public/RulesСomp";
 
 class Rules extends Component {
+    componentDidMount() {
+        document.title = "Правила проекта | Obvilion Network";
+    }
+
    render() {
 
       return (

@@ -11,6 +11,10 @@ const apiLink = Config.api_link;
 const inputStyle = { border: '0', color: '#d1d6e0', background: '#1d2131' };
 
 class SignUp1 extends React.Component {
+    componentDidMount() {
+        document.title = "Регистрация | Obvilion Network";
+    }
+
     constructor (props) {
         super(props);
         this.state = {

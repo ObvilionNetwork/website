@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 
 import './../../assets/scss/style.scss';
@@ -11,9 +11,13 @@ import Config from "../../config";
 const apiLink = Config.api_link;
 
 class SignUp1 extends React.Component {
+    componentDidMount() {
+        document.title = "Вход в аккаунт | Obvilion Network";
+    }
 
     constructor (props) {
         super(props);
+
         this.state = {
             name: '',
             password: '',
