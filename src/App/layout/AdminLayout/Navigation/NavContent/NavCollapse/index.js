@@ -25,6 +25,7 @@ class NavCollapse extends Component {
         let navItems = '';
         if (this.props.collapse.children) {
             const collapses = this.props.collapse.children;
+
             navItems = Object.keys(collapses).map(item => {
                 item = collapses[item];
                 switch (item.type) {
@@ -103,6 +104,7 @@ class NavCollapse extends Component {
 }
 
 const mapStateToProps = state => {
+
     return {
         layout: state.layout,
         isOpen: state.isOpen,

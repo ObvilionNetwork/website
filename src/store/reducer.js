@@ -19,7 +19,7 @@ const reducer = (state = initialState, action) => {
                 collapseMenu: !state.collapseMenu
             };
         case actionTypes.COLLAPSE_TOGGLE:
-            if (action.menu.type === 'sub') {
+            // if (action.menu.type === 'sub') {
                 open = state.isOpen;
                 trigger = state.isTrigger;
 
@@ -33,12 +33,12 @@ const reducer = (state = initialState, action) => {
                     open = [...open, action.menu.id];
                     trigger = [...trigger, action.menu.id];
                 }
-            } else {
-                open = state.isOpen;
-                const triggerIndex = (state.isTrigger).indexOf(action.menu.id);
-                trigger = (triggerIndex === -1) ? [action.menu.id] : [];
-                open = (triggerIndex === -1) ? [action.menu.id] : [];
-            }
+            // } else {
+            //     open = state.isOpen;
+            //     const triggerIndex = (state.isTrigger).indexOf(action.menu.id);
+            //     trigger = (triggerIndex === -1) ? [action.menu.id] : [];
+            //     open = (triggerIndex === -1) ? [action.menu.id] : [];
+            // }
 
             return {
                 ...state,

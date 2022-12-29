@@ -38,7 +38,7 @@
     .nav-item.show .nav-link,
     .nav-link.active {
         border: none;
-        background-color: #2e3950;
+        background-color: #232526;
         color: $theme-heading-color;
         box-shadow: 0 -5px 10px 0 rgba(0, 0, 0, 0.05);
     }
@@ -83,8 +83,8 @@
 
 .tab-content {
     padding: 35px 30px;
-    background: #242c3e;
-    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.05);
+    background: #1e1f20;
+    border-radius: 0 11px 11px 11px;
 
     > .tab-pane {
         display: none;
