@@ -12,11 +12,11 @@ const TodoList = React.lazy(() => import('./pages/Admin/TodoList'));
 const APITest = React.lazy(() => import('./pages/Admin/APITest'));
 
 const routes = [
-    { path: '/', exact: true, name: 'Статистика', component: AdminDashboard },
-    { path: '/docs', exact: true, name: 'Документация', component: APIDocs },
-    { path: '/systemusage', exact: true, name: 'Загрузка серверов', component: SystemUsage },
-    { path: '/todo', exact: true, name: 'TODO лист', component: TodoList },
-    { path: '/apitest', exact: true, name: 'Тестирование API', component: APITest },
+    { path: '/admin/', exact: true, name: 'Статистика', component: AdminDashboard },
+    { path: '/admin/docs', exact: true, name: 'Документация', component: APIDocs },
+    { path: '/admin/systemusage', exact: true, name: 'Загрузка серверов', component: SystemUsage },
+    { path: '/admin/todo', exact: true, name: 'TODO лист', component: TodoList },
+    { path: '/admin/apitest', exact: true, name: 'Тестирование API', component: APITest },
 ];
 
 export default routes;
