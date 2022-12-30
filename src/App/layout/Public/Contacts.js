@@ -39,7 +39,7 @@ class Contacts extends React.Component {
                     <a className="qwirner" href="">
                         <p>Design by <p className="own">Qwirner</p></p>
                     </a>
-                    <p className="copyright">ObvilionNetwork &#169; 2021</p>
+                    <p className="copyright">&#169; 2020-{new Date().getFullYear()} Obvilion Network</p>
                 </div>
             </div>
         )
