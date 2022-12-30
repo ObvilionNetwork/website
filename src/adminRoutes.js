@@ -10,6 +10,7 @@ const APIDocs = React.lazy(() => import('./pages/Admin/Docs'));
 const SystemUsage = React.lazy(() => import('./pages/Admin/SystemUsage'));
 const TodoList = React.lazy(() => import('./pages/Admin/TodoList'));
 const APITest = React.lazy(() => import('./pages/Admin/APITest'));
+const Clients = React.lazy(() => import('./pages/Admin/Clients'));
 
 const routes = [
     { path: '/admin/', exact: true, name: 'Статистика', component: AdminDashboard },
@@ -17,6 +18,7 @@ const routes = [
     { path: '/admin/systemusage', exact: true, name: 'Загрузка серверов', component: SystemUsage },
     { path: '/admin/todo', exact: true, name: 'TODO лист', component: TodoList },
     { path: '/admin/apitest', exact: true, name: 'Тестирование API', component: APITest },
+    { path: '/admin/clients', exact: true, name: 'Управление сборками', component: Clients },
 ];
 
 export default routes;

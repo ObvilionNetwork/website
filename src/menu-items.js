@@ -15,7 +15,7 @@ export default {
                 },
                 {
                     id: 'loading',
-                    title: 'Загрузка серверов',
+                    title: 'Загрузка хостов',
                     type: 'item',
                     url: '/admin/systemusage',
                     icon: 'feather icon-cpu',
@@ -38,7 +38,7 @@ export default {
         },
         {
             id: 'database',
-            title: 'Базы данных',
+            title: 'Управление',
             type: 'group',
             icon: 'icon-ui',
             children: [
@@ -49,12 +49,6 @@ export default {
                     icon: 'feather icon-users',
                     children: [
                         {
-                            id: 'list',
-                            title: 'Список',
-                            type: 'item',
-                            url: '/admin/users'
-                        },
-                        {
                             id: 'stats',
                             title: 'Статистика',
                             type: 'item',
@@ -64,14 +58,14 @@ export default {
                             id: 'control',
                             title: 'Управление',
                             type: 'item',
-                            url: '/admin/users/control'
+                            url: '/admin/users'
                         },
                         {
                             id: 'ban-list',
                             title: 'Бан-лист',
                             type: 'item',
                             url: '/admin/users/bans'
-                        }
+                        },
                     ]
                 },
                 {
@@ -82,7 +76,7 @@ export default {
                     children: [
                         {
                             id: 'list',
-                            title: 'Список',
+                            title: 'Статистика',
                             type: 'item',
                             url: '/admin/roles'
                         },
@@ -104,13 +98,75 @@ export default {
                             id: 'stats',
                             title: 'Статистика',
                             type: 'item',
-                            url: '/admin/servers/statistics'
+                            url: '/admin/servers'
                         },
                         {
                             id: 'control',
-                            title: 'Управление',
+                            title: 'Настройка',
                             type: 'item',
                             url: '/admin/servers/control'
+                        },
+                        {
+                            id: 'console',
+                            title: 'Консоль',
+                            type: 'item',
+                            url: '/admin/servers/console'
+                        }
+                    ]
+                },
+                {
+                    id: 'clients',
+                    title: 'Сборки',
+                    type: 'collapse',
+                    icon: 'feather icon-monitor',
+                    children: [
+                        {
+                            id: 'control',
+                            title: 'Управление сборками',
+                            type: 'item',
+                            url: '/admin/clients'
+                        },
+                        {
+                            id: 'mods',
+                            title: 'Моды',
+                            type: 'item',
+                            icon: 'feather icon-grid',
+                            url: '/admin/clients/mods'
+                        },
+                        {
+                            id: 'control',
+                            title: 'Конфиг',
+                            type: 'item',
+                            icon: 'feather icon-file-text',
+                            url: '/admin/clients/config'
+                        },
+                        {
+                            id: 'files',
+                            title: 'Ядра',
+                            type: 'item',
+                            icon: 'feather icon-anchor',
+                            url: '/admin/clients/cores'
+                        },
+                        {
+                            id: 'files',
+                            title: 'Библиотеки',
+                            type: 'item',
+                            icon: 'feather icon-book',
+                            url: '/admin/clients/libraries'
+                        },
+                        {
+                            id: 'files',
+                            title: 'Нативные файлы',
+                            type: 'item',
+                            icon: 'feather icon-globe',
+                            url: '/admin/servers'
+                        },
+                        {
+                            id: 'files',
+                            title: 'Ассеты',
+                            type: 'item',
+                            icon: 'feather icon-image',
+                            url: '/admin/servers'
                         }
                     ]
                 }

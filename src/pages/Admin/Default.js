@@ -75,11 +75,7 @@ class Dashboard extends React.Component {
       });
     });
 
-    fetch(apiLink + 'servers', {
-      headers: {
-        Authorization: token
-      }
-    }).then(res => {
+    fetch(apiLink + 'servers').then(res => {
       res.json().then(value => {
         this.setState({
           servers: value
@@ -290,7 +286,7 @@ class Dashboard extends React.Component {
                   <sub className="text-muted f-14">{this.state.bugs.count === undefined ? 'Загрузка...' : this.state.bugs.count} Репортов</sub>
                 </h2>
                 <h6 className="text-muted mt-3 mb-0">
-                  Среди них {this.state.bugs.important === undefined ? 'Загрузка...' : this.state.bugs.important} особой важности
+                  Среди них {this.state.bugs.important === undefined ? '-' : this.state.bugs.important} особой важности
                 </h6>
                 <i className="fa fa-exclamation-circle text-c-yellow f-50" />
               </Card.Body>
@@ -334,15 +330,15 @@ class Dashboard extends React.Component {
                   {this.state.servers.servers ? this.state.servers.servers.map((res, i) => (
                     <div className="col-xl-12">
                       <h6 className="align-items-center float-left">
-                        {res.players === -1 ? <i className="fa fa-circle f-10 m-r-10 text-c-red" /> : res.players === res.maxPlayers ? <i className="fa fa-circle f-10 m-r-10 text-c-yellow" /> : <i className="fa fa-circle f-10 m-r-10 text-c-green" />}
-                        {res.name}
+                        {res.online === -1 ? <i className="fa fa-circle f-10 m-r-10 text-c-red" /> : res.online === res.maxOnline ? <i className="fa fa-circle f-10 m-r-10 text-c-yellow" /> : <i className="fa fa-circle f-10 m-r-10 text-c-green" />}
+                        {res.name + ' ' + res.version}
                       </h6>
-                      <h6 className="align-items-center float-right">{res.players === -1 ? "Сервер выключен" : res.players + "/" + res.maxPlayers }</h6>
+                      <h6 className="align-items-center float-right">{res.online === -1 ? "Сервер выключен" : res.online + "/" + res.maxOnline + ' ' + res.ping + 'мс' }</h6>
                       <div className="progress m-t-30 m-b-20" style={{ height: "6px" }}>
                         <div
                           className="progress-bar progress-c-theme"
                           role="progressbar"
-                          style={{ width: !res.players ? '0%' : Math.round(res.players / res.maxPlayers * 100) + "%" }}
+                          style={{ width: !res.online ? '0%' : Math.round(res.online / res.maxOnline * 100) + "%" }}
                           aria-valuenow="70"
                           aria-valuemin="0"
                           aria-valuemax="100"

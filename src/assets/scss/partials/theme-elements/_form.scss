@@ -4,7 +4,9 @@
 
 .custom-select,
 .form-control {
-    background: $theme-background;
+    background: #18191a;
+    border-color: #2e2f34;
+    color: #d3d3d3;
     padding: 10px 20px;
     font-size: 14px;
     height: auto;
@@ -23,7 +25,10 @@
     }
 
     &:focus {
-        background: $theme-background;
+        background: #18191a;
+        border-color: #2e2f34;
+        color: #d3d3d3;
+        box-shadow: 0 0 0.8rem rgba(121, 121, 121, 0.24);
     }
 
     &::-moz-placeholder {

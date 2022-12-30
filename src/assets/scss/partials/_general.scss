@@ -252,7 +252,17 @@ p.text-muted {
         border-radius: 0;
     }
 }
-/* ==========  scrollbar End  =========== */
+
+.form-label {
+    color: #d1d1d1;
+}
+hr {
+    border-top: 1px solid rgb(56 59 59);
+}
+.select__control {
+    background: #000000;
+}
+    /* ==========  scrollbar End  =========== */
 
 .scroll-y {
     z-index: 1027;
