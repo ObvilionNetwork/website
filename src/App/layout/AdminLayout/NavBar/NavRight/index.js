@@ -26,10 +26,10 @@ class NavRight extends Component {
                             </Dropdown.Toggle>
                             <Dropdown.Menu alignRight className="notification">
                                 <div className="noti-head">
-                                    <h6 className="d-inline-block m-b-0">Notifications</h6>
+                                    <h6 className="d-inline-block m-b-0">Уведомления</h6>
                                     <div className="float-right">
-                                        <a href={DEMO.BLANK_LINK} className="m-r-10">mark as read</a>
-                                        <a href={DEMO.BLANK_LINK}>clear all</a>
+                                        <a href={DEMO.BLANK_LINK} className="m-r-10">пометить как <br/> прочитанные</a>
+                                        <a href={DEMO.BLANK_LINK}>очистить все</a>
                                     </div>
                                 </div>
                                 <ul className="noti-body">
@@ -93,10 +93,10 @@ class NavRight extends Component {
                                     </a>
                                 </div>
                                 <ul className="pro-body">
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-settings"/> Settings</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-user"/> Profile</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-mail"/> My Messages</a></li>
-                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-lock"/> Lock Screen</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-settings"/> Настройки</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-user"/> Профиль</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-mail"/> Мои сообщения</a></li>
+                                    <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-lock"/> Заблокировать экран</a></li>
                                 </ul>
                             </Dropdown.Menu>
                         </Dropdown>

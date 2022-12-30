@@ -5,8 +5,15 @@
   overflow: hidden
 }
 
+.slider a.previousButton svg polygon, .slider a.nextButton svg polygon {
+  fill: #fff;
+}
+.slider a.previousButton svg, .slider a.nextButton svg {
+  width: 1.246vw;
+  height: 2vw;
+}
+
 .slider a.previousButton, .slider a.nextButton {
-  font-size: 1.146vw;
   line-height: 0;
   display: block;
   position: absolute;
