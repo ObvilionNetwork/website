@@ -1,0 +1,36 @@
+.fileUpload {
+  width: 100%;
+  height: 220px;
+  background: #191a1a;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border: 1px solid  #2e2f34;
+  text-align: center;
+  font-size: 18px;
+  color: #787878;
+
+  .icon {
+    height: 50%;
+    width: 100%;
+    fill: #6a83bd;
+    margin: 30px auto 15px;
+    transition: fill 0.2s;
+  }
+
+  .icon.errored {
+    fill: #de6363;
+  }
+
+  .done {
+    fill: #759aef;
+    margin: 35px auto 20px;
+  }
+
+  input[type=file] {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+  }
+}

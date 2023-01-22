@@ -1,0 +1,33 @@
+.but-ok {
+  background: #5b995b;
+  border: none;
+}
+.but-ok:hover {
+  background: #66af66;
+}
+
+.but-disabled {
+  background: #565656;
+  cursor: not-allowed !important;
+  border: none;
+}
+.but-disabled:hover {
+  background: #4d4d4d;
+  border: none;
+}
+
+.but-cancel {
+  background: #a55959;
+  border: none;
+}
+.but-cancel:hover {
+  background: #bd6161;
+}
+
+.but-remove {
+  background: #65428b;
+  border: none;
+}
+.but-remove:hover {
+  background: #6f4998;
+}

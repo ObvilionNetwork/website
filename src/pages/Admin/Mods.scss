@@ -1,0 +1,41 @@
+.parent-block {
+  width: calc(100% + 20px);
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-left: -10px;
+}
+
+.asd {
+  flex: 1 0 20%;
+  min-width: 240px;
+  max-width: 100%;
+  background-color: #1a1b1c;
+  border-radius: 5px;
+  border: 1px solid #323232;
+  padding: 10px;
+  margin: 10px;
+
+  .titl {
+    font-size: 1.19rem;
+    color: #ebeef1;
+    font-weight: normal;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .desc {
+    margin-left: 24px;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+
+  .desc:hover {
+    color: #9ea1a1;
+  }
+
+  .endd {
+    margin-bottom: 10px;
+  }
+}

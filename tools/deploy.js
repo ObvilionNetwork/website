@@ -4,16 +4,16 @@ const { Client } = require('ssh2');
 
 /* Deploy settings */
 const settings = {
-   remote_dir: '/var/www/obvilion.ru/',
+   remote_dir: '/var/www/mc.obvilion.ru/',
    local_dir: './build/',
    cache_dir: './tools/',
    tar_name: 'temp-deployment.tar',
 
    ssh: {
-      host: '185.13.47.146',
-      port: 44022,
+      host: '185.200.244.164',
+      port: 22,
       username: 'root',
-      privateKey: fs.readFileSync('C:/Users/Fatonn/.ssh/id_ed25519'),
+      privateKey: fs.readFileSync('C:/Users/Fatonn/.ssh/private_obvilion_fatonn'),
    }
 };
 
