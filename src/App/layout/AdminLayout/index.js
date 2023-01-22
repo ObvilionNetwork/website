@@ -45,7 +45,7 @@ class AdminLayout extends Component {
                <Aux>
                    <div className="first">
                        <div className="first-bg">
-                           <img src={require('../../../assets/images/bg.jpg')} />
+                           <img src={require('../../../assets/images/bg.jpg')} alt='Фон' />
                        </div>
 
                        <Navbar />
@@ -62,7 +62,7 @@ class AdminLayout extends Component {
                    </div>
 
                    <div className="first-bg endBg">
-                       <img src={require('../../../assets/images/bg5.png')} />
+                       <img src={require('../../../assets/images/bg5.png')}  alt='Фон'/>
                    </div>
                    <div className="end">
                        <Contacts />

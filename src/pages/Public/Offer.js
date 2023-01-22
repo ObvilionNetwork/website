@@ -19,27 +19,27 @@ class Rules extends Component {
       return (
          <Aux>
             <div className="first-bg">
-               <img src={require('../../assets/images/bg.jpg')} />
+               <img src={require('../../assets/images/bg.jpg')} alt='Фон' />
             </div>
 
             <div className="first-bg bgg" style={{ paddingTop: '45vw' }}>
-               <img src={require('../../assets/images/bg1.jpg')} />
+               <img src={require('../../assets/images/bg1.jpg')} alt='Фон' />
             </div>
 
             <div className="first-bg bgg" style={{ paddingTop: '80vw' }}>
-               <img src={require('../../assets/images/bg2.jpg')} />
+               <img src={require('../../assets/images/bg2.jpg')} alt='Фон' />
             </div>
 
             <div className="first-bg bgg" style={{ paddingTop: '100vw' }}>
-               <img src={require('../../assets/images/bg3.jpg')} />
+               <img src={require('../../assets/images/bg3.jpg')} alt='Фон' />
             </div>
 
             <div className="first-bg bgg" style={{ paddingTop: '136vw' }}>
-               <img src={require('../../assets/images/bg1.jpg')} />
+               <img src={require('../../assets/images/bg1.jpg')} alt='Фон' />
             </div>
 
             <div className="first-bg" style={{ paddingTop: '167vw' }}>
-               <img src={require('../../assets/images/bg5.png')} />
+               <img src={require('../../assets/images/bg5.png')} alt='Фон' />
             </div>
 
             <div className="first" style={{ height: '154vw' }}>

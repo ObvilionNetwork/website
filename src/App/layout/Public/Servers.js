@@ -85,7 +85,7 @@ class Servers extends React.Component {
                                 </svg>
                             </div>
                             <div className="server-logo">
-                                <img src={ Config.api_link + "files/HiTechSpawn.png" } />
+                                <img src={ Config.api_link + "files/HiTechSpawn.png" } alt='Логотип сервера'/>
                             </div>
                             <p className="description">
                                 {server.description}

@@ -1,7 +1,7 @@
 import React from 'react';
 import "./RulesComp.scss"
 
-import { rules, explanations } from "../../../pages/Public/rules.json"
+import { rules, /*explanations*/ } from "../../../pages/Public/rules.json"
 
 class RulesComp extends React.Component {
    render() {

@@ -20,7 +20,7 @@ class NewYearEvent extends Component {
             <Aux>
                <div className="first">
                   <div className="first-bg">
-                     <img src={require('../../assets/images/bg.jpg')} />
+                     <img src={require('../../assets/images/bg.jpg')} alt='Фон' />
                   </div>
 
                   <Navbar />
@@ -37,7 +37,7 @@ class NewYearEvent extends Component {
                </div>
 
                <div className="first-bg endBg">
-                  <img src={require('../../assets/images/bg5.png')} />
+                  <img src={require('../../assets/images/bg5.png')} alt='Фон' />
                </div>
                <div className="end">
                   <Contacts />
@@ -52,7 +52,7 @@ class NewYearEvent extends Component {
          <Aux>
             <div className="first" style={{height: '39vw'}}>
                <div className="first-bg">
-                  <img src={require('../../assets/images/bg.jpg')} />
+                  <img src={require('../../assets/images/bg.jpg')} alt='Фон' />
                </div>
 
                <Navbar />
@@ -103,7 +103,7 @@ class NewYearEvent extends Component {
                                  <div className="strM1" style={{ marginTop: '8.8vw', width: '18vw', opacity: '0.7' }}>
                                     Для получения предмета зайдите на сервер
                                  </div>
-                                 <img src="https://grand-mine.ru/data/items/m49/item115_icon_1576517502l.jpg" style={{ width: '12vw', height: '12vw', marginLeft: '4.5vw', marginTop: '2.5vw', imageRendering: 'pixelated' }} />
+                                 <img src="https://grand-mine.ru/data/items/m49/item115_icon_1576517502l.jpg" alt='Иконка предмета' style={{ width: '12vw', height: '12vw', marginLeft: '4.5vw', marginTop: '2.5vw', imageRendering: 'pixelated' }} />
                               </div>
                               <div className="titleM1" style={{ marginTop: '-7vw', marginLeft: '2.8vw', textShadow: '0.05vw 0.05vw 0.1vw black', fontSize: '1.6vw' }}>
                                  Выдача подарков действует с 27.12.2021.
@@ -125,7 +125,7 @@ class NewYearEvent extends Component {
                               <div className="strM1" style={{ marginTop: '4.5vw', fontFamily: "'CeraPro Bold', sans-serif" }}>
                               Привилегия Vip
                               </div>
-                              <img src={require('../../assets/images/user/avatar-2.jpg')} style={{ width: '12vw', height: '12vw', marginLeft: '4vw', marginTop: '2.5vw', imageRendering: 'pixelated' }} />
+                              <img src={require('../../assets/images/user/avatar-2.jpg')} alt='Иконка доната' style={{ width: '12vw', height: '12vw', marginLeft: '4vw', marginTop: '2.5vw', imageRendering: 'pixelated' }} />
                            </div>)
                      }
                   </div>
@@ -133,7 +133,7 @@ class NewYearEvent extends Component {
             </div>
 
             <div className="first-bg endBg">
-               <img src={require('../../assets/images/bg5.png')} />
+               <img src={require('../../assets/images/bg5.png')} alt='bg'/>
             </div>
             <div className="end">
                <Contacts />

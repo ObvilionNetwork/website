@@ -3,7 +3,7 @@ import "./News.scss"
 
 class News extends React.Component {
    render() {
-      const user = JSON.parse(window.localStorage.getItem('user'));
+      //const user = JSON.parse(window.localStorage.getItem('user'));
 
       return(
          <div className='News'>

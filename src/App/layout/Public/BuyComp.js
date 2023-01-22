@@ -3,10 +3,6 @@ import React from 'react';
 import "../../../assets/scss/style.scss"
 import "./BuyComp.scss"
 import Config from "../../../config"
-import Aux from "../../components/_Aux";
-import Navbar from "./Navbar";
-import Contacts from "./Contacts";
-import navLogo from "../AdminLayout/Navigation/NavLogo";
 
 const apiLink = Config.api_link;
 const messages = {
@@ -100,6 +96,9 @@ class BuyComp extends React.Component {
             break;
          case 5:
             avail = this.state.prices.methods.payeer;
+            break;
+         default:
+            avail = false;
       }
       return avail;
    }
@@ -117,6 +116,8 @@ class BuyComp extends React.Component {
             return 'Карта, через Qiwi'
          case 5:
             return 'Payeer'
+         default:
+            return 'Не найдено'
       }
    }
    setMethod(id) {
@@ -410,7 +411,7 @@ class BuyComp extends React.Component {
                         {this.state.for_player}
 
                         <div className="button-icon" onClick={ this.updateName }>
-                           <img src={require('../../../assets/images/edit.png')} />
+                           <img src={require('../../../assets/images/edit.png')} alt='Изменить' />
                         </div>
                      </div>
                   </div>
@@ -424,7 +425,7 @@ class BuyComp extends React.Component {
                         {this.state.donate_name}
 
                         <a className="button-icon" href="/donate">
-                           <img src={require('../../../assets/images/edit.png')} />
+                           <img src={require('../../../assets/images/edit.png')} alt='Изменить'/>
                         </a>
                      </div>
                   </div>

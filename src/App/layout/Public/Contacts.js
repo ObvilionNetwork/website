@@ -21,22 +21,22 @@ class Contacts extends React.Component {
                         </a>
                     </div>
                     <div className="nextContainer">
-                        <a href="">
+                        <a>
                             <p>Мы на <p className="mm">MonitoringMinecraft</p></p>
                         </a>
-                        <a href="">
+                        <a>
                             <p>Мы на <p className="tc">TopCraft</p></p>
                         </a>
-                        <a href="">
+                        <a>
                             <p>Мы на <p className="mr">MinecraftRating</p></p>
                         </a>
                     </div>
                 </div>
                 <div className="owners">
-                    <a className="fatonn" href="">
+                    <a className="fatonn">
                         <p>Code by <p className="own">Fatonn</p></p>
                     </a>
-                    <a className="qwirner" href="">
+                    <a className="qwirner">
                         <p>Design by <p className="own">Qwirner</p></p>
                     </a>
                     <p className="copyright">&#169; 2020-{new Date().getFullYear()} Obvilion Network</p>

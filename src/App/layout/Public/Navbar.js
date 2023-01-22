@@ -78,7 +78,7 @@ class Navbar extends React.Component {
                 <li className="main">
                     <a href="/" className="b-brand">
                         <div className="b-bg">
-                            <img src={require('../../../assets/images/logo.png')} />
+                            <img src={require('../../../assets/images/logo.png')}  alt='Логотип Obvilion.ru'/>
                         </div>
                         <span className="b-title">Obvilion Network</span>
                     </a>

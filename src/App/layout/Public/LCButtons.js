@@ -3,7 +3,7 @@ import "./LCButtons.scss"
 
 class LCButtons extends React.Component {
    render() {
-      const user = JSON.parse(window.localStorage.getItem('user'));
+      //const user = JSON.parse(window.localStorage.getItem('user'));
 
       return(
          <div className='LCButtons'>
