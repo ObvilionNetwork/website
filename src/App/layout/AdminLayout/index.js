@@ -40,7 +40,9 @@ class AdminLayout extends Component {
     }
 
     render() {
-        if (!window.localStorage.getItem('user')) {
+        let user = JSON.parse(window.localStorage.getItem('user'));
+
+        if (!user || !user.permissions) {
             return (
                <Aux>
                    <div className="first">
@@ -68,6 +70,37 @@ class AdminLayout extends Component {
                        <Contacts />
                    </div>
                </Aux>
+            )
+        }
+
+        if (!user.permissions.includes('ADMIN_PANE')) {
+            return (
+                <Aux>
+                    <div className="first" style={{ height: '45vw' }}>
+                        <div className="first-bg">
+                            <img src={require('../../../assets/images/bg.jpg')} alt='Фон' />
+                        </div>
+
+                        <Navbar />
+
+                        <div className="title2" style={{ marginTop: '4vw', fontSize: '4.9vw', lineHeight: '5.7vw' }}>
+                            У вас не хватает прав <br/> для просмотра этой страницы
+                        </div>
+
+                        <div className="title2 title3">
+                            Вы можете вернуться <br/>
+                            на главную страницу или проверить <br/>
+                            правильность своего запроса.
+                        </div>
+                    </div>
+
+                    <div className="first-bg endBg">
+                        <img src={require('../../../assets/images/bg5.png')}  alt='Фон'/>
+                    </div>
+                    <div className="end">
+                        <Contacts />
+                    </div>
+                </Aux>
             )
         }
 

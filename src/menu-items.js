@@ -122,8 +122,9 @@ export default {
                     children: [
                         {
                             id: 'control',
-                            title: 'Управление сборками',
+                            title: 'Управление',
                             type: 'item',
+                            icon: 'feather icon-airplay',
                             url: '/admin/clients'
                         },
                         {
