@@ -73,15 +73,12 @@ const styles = {
 };
 
 class CreateClient extends Component {
-    sup = {
-        mods: [],
-        clientCategories: [],
-        libraries: [],
-        natives: []
-    }
-
     state = {
         mods_select: [],
+        client_mods_select: [],
+        libs_select: [],
+        natives_select: [],
+
         data: {
             types: {
                 clients: [],
@@ -138,9 +135,11 @@ class CreateClient extends Component {
     }
 
     confirmReq() {
+        const urlParams = new URLSearchParams(window.location.search);
         const g = (name) => document.getElementById(name).value;
 
         const data = {
+            id: urlParams.get('id'),
             name: g('name'),
             description: g('description'),
             version: g('version'),
@@ -148,18 +147,20 @@ class CreateClient extends Component {
             background: g('background'),
             coreModId: +g('core'),
 
-            mods: this.sup.mods.map(c=>c.value),
-            optionalMods: this.sup.clientCategories.map(c=>c.value),
-            libraries: this.sup.libraries.map(c=>c.value),
-            natives: this.sup.natives.map(c=>c.value),
+            mods: this.state.mods_select.map(c=>c.value),
+            optionalMods: this.state.client_mods_select.map(c=>c.value),
+            libraries: this.state.libs_select.map(c=>c.value),
+            natives: this.state.natives_select.map(c=>c.value),
 
             configsPath: g('configsPath'),
             java: g('java'),
         }
 
-        fetch(Config.api_link + 'control/client', {
+        fetch(Config.api_link + 'control/client/edit', {
             method: 'POST',
+            body: JSON.stringify(data),
             headers: {
+                'Content-Type': 'application/json',
                 'Authorization': window.localStorage.getItem('token')
             }
         })
@@ -172,7 +173,10 @@ class CreateClient extends Component {
 
                 console.log(out.data)
 
-                this._onDataUpdate({ client: out.data, types: this.state.data.types });
+                this.setState({
+                    saved: true,
+                    //data: { client: out.data, types: this.state.data.types }
+                });
             })
             .catch(console.error)
     }
@@ -218,10 +222,9 @@ class CreateClient extends Component {
                     return console.error(out);
                 }
 
-                this.sup.mods = out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version}));
-                this.setState({ mods_select: this.sup.mods })
-
-                this._onDataUpdate({ types: out.data, client: this.state.data.client });
+                this.setState({
+                    data: { types: out.data, client: this.state.data.client }
+                })
             })
             .catch(console.error)
 
@@ -240,7 +243,14 @@ class CreateClient extends Component {
                     return console.error(out);
                 }
 
-                this._onDataUpdate({ client: out.data, types: this.state.data.types });
+                this.setState({
+                    client_mods_select: out.data.optionalMods.map(m=>({ value: m.id, label: m.name })),
+                    mods_select: out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
+                    libs_select: out.data.libraries.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
+                    natives_select: out.data.libraries.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
+
+                    data: { client: out.data, types: this.state.data.types }
+                })
             })
             .catch(console.error)
     }
@@ -251,13 +261,27 @@ class CreateClient extends Component {
             <Aux>
                 <Modal active={ this.state.deleted } setActive={() => window.history.go(-1)}>
                     <h4 className='font-weight-bold'>
-                        <i className='feather icon-check' style={{ color: '#5be36d' }}/> Мод успешно удалён
+                        <i className='feather icon-check' style={{ color: '#5be36d' }}/> Клиент успешно удалён
                     </h4>
 
                     <h5>Вы можете вернуться на предыдущую страницу</h5>
                     <hr style={{ marginBottom: '20px' }}/>
 
                     <Button className='but-ok' onClick={() => window.history.go(-1)}>Вернуться назад</Button>
+                </Modal>
+
+                <Modal active={ this.state.saved } setActive={() => window.history.go(-1)}>
+                    <h4 className='font-weight-bold'>
+                        <i className='feather icon-check' style={{ color: '#5be36d' }}/> Клиент успешно обновлен
+                    </h4>
+
+                    <h5>Вы можете вернуться на предыдущую страницу или остаться</h5>
+                    <hr style={{ marginBottom: '20px' }}/>
+
+                    <Row className='mt-4' style={{ marginLeft:'1px' }}>
+                        <Button className='but-ok' onClick={() => window.history.go(-1)}>Вернуться назад</Button>
+                        <Button className='but-cancel' onClick={() => this.setState({ saved: false })}>Остаться</Button>
+                    </Row>
                 </Modal>
 
                 <Modal active={ this.state.id_invalid_error } setActive={() => window.history.go(-1)}>
@@ -391,7 +415,7 @@ class CreateClient extends Component {
                                         closeMenuOnSelect={false}
                                         placeholder='Выберите моды'
                                         styles = {styles}
-                                        onChange={(l) => {this.setState({mods_select: l}); this.sup.mods = l}}
+                                        onChange={(l) => this.setState({mods_select: l})}
                                     />
                                 })()
                             }
@@ -401,16 +425,17 @@ class CreateClient extends Component {
 
                             <Select
                                 isMulti
+                                value={this.state.client_mods_select}
                                 options={
                                     this.state.data.types.optionalMods.map(d => ({ value: d.id, label: d.name }))
                                 }
                                 closeMenuOnSelect={false}
                                 placeholder='Выберите категории клиентских модов'
                                 styles = {styles}
-                                onChange={(l) => this.sup.clientCategories = l}
+                                onChange={(l) => this.setState({client_mods_select: l})}
                             />
 
-                            <h4 className='mt-5'>Выберите библиотеки сборки</h4>
+                            <h4 className='mt-5'>Выберите дополнительные библиотеки сборки</h4>
                             <hr/>
 
                             <Select
@@ -418,13 +443,14 @@ class CreateClient extends Component {
                                 options={
                                     this.state.data.types.libraries.map(d => ({ value: d.id, label: d.name }))
                                 }
+                                value={this.state.libs_select}
                                 closeMenuOnSelect={false}
-                                placeholder='Выберите библиотеки'
+                                placeholder='Выберите дополнительные библиотеки'
                                 styles = {styles}
-                                onChange={(l) => this.sup.libraries = l}
+                                onChange={(l) => this.setState({ libs_select: l })}
                             />
 
-                            <h4 className='mt-5'>Выберите нативы сборки</h4>
+                            <h4 className='mt-5'>Выберите дополнительные нативы сборки</h4>
                             <hr/>
 
                             <Select
@@ -432,10 +458,11 @@ class CreateClient extends Component {
                                 options={
                                     this.state.data.types.natives.map(d => ({ value: d.id, label: d.name }))
                                 }
+                                value={this.state.natives_select}
                                 closeMenuOnSelect={false}
-                                placeholder='Выберите нативы'
+                                placeholder='Выберите дополнительные нативы'
                                 styles = {styles}
-                                onChange={(l) => this.sup.natives = l}
+                                onChange={(l) => this.setState({ natives_select: l })}
                             />
 
                             <Row className='mt-5' style={{marginLeft:'1px'}}>
