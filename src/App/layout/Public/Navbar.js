@@ -131,10 +131,10 @@ class Navbar extends React.Component {
                 {
                     this.state.user?.name ? <div>
                         {
-                            this.state.user.group ?
-                            this.state.user.group.permissions.indexOf('ADMIN_PANE') !== -1 ?
-                                <li style={{ marginRight: '2vw', color: '#d0cfcf' }} className="right">
-                                    <a href="/admin">
+                            this.state.user.permissions ?
+                            this.state.user.permissions.indexOf('ADMIN_PANE') !== -1 ?
+                                <li style={{ marginRight: '2vw', marginLeft: '-1.1vw', marginTop: '0.05vw' }} className="right">
+                                    <a href="/admin" style={{ color: '#d0cfcf' }}>
                                         <i className="feather icon-settings"/>
                                     </a>
                                 </li> : null : null
