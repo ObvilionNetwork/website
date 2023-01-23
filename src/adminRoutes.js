@@ -10,12 +10,12 @@ const APIDocs = React.lazy(() => import('./pages/Admin/Docs'));
 const SystemUsage = React.lazy(() => import('./pages/Admin/SystemUsage'));
 const TodoList = React.lazy(() => import('./pages/Admin/TodoList'));
 const APITest = React.lazy(() => import('./pages/Admin/APITest'));
-const Clients = React.lazy(() => import('./pages/Admin/Clients'));
-const CreateClient = React.lazy(() => import('./pages/Admin/CreateClient'));
-const EditClient = React.lazy(() => import('./pages/Admin/EditClient'));
-const Mods = React.lazy(() => import('./pages/Admin/Mods'));
-const CreateMod = React.lazy(() => import('./pages/Admin/CreateMod'));
-const EditMod = React.lazy(() => import('./pages/Admin/EditMod'));
+const Clients = React.lazy(() => import('./pages/Admin/clients/Clients'));
+const CreateClient = React.lazy(() => import('./pages/Admin/clients/CreateClient'));
+const EditClient = React.lazy(() => import('./pages/Admin/clients/EditClient'));
+const Mods = React.lazy(() => import('./pages/Admin/clients/Mods/Mods'));
+const CreateMod = React.lazy(() => import('./pages/Admin/clients/Mods/CreateMod'));
+const EditMod = React.lazy(() => import('./pages/Admin/clients/Mods/EditMod'));
 
 const routes = [
     { path: '/admin/', exact: true, name: 'Статистика', component: AdminDashboard },
@@ -29,6 +29,7 @@ const routes = [
     { path: '/admin/clients/mods', exact: true, name: 'Управление модами', component: Mods },
     { path: '/admin/clients/mods/upload', exact: true, name: 'Загрузка мода', component: CreateMod },
     { path: '/admin/clients/mods/edit', exact: true, name: 'Редактирование мода', component: EditMod },
+    { path: '/admin/clients/clientmods', exact: true, name: 'Управление клиентскими модами', component: Mods },
 ];
 
 export default routes;

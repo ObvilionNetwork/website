@@ -135,6 +135,13 @@ export default {
                             url: '/admin/clients/mods'
                         },
                         {
+                            id: 'mods',
+                            title: 'Клиентские моды',
+                            type: 'item',
+                            icon: 'feather icon-command',
+                            url: '/admin/clients/clientmods'
+                        },
+                        {
                             id: 'control',
                             title: 'Конфиг',
                             type: 'item',

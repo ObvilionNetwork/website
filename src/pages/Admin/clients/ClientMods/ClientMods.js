@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
 
-import Aux from "../../App/components/_Aux";
-import Card from "../../App/components/MainCard";
-import Config from "../../config";
+import Aux from "../../../../App/components/_Aux";
+import Card from "../../../../App/components/MainCard";
+import Config from "../../../../config";
 import './Mods.scss';
 
-class Mods extends Component {
+class ClientMods extends Component {
     state = {
         data: {
             mods: []
@@ -100,4 +100,4 @@ class Mods extends Component {
     }
 }
 
-export default Mods;
+export default ClientMods;

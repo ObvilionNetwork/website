@@ -1094,10 +1094,15 @@
 
     .pcoded-inner-navbar {
         li > a {
+            transition: color 150ms linear;
+
             &.active,
-            &:focus,
-            &:hover {
+            &:focus {
                     color: #6ad0ff;
+            }
+
+            &:hover {
+                color: #d2dcf5;
             }
 
             .pcoded-submenu > li {

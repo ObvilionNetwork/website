@@ -1,75 +1,14 @@
-import React, {Component} from 'react';
-import {Row, Col, Form, Button} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Row, Col, Form, Button } from 'react-bootstrap';
+import { defaultStyles as styles } from "../../../utils/reactSelectorStyles";
 
-import Aux from "../../App/components/_Aux";
-import Card from "../../App/components/MainCard";
-import Select, {Props} from 'react-select';
-import Config from "../../config";
+import Aux from "../../../App/components/_Aux";
+import Card from "../../../App/components/MainCard";
+import Select from 'react-select';
+import Config from "../../../config";
+import Modal from "../../../App/components/Modal";
 
-import './Buttons.scss'
-import * as http from "http";
-import Modal from "../../App/components/Modal";
-
-const styles = {
-    control: (base, state) => ({
-        ...base,
-        backgroundColor: '#18191a',
-        borderColor: '#2e2f34',
-        color: '#d3d3d3',
-        padding: '5px 10px',
-        borderRadius: '5px',
-        //height: '50px',
-        '&:hover':
-            {
-                border: '1px solid #0679A8',
-            },
-        '&:focus':
-            {
-                boxShadow: '0 0 0.8rem rgb(121 121 121 / 24%)'
-            }
-    }),
-    multiValue: (base) => ({
-        ...base,
-        background: 'none',
-        margin: '3px',
-    }),
-    multiValueLabel: (base) => ({
-        ...base,
-        backgroundColor: '#2e2f34',
-        color: 'white',
-        fontSize: '105%'
-    }),
-    multiValueRemove: (base) => ({
-        ...base,
-        backgroundColor: '#373a48',
-    }),
-    indicatorSeparator: (base) => ({}),
-    input: (base) => ({
-        ...base,
-        color: '#e0e0e0',
-    }),
-    menuList: (base) => ({
-        ...base,
-        backgroundColor: '#18191a',
-    }),
-    option: (base) => ({
-        "label": "option",
-        "cursor": "default",
-        "display": "block",
-        "fontSize": "inherit",
-        "width": "100%",
-        "userSelect": "none",
-        "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-        "backgroundColor": "transparent",
-        "padding": "8px 12px",
-        ":hover": {
-            "backgroundColor": "#29292c"
-        },
-        "boxSizing": "border-box",
-        color: '#b0b0b0'
-    }),
-
-};
+import '../Buttons.scss'
 
 class CreateClient extends Component {
     sup = {
