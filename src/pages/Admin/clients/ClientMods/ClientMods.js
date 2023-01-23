@@ -4,13 +4,12 @@ import { Row, Col, Button, InputGroup, FormControl } from 'react-bootstrap';
 import Aux from "../../../../App/components/_Aux";
 import Card from "../../../../App/components/MainCard";
 import Config from "../../../../config";
-import './Mods.scss';
+import '../Mods/Mods.scss';
+import {declination} from "../../../../utils/format";
 
 class ClientMods extends Component {
     state = {
-        data: {
-            mods: []
-        }
+        data: null
     }
 
     clientTypes = {
@@ -33,7 +32,7 @@ class ClientMods extends Component {
     }
 
     componentDidMount() {
-        fetch(Config.api_link + 'control/mods', {
+        fetch(Config.api_link + 'control/clientmods', {
             headers: {
                 'Authorization': window.localStorage.getItem('token')
             }
@@ -55,15 +54,15 @@ class ClientMods extends Component {
             <Aux>
                 <Row>
                     <Col>
-                        <Card title="Моды">
+                        <Card title="Клиентские моды">
                             <InputGroup className="mb-3">
                                 <FormControl
-                                    placeholder="Введите название мода для поиска"
-                                    aria-label="Введите название мода для поиска"
+                                    placeholder="Введите название категории для поиска"
+                                    aria-label="Введите название категории для поиска"
                                     aria-describedby="basic-addon2"
                                 />
                                 <InputGroup.Append>
-                                    <Button href='mods/upload'>Загрузить мод</Button>
+                                    <Button href='clientmods/create'>Создать категорию</Button>
                                 </InputGroup.Append>
                             </InputGroup>
 
@@ -75,17 +74,34 @@ class ClientMods extends Component {
                                     (() => {
                                         const result = []
 
-                                        for (const el of this.state.data.mods) {
+                                        if (!this.state.data) {
+                                            return;
+                                        }
+
+                                        for (const el of this.state.data) {
+                                            const c = el._count?.mods || 0;
+
                                             result.push(
                                                 <div className="asd">
                                                     <p className="titl">
                                                         {el.name}
                                                     </p>
-                                                    <p onClick={() => window.location='mods/edit?id=' + el.id} className="desc endd">
-                                                        - {el.version} - {this.clientTypes[el.clientType] || el.clientType || 'Forge'} {el.clientVersion || '1.7.10'}
+                                                    <p onClick={() => window.location='clientmods/edit?id=' + el.id} className="desc endd">
+                                                        {c} {declination(c, ['мод', 'мода', 'модов'])} - {this.clientTypes[el.type] || el.type || 'Forge'} {el.version || '1.7.10'}
                                                     </p>
                                                 </div>
                                             )
+                                        }
+
+                                        if (result.length === 0) {
+                                            return <div className="asd">
+                                                <p className="titl">
+                                                    А здесь ничего нет :(
+                                                </p>
+                                                <p className="desc endd" style={{ marginLeft: '10px', cursor: 'auto' }}>
+                                                    Пока-что здесь пусто, будь первым, создай категорию клиентских модов!
+                                                </p>
+                                            </div>
                                         }
 
                                         return result;

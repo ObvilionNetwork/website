@@ -16,6 +16,9 @@ const EditClient = React.lazy(() => import('./pages/Admin/clients/EditClient'));
 const Mods = React.lazy(() => import('./pages/Admin/clients/Mods/Mods'));
 const CreateMod = React.lazy(() => import('./pages/Admin/clients/Mods/CreateMod'));
 const EditMod = React.lazy(() => import('./pages/Admin/clients/Mods/EditMod'));
+const ClientMods = React.lazy(() => import('./pages/Admin/clients/ClientMods/ClientMods'));
+const CreateClientMod = React.lazy(() => import('./pages/Admin/clients/ClientMods/CreateClientMod'));
+const EditClientMod = React.lazy(() => import('./pages/Admin/clients/ClientMods/EditClientMod'));
 
 const routes = [
     { path: '/admin/', exact: true, name: 'Статистика', component: AdminDashboard },
@@ -29,7 +32,9 @@ const routes = [
     { path: '/admin/clients/mods', exact: true, name: 'Управление модами', component: Mods },
     { path: '/admin/clients/mods/upload', exact: true, name: 'Загрузка мода', component: CreateMod },
     { path: '/admin/clients/mods/edit', exact: true, name: 'Редактирование мода', component: EditMod },
-    { path: '/admin/clients/clientmods', exact: true, name: 'Управление клиентскими модами', component: Mods },
+    { path: '/admin/clients/clientmods', exact: true, name: 'Управление клиентскими модами', component: ClientMods },
+    { path: '/admin/clients/clientmods/create', exact: true, name: 'Управление клиентскими модами', component: CreateClientMod },
+    { path: '/admin/clients/clientmods/edit', exact: true, name: 'Управление клиентскими модами', component: EditClientMod },
 ];
 
 export default routes;
