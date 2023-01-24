@@ -27,8 +27,12 @@ class NavRight extends Component {
                             <Dropdown.Menu alignRight className="notification">
                                 <div className="noti-head">
                                     <h6 className="d-inline-block m-b-0">Уведомления</h6>
-                                    <div className="float-right">
-                                        <a href={DEMO.BLANK_LINK} className="m-r-10">пометить как <br/> прочитанные</a>
+                                    <div className="float-right" style={{ marginTop: '-8px' }}>
+                                        <a href={DEMO.BLANK_LINK} className="m-r-10">пометить как <hr style={{
+                                            margin: 0,
+                                            marginTop: '-8px',
+                                            visibility: 'hidden'
+                                        }} /> прочитанные</a>
                                         <a href={DEMO.BLANK_LINK}>очистить все</a>
                                     </div>
                                 </div>
