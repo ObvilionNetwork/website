@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Component, Suspense  } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Loadable from 'react-loadable';
 

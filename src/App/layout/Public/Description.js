@@ -4,6 +4,7 @@ import "../../../assets/scss/style.scss"
 import "./Description.scss"
 
 class Description extends React.Component {
+
     render() {
         return(
             <div className="Description">
@@ -21,7 +22,7 @@ class Description extends React.Component {
                 </h3>
 
                 <div className="buttons-container">
-                    <a className="first" href="/api/files/launchers/obvilion-launcher.exe">
+                    <a id='btn' className="first" href="/api/files/launchers/obvilion-launcher.exe">
                         <p className="button-download">Скачать лаунчер</p>
 
                         <div className="button-icon">
@@ -30,7 +31,7 @@ class Description extends React.Component {
                         <p className="button-windows">Windows</p>
                     </a>
 
-                    <a className="next" href="/api/files/launchers/obvilion-launcher.jar">
+                    <a id='btn2' className="next" href="/api/files/launchers/obvilion-launcher.jar">
                         <p className="button-download">Скачать лаунчер</p>
                         <div className="button-icon button-icon-linux">
                             <img src={require('../../../assets/images/linux.png')} />

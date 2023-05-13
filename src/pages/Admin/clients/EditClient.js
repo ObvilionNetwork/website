@@ -185,7 +185,7 @@ class EditClient extends Component {
                     client_mods_select: out.data.optionalMods.map(m=>({ value: m.id, label: m.name })),
                     mods_select: out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
                     libs_select: out.data.libraries.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
-                    natives_select: out.data.libraries.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
+                    natives_select: out.data.natives.map(m=>({ value: m.id, label: m.name + ' ' + m.version})),
 
                     data: { client: out.data, types: this.state.data.types }
                 })

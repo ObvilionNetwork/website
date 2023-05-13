@@ -28,7 +28,8 @@ class EditClientMod extends Component {
         },
         data: {},
         mods: [],
-        out_mods: []
+        out_mods: [],
+        multiple: true,
     }
 
     constructor(props) {
@@ -55,7 +56,7 @@ class EditClientMod extends Component {
             description: g('description'),
             type: g('clientType'),
             version: g('version'),
-
+            multiple: document.getElementById('multiple').checked,
             mods: this.state.out_mods.map(c=>c.value),
         }
 
@@ -157,6 +158,7 @@ class EditClientMod extends Component {
                     version: out.data.version,
                     clientType: out.data.type,
                     data: out.data,
+                    multiple: out.data.multiple,
                     out_mods: out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version }))
                 });
             })
@@ -251,6 +253,16 @@ class EditClientMod extends Component {
                                                         <option defaultValue={value} selected={value===this.state.data.version}>{value}</option>) : null
                                                 }
                                             </Form.Control>
+                                        </Form.Group>
+                                    </Form>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md={6}>
+                                    <Form>
+                                        <Form.Group>
+                                            <Form.Check id='multiple' style={{ color: '#dedede', marginTop: '5px' }} type="checkbox" label="Разрешить выбор нескольких модов"
+                                                        defaultChecked={this.state.data.multiple}/>
                                         </Form.Group>
                                     </Form>
                                 </Col>

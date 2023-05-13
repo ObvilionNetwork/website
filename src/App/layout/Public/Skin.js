@@ -43,7 +43,8 @@ class Skin extends React.Component {
 
         document.addEventListener('mousemove', (event) => {
             if (d) {
-                document.getElementById('skin-viewer').style.transform = 'rotateY(' + event.clientX / 400 * 360 + 'deg)'
+                console.log(event.clientX / 400 * 360)
+                document.getElementById('skin-viewer').style.transform = 'rotateY(' + Math.floor(event.clientX / 400 * 360) + 'deg)'
             }
         });
 
