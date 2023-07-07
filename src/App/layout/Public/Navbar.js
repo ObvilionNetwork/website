@@ -84,7 +84,7 @@ class Navbar extends React.Component {
                     </a>
                 </li>
 
-                <li style={{marginLeft: '2.6vw'}} className="left">
+                <li style={{marginLeft: '3vw'}} className="left">
                     <a href="/donate">
                         <p className="text">Донат</p>
                     </a>
