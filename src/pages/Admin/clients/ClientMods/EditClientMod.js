@@ -29,6 +29,7 @@ class EditClientMod extends Component {
         data: {},
         mods: [],
         out_mods: [],
+        out_def_mods: [],
         multiple: true,
     }
 
@@ -58,6 +59,7 @@ class EditClientMod extends Component {
             version: g('version'),
             multiple: document.getElementById('multiple').checked,
             mods: this.state.out_mods.map(c=>c.value),
+            defaultMods: this.state.out_def_mods.map(c=>c.value),
         }
 
         fetch(Config.api_link + 'control/clientmod/edit', {
@@ -159,7 +161,8 @@ class EditClientMod extends Component {
                     clientType: out.data.type,
                     data: out.data,
                     multiple: out.data.multiple,
-                    out_mods: out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version }))
+                    out_mods: out.data.mods.map(m=>({ value: m.id, label: m.name + ' ' + m.version })),
+                    out_def_mods: out.data.defaultMods.map(m=>({ value: m.id, label: m.name + ' ' + m.version })),
                 });
             })
             .catch(console.error)
@@ -291,6 +294,26 @@ class EditClientMod extends Component {
                                 placeholder='Выберите клиентские моды'
                                 styles = {styles}
                                 onChange={(l) => this.setState({ out_mods: l })}
+                            />
+
+                            <h4 style={{marginTop: '2rem'}}>Выберите изначально выбранные клиентские моды</h4>
+                            <hr/>
+
+                            <Select
+                                isMulti
+                                options={this.state.out_mods}
+                                value={this.state.out_def_mods}
+                                closeMenuOnSelect={false}
+                                placeholder='Выберите изначально выбранные клиентские моды'
+                                styles = {styles}
+                                onChange={(l) => {
+                                    if (!document.getElementById('multiple').checked && l.length > 1) {
+                                        alert('Вы не можете выбрать больше одного мода. Разрешите выбор больше одного мода!');
+                                        return;
+                                    }
+
+                                    this.setState({ out_def_mods: l })
+                                }}
                             />
 
                             <Row className='mt-5' style={{marginLeft:'1px'}}>

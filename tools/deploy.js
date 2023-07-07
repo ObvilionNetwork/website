@@ -10,8 +10,8 @@ const settings = {
    tar_name: 'temp-deployment.tar',
 
    ssh: {
-      host: '185.200.244.164',
-      port: 22,
+      host: 'obvilion.ru',
+      port: 43859,
       username: 'root',
       privateKey: fs.readFileSync('C:/Users/Fatonn/.ssh/private_obvilion_fatonn'),
    }

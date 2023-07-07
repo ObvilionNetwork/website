@@ -6,7 +6,6 @@ import Card from "../../../../App/components/MainCard";
 import Config from "../../../../config";
 import '../Mods/Mods.scss';
 import { declination } from "../../../../utils/format";
-import Loader from "../../../../App/layout/Loader";
 
 class ClientMods extends Component {
     state = {
